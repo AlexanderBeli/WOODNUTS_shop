@@ -1,0 +1,792 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-03 16:41+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: accounts/apps.py:8
+msgid "accounts"
+msgstr "用户列表"
+
+#: accounts/models.py:13 dj/choices/__init__.py:880
+#: templates/registration/signup.html:37
+msgid "female"
+msgstr "女"
+
+#: accounts/models.py:14 dj/choices/__init__.py:881
+#: templates/registration/signup.html:38
+msgid "male"
+msgstr "男"
+
+#: accounts/models.py:15 dj/choices/__init__.py:882
+#: templates/registration/signup.html:39
+msgid "unspecified"
+msgstr "未指定"
+
+#: accounts/models.py:18
+msgid "first name"
+msgstr ""
+
+#: accounts/models.py:19
+msgid "last name"
+msgstr ""
+
+#: accounts/models.py:20
+msgid "username"
+msgstr "用户"
+
+#: accounts/models.py:22
+msgid "date of birth"
+msgstr "出生日期"
+
+#: accounts/models.py:23
+msgid "gender"
+msgstr "性别"
+
+#: accounts/models.py:24
+msgid "passed activation?"
+msgstr ""
+
+#: accounts/models.py:25
+msgid "send significations about new comments"
+msgstr ""
+
+#: accounts/models.py:26
+msgid "phone number"
+msgstr "电话号码"
+
+#: accounts/models.py:28
+msgid "email address"
+msgstr ""
+
+#: accounts/models.py:37 accounts/models.py:38
+msgid "users"
+msgstr ""
+
+#: dj/choices/__init__.py:415
+msgid "China"
+msgstr "中国"
+
+#: dj/choices/__init__.py:531
+msgid "Russian Federation"
+msgstr "俄罗斯"
+
+#: dj/choices/__init__.py:575
+msgid "United Kingdom"
+msgstr "英国"
+
+#: dj/choices/__init__.py:576
+msgid "United States of America"
+msgstr ""
+
+#: dj/choices/__init__.py:593
+msgid "England"
+msgstr ""
+
+#: dj/choices/__init__.py:594
+msgid "Northern Ireland"
+msgstr ""
+
+#: dj/choices/__init__.py:595
+msgid "Wales"
+msgstr ""
+
+#: dj/choices/__init__.py:596
+msgid "Scotland"
+msgstr ""
+
+#: dj/choices/__init__.py:600
+msgid "Northern Cyprus"
+msgstr ""
+
+#: dj/choices/__init__.py:601
+msgid "Palestine"
+msgstr ""
+
+#: dj/choices/__init__.py:602
+msgid "Somaliland"
+msgstr ""
+
+#: dj/choices/__init__.py:607
+msgid "African Union"
+msgstr ""
+
+#: dj/choices/__init__.py:608
+msgid "Arab League"
+msgstr ""
+
+#: dj/choices/__init__.py:610
+msgid "Association of Southeast Asian Nations"
+msgstr ""
+
+#: dj/choices/__init__.py:611
+msgid "Caricom"
+msgstr ""
+
+#: dj/choices/__init__.py:613
+msgid "Commonwealth of Independent States"
+msgstr ""
+
+#: dj/choices/__init__.py:614
+msgid "Commonwealth of Nations"
+msgstr ""
+
+#: dj/choices/__init__.py:615
+msgid "European Union"
+msgstr ""
+
+#: dj/choices/__init__.py:616
+msgid "Islamic Conference"
+msgstr ""
+
+#: dj/choices/__init__.py:617
+msgid "NATO"
+msgstr ""
+
+#: dj/choices/__init__.py:618
+msgid "Olimpic Movement"
+msgstr ""
+
+#: dj/choices/__init__.py:619
+msgid "OPEC"
+msgstr ""
+
+#: dj/choices/__init__.py:620
+msgid "Red Cross"
+msgstr ""
+
+#: dj/choices/__init__.py:621
+msgid "United Nations"
+msgstr ""
+
+#: dj/choices/__init__.py:695 django_project/settings.py:146
+msgid "English"
+msgstr "英语"
+
+#: dj/choices/__init__.py:696
+msgid "British English"
+msgstr ""
+
+#: dj/choices/__init__.py:697
+msgid "American English"
+msgstr ""
+
+#: dj/choices/__init__.py:801 django_project/settings.py:147
+msgid "Russian"
+msgstr "俄语"
+
+#: dj/choices/__init__.py:852
+msgid "Chinese"
+msgstr "中文"
+
+#: dj/choices/__init__.py:853 django_project/settings.py:148
+msgid "Simplified Chinese"
+msgstr "中文"
+
+#: dj/choices/__init__.py:854
+msgid "Traditional Chinese"
+msgstr ""
+
+#: dj/choices/fields.py:50
+msgid "Integer"
+msgstr ""
+
+#: dj/choices/tests.py:48
+msgid "White"
+msgstr ""
+
+#: dj/choices/tests.py:49
+msgid "Yellow"
+msgstr ""
+
+#: dj/choices/tests.py:50 dj/choices/tests.py:222
+msgid "Red"
+msgstr ""
+
+#: dj/choices/tests.py:51 dj/choices/tests.py:217
+msgid "Green"
+msgstr ""
+
+#: dj/choices/tests.py:52
+msgid "Black"
+msgstr ""
+
+#: dj/choices/tests.py:139
+msgid "entry1"
+msgstr ""
+
+#: dj/choices/tests.py:140
+msgid "entry2"
+msgstr ""
+
+#: dj/choices/tests.py:141
+msgid "entry3"
+msgstr ""
+
+#: dj/choices/tests.py:144
+msgid "entry4"
+msgstr ""
+
+#: dj/choices/tests.py:145
+msgid "entry5"
+msgstr ""
+
+#: dj/choices/tests.py:146
+msgid "entry6"
+msgstr ""
+
+#: dj/choices/tests.py:149
+msgid "entry7"
+msgstr ""
+
+#: dj/choices/tests.py:150
+msgid "entry8"
+msgstr ""
+
+#: dj/choices/tests.py:151
+msgid "entry9"
+msgstr ""
+
+#: dj/choices/tests.py:199
+msgid "Blocked"
+msgstr ""
+
+#: dj/choices/tests.py:200
+msgid "Rejected"
+msgstr ""
+
+#: dj/choices/tests.py:201
+msgid "Pending"
+msgstr ""
+
+#: dj/choices/tests.py:202
+msgid "Accepted"
+msgstr ""
+
+#: dj/choices/tests.py:216
+msgid "Blue"
+msgstr ""
+
+#: dj/choices/tests.py:218
+msgid "Brown"
+msgstr ""
+
+#: dj/choices/tests.py:221
+msgid "Pink"
+msgstr ""
+
+#: dj/choices/tests.py:223
+msgid "Toxic waste green"
+msgstr ""
+
+#: products/apps.py:8
+msgid "products"
+msgstr "商品"
+
+#: products/models.py:20 templates/home.html:47
+msgid "Fancy Product"
+msgstr "最新的"
+
+#: products/models.py:21 templates/home.html:61
+msgid "Sale"
+msgstr "减价出售"
+
+#: products/models.py:22 templates/home.html:68
+msgid "Special Item"
+msgstr "特殊商品"
+
+#: products/models.py:23
+msgid "Bestseller"
+msgstr "畅销品"
+
+#: products/models.py:24
+msgid "Unknown"
+msgstr ""
+
+#: products/models.py:26
+msgid "item number"
+msgstr "商品号"
+
+#: products/models.py:31 products/models.py:137
+msgid "author"
+msgstr "作者"
+
+#: products/models.py:48
+msgid "item name in English"
+msgstr "英文商品名称"
+
+#: products/models.py:49
+msgid "item name in Russian"
+msgstr "俄文商品名称"
+
+#: products/models.py:50
+msgid "item name in Chinese"
+msgstr "中文商品名称"
+
+#: products/models.py:55 products/models.py:146
+msgid "category"
+msgstr "品类"
+
+#: products/models.py:59
+msgid "picture"
+msgstr "图片"
+
+#: products/models.py:63
+msgid "item description in English"
+msgstr "英文商品描述"
+
+#: products/models.py:64
+msgid "item description in Russian"
+msgstr "俄文商品描述"
+
+#: products/models.py:65
+msgid "item description in Chinese"
+msgstr "中文商品描述"
+
+#: products/models.py:67
+msgid "item extra tag"
+msgstr "补标签"
+
+#: products/models.py:69
+msgid "item price"
+msgstr "价格"
+
+#: products/models.py:70
+msgid "extra new item price"
+msgstr "新价格"
+
+#: products/models.py:71
+msgid "item price currency"
+msgstr "货币"
+
+#: products/models.py:81
+msgid "item"
+msgstr "商品"
+
+#: products/models.py:82
+msgid "items"
+msgstr "商品"
+
+#: products/models.py:132
+msgid "category number"
+msgstr "品类号"
+
+#: products/models.py:140
+msgid "category name in Russian"
+msgstr "俄语品类名称"
+
+#: products/models.py:141
+msgid "category name in English"
+msgstr "英语品类名称"
+
+#: products/models.py:142
+msgid "category name in Chinese"
+msgstr "汉语品类名称"
+
+#: products/models.py:147
+msgid "categories"
+msgstr "品类"
+
+#: templates/_base.html:10 templates/home.html:5
+msgid "WOODNUTS"
+msgstr "森林坚果"
+
+#: templates/_base.html:38
+msgid "About"
+msgstr "关于我们"
+
+#: templates/_base.html:41
+msgid "Shop"
+msgstr "网店"
+
+#: templates/_base.html:44
+msgid "All Products"
+msgstr "商品"
+
+#: templates/_base.html:47 templates/category_itemslist_forclients.html:5
+#: templates/category_itemslist_forclients.html:11
+#: templates/categorylist.html:5 templates/categorylist.html:9
+#: templates/item_detail_client_page.html:34
+msgid "Popular Items"
+msgstr "品类"
+
+#: templates/_base.html:48 templates/_base.html:186 templates/delivery.html:4
+#: templates/delivery.html:8
+msgid "Delivery"
+msgstr "送货"
+
+#: templates/_base.html:49 templates/_base.html:187 templates/payments.html:4
+#: templates/payments.html:8
+msgid "Payments"
+msgstr "款式"
+
+#: templates/_base.html:50 templates/policy.html:4 templates/policy.html:8
+msgid "Refunds &#38; Returns Policy"
+msgstr "退款政策"
+
+#: templates/_base.html:51 templates/_base.html:188 templates/clients.html:4
+#: templates/clients.html:8
+msgid "Our Clients"
+msgstr "我们客户"
+
+#: templates/_base.html:55 templates/contactuspage.html:4
+msgid "Contact Us"
+msgstr "联系我们"
+
+#: templates/_base.html:87
+msgid "My Order"
+msgstr "订货"
+
+#: templates/_base.html:88
+msgid "My Orders"
+msgstr "订货历史"
+
+#: templates/_base.html:89
+msgid "My Personal Information"
+msgstr "个人信息"
+
+#: templates/_base.html:90 templates/manager.html:4 templates/manager.html:8
+msgid "Site Management"
+msgstr "网站管理"
+
+#: templates/_base.html:95
+msgid "Log Out"
+msgstr "退出"
+
+#: templates/_base.html:103 templates/registration/login.html:11
+#: templates/registration/signup.html:53
+msgid "Username:"
+msgstr "用户"
+
+#: templates/_base.html:107
+msgid "Password:"
+msgstr "密码"
+
+#: templates/_base.html:111
+msgid "Sign In"
+msgstr "登录"
+
+#: templates/_base.html:112 templates/registration/signup.html:4
+#: templates/registration/signup.html:17 templates/registration/signup.html:85
+msgid "Sign Up"
+msgstr "注册"
+
+#: templates/_base.html:131
+msgid "Search"
+msgstr "🔍"
+
+#: templates/_base.html:152 templates/_base.html:239
+msgid "WOOD NUTS"
+msgstr "森林 坚果"
+
+#: templates/_base.html:156
+msgid "123 Consectetur at ligula 10660"
+msgstr "中国，北京， 123路，23"
+
+#: templates/_base.html:160
+msgid "010-020-0340"
+msgstr "+86 183 7777 6666"
+
+#: templates/_base.html:170
+msgid "Products"
+msgstr "商品"
+
+#: templates/_base.html:182
+msgid "Nuts"
+msgstr "坚果"
+
+#: templates/_base.html:183
+msgid "Dried Fruits"
+msgstr "干果"
+
+#: templates/_base.html:184
+msgid "East Delight"
+msgstr "东方特色"
+
+#: templates/_base.html:185
+msgid "Spices"
+msgstr "调料"
+
+#: templates/_base.html:193
+msgid "Further Info"
+msgstr "更多信息"
+
+#: templates/_base.html:195
+msgid "Home"
+msgstr "主页"
+
+#: templates/_base.html:196 templates/about.html:4 templates/about.html:8
+msgid "About Us"
+msgstr "关于我们"
+
+#: templates/_base.html:197
+msgid "Shop Locations"
+msgstr "商店地址"
+
+#: templates/_base.html:198 templates/faq.html:4 templates/faq.html:8
+msgid "FAQs"
+msgstr "问答"
+
+#: templates/_base.html:199
+msgid "Contact "
+msgstr "联系我们"
+
+#: templates/_base.html:228
+msgid "Subscribe"
+msgstr "订阅"
+
+#: templates/_base.html:239
+msgid "Copyright © 2024"
+msgstr ""
+
+#: templates/about.html:9 templates/clients.html:9 templates/delivery.html:9
+#: templates/faq.html:9 templates/payments.html:9 templates/policy.html:9
+msgid "The page is not created yet. "
+msgstr "网页尚未创建。"
+
+#: templates/category_all.html:5 templates/category_all.html:9
+#: templates/manager.html:11
+msgid "Category List"
+msgstr "品类列表"
+
+#: templates/category_all.html:9 templates/manager.html:12
+msgid "Add Category"
+msgstr "加品类"
+
+#: templates/category_all.html:22
+msgid "Category Number"
+msgstr "品类号"
+
+#: templates/category_all.html:23
+msgid "Category Name in Russian"
+msgstr "俄语品类名称"
+
+#: templates/category_all.html:24
+msgid "Category Name in English"
+msgstr "英语品类名称"
+
+#: templates/category_all.html:25
+msgid "Category Name in Chinese"
+msgstr "汉语品类名称"
+
+#: templates/category_all.html:37 templates/category_edit.html:5
+#: templates/category_edit.html:9 templates/item_all.html:47
+#: templates/item_detail.html:74 templates/item_edit.html:5
+#: templates/item_edit.html:9
+msgid "Edit"
+msgstr "修改"
+
+#: templates/category_all.html:38 templates/category_delete.html:5
+#: templates/category_delete.html:9 templates/category_delete.html:13
+#: templates/item_all.html:48 templates/item_delete.html:5
+#: templates/item_delete.html:9 templates/item_delete.html:13
+#: templates/item_detail.html:75
+msgid "Delete"
+msgstr "删除"
+
+#: templates/category_delete.html:12 templates/item_delete.html:12
+msgid "Are you sure you want to delete "
+msgstr "你确定你要删除 "
+
+#: templates/category_delete.html:14 templates/category_edit.html:14
+#: templates/item_delete.html:14 templates/item_detail.html:76
+#: templates/item_edit.html:14
+msgid "Back"
+msgstr "后退"
+
+#: templates/category_edit.html:13 templates/item_edit.html:13
+msgid "Update"
+msgstr "更新"
+
+#: templates/category_itemslist_forclients.html:49
+#: templates/categorylist.html:50 templates/home.html:84
+#: templates/home.html:106 templates/home.html:133 templates/home.html:155
+#: templates/home.html:204 templates/home.html:231
+#: templates/item_detail_client_page.html:31
+msgid "Add to cart"
+msgstr "我想要"
+
+#: templates/categorylist.html:12
+msgid "More Items"
+msgstr "更多商品"
+
+#: templates/createcategory.html:5
+msgid "Create Category"
+msgstr "加品类"
+
+#: templates/createcategory.html:12 templates/createitem.html:12
+msgid "Add"
+msgstr ""
+
+#: templates/createitem.html:5
+msgid "Create Item"
+msgstr "加品类"
+
+#: templates/createitem.html:18
+msgid "Item name in English"
+msgstr "英文商品名称"
+
+#: templates/createitem.html:22
+msgid "Item name in Russian"
+msgstr "俄文商品名称"
+
+#: templates/createitem.html:26
+msgid "Item name in Chinese"
+msgstr "中文商品名称"
+
+#: templates/createitem.html:30
+msgid "Item number"
+msgstr "商品号"
+
+#: templates/createitem.html:34 templates/item_all.html:24
+#: templates/item_detail.html:30
+msgid "Category"
+msgstr "品类"
+
+#: templates/createitem.html:46 templates/item_all.html:25
+#: templates/item_detail.html:34
+msgid "Picture"
+msgstr "图片"
+
+#: templates/createitem.html:51
+msgid "Item description in English"
+msgstr "英文商品描述"
+
+#: templates/createitem.html:55
+msgid "Item description in Russian"
+msgstr "俄文商品描述"
+
+#: templates/createitem.html:59
+msgid "Item description in Chinese"
+msgstr "中文商品描述"
+
+#: templates/createitem.html:63
+msgid "Item price"
+msgstr "价格"
+
+#: templates/createitem.html:67
+msgid "Item price currency"
+msgstr "货币"
+
+#: templates/home.html:27
+msgid "Previous"
+msgstr "上一个"
+
+#: templates/home.html:31
+msgid "Next"
+msgstr "下一个"
+
+#: templates/home.html:54
+msgid "View options"
+msgstr "查看选项"
+
+#: templates/item_all.html:5 templates/item_all.html:9
+#: templates/manager.html:15
+msgid "Item List"
+msgstr "商品列表"
+
+#: templates/item_all.html:9 templates/manager.html:16
+msgid "Add Item"
+msgstr "加商品"
+
+#: templates/item_all.html:21 templates/item_detail.html:20
+msgid "Item Name in Russian"
+msgstr "俄文商品名称"
+
+#: templates/item_all.html:22 templates/item_detail.html:21
+msgid "Item Name in English"
+msgstr "英文商品名称"
+
+#: templates/item_all.html:23 templates/item_detail.html:22
+msgid "Item Name in Chinese"
+msgstr "中文商品名称"
+
+#: templates/item_all.html:26 templates/item_detail.html:38
+msgid "Item Description in Russian"
+msgstr "俄文商品描述"
+
+#: templates/item_all.html:27 templates/item_detail.html:42
+msgid "Item Description in English"
+msgstr "英文商品描述"
+
+#: templates/item_all.html:28 templates/item_detail.html:46
+msgid "Item Description in Chinese"
+msgstr "中文商品描述"
+
+#: templates/item_all.html:29 templates/item_detail.html:66
+msgid "Price"
+msgstr "价格"
+
+#: templates/item_all.html:46
+msgid "More Information"
+msgstr "更多信息"
+
+#: templates/item_detail.html:5 templates/item_detail_client_page.html:5
+msgid "Item"
+msgstr "商品"
+
+#: templates/item_detail.html:51
+msgid "Item Extra Tag"
+msgstr "补标签"
+
+#: templates/item_detail.html:57
+msgid " Old Price"
+msgstr "原价"
+
+#: templates/item_detail.html:61
+msgid "New Price"
+msgstr "新价格"
+
+#: templates/manager.html:9
+msgid "Hello"
+msgstr "你好，"
+
+#: templates/registration/login.html:4 templates/registration/login.html:7
+#: templates/registration/login.html:18
+msgid "Log In"
+msgstr "登录"
+
+#: templates/registration/login.html:15 templates/registration/signup.html:74
+msgid "Password"
+msgstr "密码"
+
+#: templates/registration/signup.html:23
+msgid "First name"
+msgstr "名字"
+
+#: templates/registration/signup.html:29
+msgid "Last name"
+msgstr "姓氏"
+
+#: templates/registration/signup.html:35
+msgid "Gender"
+msgstr "性别"
+
+#: templates/registration/signup.html:45
+msgid "Date of birth"
+msgstr "出生日期"
+
+#: templates/registration/signup.html:59
+msgid "Email address"
+msgstr ""
+
+#: templates/registration/signup.html:65
+msgid "Phone number"
+msgstr "电话号码"
+
+#: templates/registration/signup.html:80
+msgid "Password confirmation"
+msgstr "重复密码"

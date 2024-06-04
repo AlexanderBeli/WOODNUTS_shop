@@ -1,0 +1,19 @@
+{% extends "_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Site Management" %}{% endblock title %}
+
+{% block content %}
+<div class="container mt-3"> 
+    <h1 h1 class="h1 border-bottom pb-3 border-light border-opacity-25">{% trans "Site Management" %}</h1>
+    <p>{% trans 'Hello' %} {{user.first_name}} {{user.last_name}} !</p>
+    <ul>
+        <li><a href="{% url 'category_all' %}">{% trans "Category List" %}</a></li>
+        <li><a href="{% url 'addcategory' %}">{% trans "Add Category" %}</a></li>
+    </ul>
+    <ul>
+        <li><a href="{% url 'item_all' %}">{% trans "Item List" %}</a></li>
+        <li><a href="{% url 'additem' %}">{% trans "Add Item" %}</a></li>
+    </ul>
+</div>
+{% endblock content %}

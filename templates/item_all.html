@@ -1,0 +1,54 @@
+{% extends "_base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Item List" %}{% endblock title %}
+
+{% block content %}
+<div class="container mt-3">    
+    <h1 class="h1 border-bottom pb-3 border-light border-opacity-25">{% trans "Item List" %} <a href="{% url 'additem' %}" class="btn btn3">{% trans "Add Item" %}</a></h1>
+    {% for item in item_list %}
+    <div class='card' style="border-color: #8B4513;">
+        <div class='card-header'>
+            <span class='font-weight-bold'> ID: {{ item.item_id }}</span> &middot;
+            <span class='text-muted'>
+                {{ item.item_author_id }} | {{ item.item_published_at }}
+            </span>
+        </div>
+        <div class='card-body'>
+            <table>
+                <tr>
+                  <th style="text-align: center;">{% trans "Item Name in Russian" %}</th> 
+                  <th style="text-align: center;">{% trans "Item Name in English" %}</th>
+                  <th style="text-align: center;">{% trans "Item Name in Chinese" %}</th>
+                  <th style="text-align: center;">{% trans "Category" %}</th>
+                  <th style="text-align: center;">{% trans "Picture" %}</th>
+                  <th style="text-align: center;">{% trans "Item Description in Russian" %}</th>
+                  <th style="text-align: center;">{% trans "Item Description in English" %}</th>
+                  <th style="text-align: center;">{% trans "Item Description in Chinese" %}</th>
+                  <th style="text-align: center;">{% trans "Price" %}</th>
+                </tr>
+                <tr>
+                  <td style="text-align: center;">{{ item.item_name_ru }}</td> 
+                  <td style="text-align: center;">{{ item.item_name_en }}</td>
+                  <td style="text-align: center;">{{ item.item_name_zh_hans }}</td>
+                  <td style="text-align: center;">{{ item.item_category_number }}</td>
+                  <td style="text-align: center;"><img src="{{ item.item_picture.url }}" style="max-width: 50px;"></td>
+                  <td style="text-align: center;">{{ item.item_description_ru }}</td>
+                  <td style="text-align: center;">{{ item.item_description_en }}</td>
+                  <td style="text-align: center;">{{ item.item_description_zh_hans }}</td>
+                  <td style="text-align: center;">{{ item.item_price }} {{ item.item_price_currency }}</td>
+                </tr>
+              </table>
+    
+        </div>
+        <div class='card-footer text-center' style="background: #FFE4B5;">
+            <a href="{% url 'item_detail' item.pk %}" class="btn btn3">{% trans 'More Information' %}</a>
+            <a href="{% url 'item_edit' item.pk %}" class="btn btn3">{% trans 'Edit' %}</a>
+            <a href="{% url 'item_delete' item.pk %}" class="btn btn3">{% trans 'Delete' %}</a>
+        </div>
+    </div>
+    <br>    
+    {% endfor %}
+</div>
+{% endblock content %}

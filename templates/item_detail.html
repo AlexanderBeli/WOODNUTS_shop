@@ -1,0 +1,81 @@
+{% extends "_base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Item" %}{% endblock title %}
+
+{% block content %}
+<div class="container mt-3">    
+    <h1 class="h1 border-bottom pb-3 border-light border-opacity-25">ID: {{ item.item_id }}</h1>
+    <div class='card' style="border-color: #8B4513;">
+        <div class='card-header'>
+            <span class='font-weight-bold'> ID: {{ item.item_id }}</span> &middot;
+            <span class='text-muted'>
+                {{ item.item_author_id }} | {{ item.item_published_at }}
+            </span>
+        </div>
+        <div class='card-body'>
+            <table>
+                <tr>
+                    <th style="text-align: center;">{% trans "Item Name in Russian" %}</th> 
+                    <th style="text-align: center;">{% trans "Item Name in English" %}</th>
+                    <th style="text-align: center;">{% trans "Item Name in Chinese" %}</th>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">{{ item.item_name_ru }}</td> 
+                    <td style="text-align: center;">{{ item.item_name_en }}</td>
+                    <td style="text-align: center;">{{ item.item_name_zh_hans }}</td>
+                </tr>
+                <tr>
+                    <th style="text-align: center;">{% trans "Category" %}:</th>
+                    <td style="text-align: center;">{{ item.item_category_number }}</td>
+                </tr>
+                <tr>
+                  <th style="text-align: center;">{% trans "Picture" %}:</th>
+                  <td style="text-align: center;"><img src="{{ item.item_picture.url }}" style="max-width: 200px;"></td>
+                </tr>
+                <tr>
+                  <th style="text-align: center;">{% trans "Item Description in Russian" %}:</th>
+                  <td style="text-align: center;">{{ item.item_description_ru }}</td>
+                </tr>
+                <tr>
+                  <th style="text-align: center;">{% trans "Item Description in English" %}:</th>
+                  <td style="text-align: center;">{{ item.item_description_en }}</td>
+                </tr>
+                <tr>
+                  <th style="text-align: center;">{% trans "Item Description in Chinese" %}:</th>
+                  <td style="text-align: center;">{{ item.item_description_zh_hans }}</td>
+                </tr>
+                {% if item.item_extra_tag %}
+                <tr>
+                  <th style="text-align: center;">{% trans "Item Extra Tag" %}:</th>
+                  <td style="text-align: center;">{% trans item.item_extra_tag %}</td>
+                </tr>
+                {% endif %}
+                {% if item.item_price_extra_new %}
+                <tr>
+                  <th style="text-align: center;">{% trans " Old Price" %}</th>
+                  <td style="text-align: center;">{{ item.item_price }} {{ item.item_price_currency }}</td>
+                </tr>
+                <tr>
+                  <th style="text-align: center;">{% trans "New Price" %}</th>
+                  <td style="text-align: center;">{{ item.item_price_extra_new }} {{ item.item_price_currency }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                  <th style="text-align: center;">{% trans "Price" %}</th>
+                  <td style="text-align: center;">{{ item.item_price }} {{ item.item_price_currency }}</td>
+                </tr>
+                {% endif %}
+              </table>
+    
+        </div>
+        <div class='card-footer text-center' style="background: #FFE4B5;">
+            <a href="{% url 'item_edit' item.pk %}" class="btn btn3">{% trans 'Edit' %}</a>
+            <a href="{% url 'item_delete' item.pk %}" class="btn btn3">{% trans 'Delete' %}</a>
+            <a href="{% url 'item_all' %}" class="btn btn3">{% trans 'Back' %}</a>
+        </div>
+    </div>
+    <br>
+</div>
+{% endblock content %}

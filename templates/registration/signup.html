@@ -1,0 +1,87 @@
+{% extends "_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Sign Up" %}{% endblock title %}
+
+{% block content %}
+    {% comment %} <h2>{% trans "Sign Up" %}</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn3">Sign Up</button>
+    </form> {% endcomment %}
+
+   
+            
+    <h2>{% trans 'Sign Up'%}</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col">
+                    <p>
+                        <label class="form-label" for="id_first_name">{% trans "First name"%}:</label>
+                        <input type="text" class="form-control" name="first_name" maxlength="100" required="" id="id_first_name">
+                    </p>
+                </div>
+                <div class="col">  
+                    <p>
+                        <label class="form-label" for="id_last_name">{% trans 'Last name'%}:</label>
+                        <input type="text" class="form-control" name="last_name" maxlength="100" required="" id="id_last_name">
+                    </p>
+                </div>
+                <div class="col">
+                    <p>
+                        <label class="form-label" for="id_gender">{% trans "Gender" %}:</label>
+                        <select class="form-control" name="gender" id="id_gender">
+                            <option value="1">{% trans 'female'%}</option>
+                            <option value="2">{% trans 'male'%}</option>
+                            <option value="3" selected="">{% trans 'unspecified'%}</option>
+                        </select>
+                    </p>
+                </div>
+                <div class="col">
+                    <p>
+                        <label class="form-label" for="id_date_of_birth">{% trans "Date of birth" %}:</label>
+                        <input type="date" value="" class="form-control vDateField" name="date_of_birth" id="id_date_of_birth">
+                    </p>
+                </div>  
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>
+                        <label class="form-label" for="id_username">{% trans "Username:" %}</label>
+                        <input type="text" class="form-control" name="username" maxlength="100" autofocus="" required="" id="id_username">
+                    </p> 
+                </div>
+                <div class="col">
+                    <p>
+                        <label class="form-label" for="id_email">{% trans 'Email address'%}:</label>
+                        <input type="email" class="form-control" name="email" maxlength="255" required="" id="id_email">
+                    </p>
+                </div> 
+                <div class="col">
+                    <p>
+                        <label class="form-label" for="id_phone_number">{% trans 'Phone number'%}:</label>
+                        <input type="tel" class="form-control" name="phone_number" maxlength="128" required="" id="id_phone_number">
+                    </p>
+                </div> 
+                   
+            </div>    
+            <div class="row">
+                <div class="col">
+                    <p>
+                        <label class="form-label" for="id_password1">{% trans 'Password'%}:</label>
+                        <input type="password" class="form-control" name="password1" autocomplete="new-password" required="" aria-describedby="id_password1_helptext" id="id_password1">
+                    </p>
+                </div>
+                <div class="col">
+                    <p>
+                        <label class="form-label" for="id_password2">{% trans 'Password confirmation'%}:</label>
+                        <input type="password" class="form-control" name="password2" autocomplete="new-password" required="" aria-describedby="id_password2_helptext" id="id_password2">
+                    </p>
+                </div>   
+            </div>
+            <button type="submit" class="btn btn3">{% trans "Sign Up" %}</button>
+        </form>
+
+{% endblock content %}

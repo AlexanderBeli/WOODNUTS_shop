@@ -1,0 +1,15 @@
+{% extends "_base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Create Category" %}{% endblock title %}
+
+{% block content %}
+    <div class="container mt-3">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn3" value="{% trans 'Add' %}">
+        </form>
+    </div>
+{% endblock content %}

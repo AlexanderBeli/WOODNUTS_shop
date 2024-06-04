@@ -1,0 +1,22 @@
+{% extends "_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Log In" %}{% endblock title %}
+
+{% block content %}
+    <h2>{% trans "Log In" %}</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>
+            <label for="id_username" class="form-label">{% trans "Username:" %}</label>
+            <input type="text" class="form-control" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="100" required="" id="id_username">
+        </p>
+        <p>
+            <label for="id_password" class="form-label">{% trans 'Password'%}:</label>
+            <input type="password" class="form-control" name="password" autocomplete="current-password" required="" id="id_password">
+        </p>
+        <button type="submit" class="btn btn3">{% trans "Log In" %}</button>
+    </form>
+{% endblock content %}
+
+

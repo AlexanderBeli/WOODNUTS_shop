@@ -1,0 +1,237 @@
+{% extends "_base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Create Item" %}{% endblock title %}
+
+{% block content %}
+    <div class="container mt-3">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn3" value="{% trans 'Add' %}">
+        </form>
+    </div>
+{% endblock content %}
+
+<p>
+    <label for="id_item_name_en">{% trans 'Item name in English' %}:</label>
+    <input type="text" name="item_name_en" maxlength="200" id="id_item_name_en">
+  </p>
+  <p>
+      <label for="id_item_name_ru">{% trans "Item name in Russian" %}:</label>
+      <input type="text" name="item_name_ru" maxlength="200" id="id_item_name_ru">
+  </p>
+  <p>
+      <label for="id_item_name_zh_Hans">{% trans "Item name in Chinese" %}:</label>
+      <input type="text" name="item_name_zh_Hans" maxlength="200" id="id_item_name_zh_hans">
+  </p>
+  <p>
+      <label for="id_item_id">{% trans "Item number" %}:</label>
+      <input type="number" name="item_id" required="" id="id_item_id">
+  </p>
+  <p>
+      <label for="id_item_category_number">{% trans "Category" %}:</label>
+      <select name="item_category_number" required="" id="id_item_category_number">
+              <option value="" selected="">---------</option>
+              <option value="3">Орехи</option>
+              <option value="4">Сухофрукты</option>
+              <option value="5">Восточные сладости</option>
+              <option value="6">Специи</option>
+              <option value="12">test</option>
+              <option value="16">Что-то еще</option>
+      </select>
+  </p>
+  <p>
+      <label class="required" for="id_item_picture">{% trans "Picture"%}:</label>
+      <input type="file" name="item_picture" accept="image/*" required="" id="id_item_picture">
+      
+  </p>
+  <p>
+      <label for="id_item_description_en">{% trans "Item description in English" %}:</label>
+      <textarea name="item_description_en" cols="40" rows="10" id="id_item_description_en"></textarea>
+  </p>
+  <p>
+      <label for="id_item_description_ru">{% trans "Item description in Russian" %}:</label>
+      <textarea name="item_description_ru" cols="40" rows="10" id="id_item_description_ru"></textarea>
+  </p>
+  <p>
+      <label for="id_item_description_zh_Hans">{% trans "Item description in Chinese" %}:</label>
+      <textarea name="item_description_zh_Hans" cols="40" rows="10" id="id_item_description_zh_hans"></textarea>
+  </p>
+  <p>
+      <label for="id_item_price">{% trans "Item price" %}:</label>
+      <input type="number" name="item_price" step="0.01" required="" id="id_item_price">
+  </p>
+  <p>
+      <label for="id_item_price_currency">{% trans "Item price currency" %}:</label>
+      <select name="item_price_currency" id="id_item_price_currency">
+              <option value="RUB" selected="">RUB ₽</option>
+      </select>    
+  </p>
+
+
+
+
+
+<div>
+<form enctype="multipart/form-data" method="post" id="item_form" novalidate="">
+<div>
+<fieldset class="module aligned ">
+    <div class="form-row field-item_id">
+        <div>
+            <div class="flex-container">
+                    <label class="required" for="id_item_id">Item number:</label>
+                    <input type="number" name="item_id" class="vIntegerField" required="" id="id_item_id">
+            </div>
+            </div>
+    </div>
+
+    <div class="form-row field-item_name_en">
+        <div>
+            <div class="flex-container">
+                <label for="id_item_name_en">Item name in English:</label>
+                <input type="text" name="item_name_en" class="vTextField" maxlength="200" id="id_item_name_en">
+            </div>
+            </div>
+    </div>
+
+    <div class="form-row field-item_name_ru">
+        <div>
+            <div class="flex-container">
+                    <label for="id_item_name_ru">Item name in Russian:</label>
+                    <input type="text" name="item_name_ru" class="vTextField" maxlength="200" id="id_item_name_ru">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row field-item_name_zh_Hans">
+        <div>
+            <div class="flex-container">
+                    <label for="id_item_name_zh_Hans">Item name in Chinese:</label>
+                    <input type="text" name="item_name_zh_Hans" class="vTextField" maxlength="200" id="id_item_name_zh_Hans">
+            </div>
+            </div>
+    </div>
+
+    <div class="form-row field-item_category_number">
+        <div>
+            <div class="flex-container">
+                    <label class="required" for="id_item_category_number">Category:</label>
+                        <div class="related-widget-wrapper" data-model-ref="category">
+                                    <select name="item_category_number" required="" id="id_item_category_number">
+                                            <option value="" selected="">---------</option>
+                                            <option value="3">Орехи</option>
+                                            <option value="4">Сухофрукты</option>
+                                            <option value="5">Восточные сладости</option>
+                                            <option value="6">Специи</option>
+                                            <option value="12">test</option>
+                                            <option value="16">Что-то еще</option>
+                                    </select>
+                                        <a class="related-widget-wrapper-link change-related" id="change_id_item_category_number" data-href-template="/en/admin/products/category/__fk__/change/?_to_field=id&amp;_popup=1" data-popup="yes" title="Change selected category" aria-disabled="true"><img src="https://woodnuts-static.s3.amazonaws.com/static/admin/img/icon-changelink.svg" alt="" width="20" height="20"></a><a class="related-widget-wrapper-link add-related" id="add_id_item_category_number" data-popup="yes" href="/en/admin/products/category/add/?_to_field=id&amp;_popup=1" title="Add another category"><img src="https://woodnuts-static.s3.amazonaws.com/static/admin/img/icon-addlink.svg" alt="" width="20" height="20"></a><a class="related-widget-wrapper-link view-related" id="view_id_item_category_number" data-href-template="/en/admin/products/category/__fk__/change/?_to_field=id" title="View selected category" aria-disabled="true"><img src="https://woodnuts-static.s3.amazonaws.com/static/admin/img/icon-viewlink.svg" alt="" width="20" height="20"></a>
+
+                        </div>
+                            
+                        
+            </div>
+            </div>
+    </div>
+
+    <div class="form-row field-item_picture">
+        <div>
+            <div class="flex-container">
+                <label class="required" for="id_item_picture">Picture:</label>
+                <input type="file" name="item_picture" accept="image/*" required="" id="id_item_picture">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row field-item_description_en">
+        <div>
+            <div class="flex-container">
+                <label for="id_item_description_en">Item description in English:</label>
+                <textarea name="item_description_en" cols="40" rows="10" class="vLargeTextField" id="id_item_description_en"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row field-item_description_ru">
+        <div>
+            <div class="flex-container">
+                <label for="id_item_description_ru">Item description in Russian:</label>
+                <textarea name="item_description_ru" cols="40" rows="10" class="vLargeTextField" id="id_item_description_ru"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row field-item_description_zh_Hans">
+        <div>
+            <div class="flex-container">
+                <label for="id_item_description_zh_Hans">Item description in Chinese:</label>
+                <textarea name="item_description_zh_Hans" cols="40" rows="10" class="vLargeTextField" id="id_item_description_zh_Hans"></textarea>
+            </div>
+        </div>
+        </div>
+
+    <div class="form-row field-item_price">
+        <div>
+            <div class="flex-container">
+                <label class="required" for="id_item_price">Item price:</label>
+                <input type="number" name="item_price" step="0.01" required="" id="id_item_price">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-row field-item_price_currency">
+        <div>
+            <div class="flex-container">
+                <label class="required" for="id_item_price_currency">Item price currency:</label>
+                <select name="item_price_currency" id="id_item_price_currency">
+                    <option value="RUB" selected="">RUB ₽</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="submit-row">
+
+<input type="submit" value="Save" class="default" name="_save">
+
+<input type="submit" value="Save and add another" name="_addanother">
+<input type="submit" value="Save and continue editing" name="_continue">
+
+
+
+</div>
+
+
+
+    <script id="django-admin-form-add-constants" src="https://woodnuts-static.s3.amazonaws.com/static/admin/js/change_form.js" data-model-name="item" async="">
+    </script>
+
+
+
+
+<script id="django-admin-prepopulated-fields-constants" src="https://woodnuts-static.s3.amazonaws.com/static/admin/js/prepopulate_init.js" data-prepopulated-fields="[]">
+</script>
+
+
+</div>
+</form></div>
+
+          
+          <br class="clear">
+        </div>

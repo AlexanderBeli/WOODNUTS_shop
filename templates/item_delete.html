@@ -1,0 +1,18 @@
+{% extends "_base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Delete" %}{% endblock title %}
+
+{% block content %}
+<div class="container mt-3">    
+    <h1 class="h1 border-bottom pb-3 border-light border-opacity-25">{% trans "Delete" %}</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>{% blocktranslate %}Are you sure you want to delete {% endblocktranslate %}"{{ item.item_id }}" "{{ item.item_name_en }}"? </p>
+        <button class="btn btn3" type="submit">{% trans "Delete" %}</button>
+        <a href="{% url 'item_all' %}" class="btn btn3">{% trans 'Back' %}</a>
+    </form>
+</div>
+
+{% endblock content%}

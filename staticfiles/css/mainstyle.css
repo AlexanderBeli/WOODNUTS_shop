@@ -1,0 +1,44 @@
+.footerfont {
+    font-family: "Barlow Condensed", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+a.text-decoration-none {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    color: #F5F5F5;
+    font-size: 1.1rem;
+}
+
+li.marginb {
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+}
+
+li.adr {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+    color: #F5F5F5;
+    font-size: 1.1rem;
+}
+
+a.phnum {
+    padding-left: 0.3em;
+}
+
+.logosett {
+    color: #FFE4B5; /* Цвет текста */
+    -webkit-text-stroke: 1.5px #8B4513; /* Толщина и цвет обводки */
+    text-stroke: 1.5px #8B4513; /* Толщина и цвет обводки (стандартное свойство) */
+}
+
+.btn3 {
+    --bs-btn-hover-bg: #8B4513;
+    --bs-btn-border-color: #8B4513;
+    --bs-btn-color: #8B4513;
+    --bs-btn-hover-color: white;
+}

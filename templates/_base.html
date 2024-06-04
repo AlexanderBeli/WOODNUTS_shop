@@ -1,0 +1,244 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>{% block title %}{% trans "WOODNUTS" %}{% endblock title %}</title>
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link href="{% static 'css/mainstyle.css' %}" rel="stylesheet" />
+
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-sm">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    
+                    {% get_current_language as LANGUAGE_C %}
+                    {% if LANGUAGE_C == 'ru' %}
+                        
+                        <img src="{% static 'images/LogoRu.png' %}" alt="WoodNuts" height="100">
+                    {% else %}
+                        <img src="{% static 'images/LogoEng.png' %}" alt="WoodNuts" height="100">
+                    {% endif %}
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{% url 'about' %}">{% trans "About" %}</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans "Shop" %}</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="#">{% trans "All Products" %}</a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{% url 'categorylist' %}">{% trans "Popular Items" %}</a></li>
+                                <li><a class="dropdown-item" href="{% url 'delivery' %}">{% trans "Delivery" %}</a></li>
+                                <li><a class="dropdown-item" href="{% url 'payments' %}">{% trans "Payments" %}</a></li>
+                                <li><a class="dropdown-item" href="{% url 'policy' %}">{% trans "Refunds &#38; Returns Policy" %}</a></li>
+                                <li><a class="dropdown-item" href="{% url 'clients' %}">{% trans "Our Clients" %}</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'contactus' %}">{% trans "Contact Us" %}</a>
+                        </li>
+                        {% get_current_language as LANGUAGE_CODE %} 
+                        <li class="nav-item">
+                        <select class="form-select" style="border-color: #8B4513;" aria-label="Default select example" onchange="location = this.value;">
+                            <option selected>{{ LANGUAGE_CODE|language_name_local }}</option>
+                            {% get_available_languages as languages %}
+                            {% for lang_code, lang_name in languages %}
+                                {% language lang_code %}
+                                    {% comment %} <li class="nav-item">
+                                        <a class="nav-link active" href="{% url 'home' %}">{{ lang_name }}</a>
+                                    </li>
+                                    <option value=""></option> {% endcomment %}
+                                    <option class="nav-link active" value="{% url 'home' %}">{{ lang_name }}</option>
+                                {% endlanguage %}
+                            {% endfor %}
+                           
+                        </select></li>
+                    </ul>
+                    
+                    <div class="d-flex align-items-end me-2">
+                        <div class="d-flex p-1">
+                            <div class="d-flex dropdown">
+                                <button class="btn dark" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                                    <i class="bi bi-person-fill" style="font-size: 1.5rem;"></i>
+                                </button>
+                                <div class="dropdown-menu p-4">
+                                    <div class="mb-3" style="width: 350px;">
+                                    {% if user.is_authenticated %}
+                                    <p>{{user.first_name}} {{user.last_name}}</p>
+                                    <ul>
+                                        <li><a href="#">{% trans "My Order" %}</a></li>
+                                        <li><a href="#">{% trans "My Orders" %}</a></li>
+                                        <li><a href="#">{% trans "My Personal Information" %}</a></li>
+                                        <li><a href="{% url 'administrating' %}">{% trans "Site Management" %}</a></li>
+                                    </ul>
+                                    <center>
+                                        <form action="{% url 'logout' %}" method="post">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn3">{% trans "Log Out" %}</button>
+                                        </form>
+                                    </center>
+                                    {% else %}
+                                    
+                                    <form action="{% url 'login' %}" method="post">
+                                        {% csrf_token %}
+                                        <p>
+                                            <label class="form-label" for="id_username">{% trans "Username:" %}</label>
+                                            <input type="text" name="username" class="form-control" autofocus="" autocapitalize="none" autocomplete="username" maxlength="100" required="" aria-invalid="true" id="id_username">
+                                        </p>
+                                        <p>
+                                            <label class="form-label" for="id_password">{% trans "Password:" %}</label>
+                                            <input type="password" class="form-control" name="password" autocomplete="current-password" required="" aria-invalid="true" id="id_password">
+                                        </p>
+                                        <center>
+                                            <button type="submit" class="btn btn3">{% trans "Sign In" %}</button>
+                                            <a href="{% url 'signup' %}" class="btn btn3" role="button">{% trans "Sign Up" %}</a>
+                                        </center>
+                                    </form>
+                                    
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <form class="d-inline-flex flex-grow-1">
+                                <button class="btn dark" type="submit">
+                                    <i class="bi-cart-fill me-1" style="font-size: 1.3rem;">
+                                        <div class="d-inline-flex" style="font-size: 0.9rem;">$ 0.00</div>
+                                    </i>
+                                    <span class="badge bg-dark text-white ms-0 rounded-pill" style="font-size: 0.9rem; margin-right: -0.70rem;">0</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2 mb-2" style="border-color: #8B4513;" type="search" placeholder="{% trans 'Search' %}" aria-label="Search">
+                            {% comment %} <button class="btn btn3 mb-2" type="submit">{% trans "Search" %}</button> {% endcomment %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+                                        
+        </nav>
+        <!-- Header-->
+        <div class="container-fluid">
+            {% block content %}
+            {% endblock content %}
+        </div>
+        
+        <!-- Footer-->
+        <footer class="bg-dark">
+            <div class="container mt-2">
+                <div class="row footerfont">
+    
+                    <div class="col-md-4 pt-5">
+                        <h2 class="h2 border-bottom pb-3 border-light border-opacity-25 logo logosett">{% trans "WOOD NUTS" %}</h2>
+                        <ul class="list-unstyled text-light footer-link-list">
+                            <li class="marginb adr">
+                                <i class="bi bi-geo-alt-fill"></i>
+                                {% trans "123 Consectetur at ligula 10660" %}
+                            </li>
+                            <li class="marginb">
+                                <i class="bi bi-telephone-fill"></i>
+                                <a class="text-decoration-none phnum" href="tel:010-020-0340">{% trans "010-020-0340" %}</a>
+                            </li>
+                            <li class="marginb">
+                                <i class="bi bi-envelope-fill"></i>
+                                <a class="text-decoration-none phnum" href="mailto:info@company.com">info@woodnuts.com</a>
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <div class="col-md-4 pt-5">
+                        <h2 class="h2 text-light border-bottom pb-3 border-light border-opacity-25">{% trans "Products" %}</h2>
+                        <ul class="list-unstyled text-light footer-link-list">
+                            {% for step in products_category %}
+                                {% comment %} {% for key, value in step.items %}  {% endcomment %}
+                                    {% comment %} <li>{{ value }}</li> {% endcomment %}
+                                    <li class="marginb"><a class="text-decoration-none" style="color: white;" href="#">{{ step.category_name_ru }}</a></li>
+                                {% comment %} {% endfor %} {% endcomment %}
+                            {% endfor %}
+                            
+                            <li class="marginb"><a class="text-decoration-none" href="#">{% trans "Nuts" %}</a></li>
+                            <li class="marginb"><a class="text-decoration-none" href="#">{% trans "Dried Fruits" %}</a></li>
+                            <li class="marginb"><a class="text-decoration-none" href="#">{% trans "East Delight" %}</a></li>
+                            <li class="marginb"><a class="text-decoration-none" href="#">{% trans "Spices" %}</a></li>
+                            <li class="marginb"><a class="text-decoration-none" href="{% url 'delivery' %}">{% trans "Delivery" %}</a></li>
+                            <li class="marginb"><a class="text-decoration-none" href="{% url 'payments' %}">{% trans "Payments"%}</a></li>
+                            <li class="marginb"><a class="text-decoration-none" href="{% url 'clients' %}">{% trans "Our Clients" %}</a></li>
+                        </ul>
+                    </div>
+    
+                    <div class="col-md-4 pt-5">
+                        <h2 class="h2 text-light border-bottom pb-3 border-light border-opacity-25">{% trans "Further Info" %}</h2>
+                        <ul class="list-unstyled text-light footer-link-list">
+                            <li class="marginb"><a class="text-decoration-none" href="{% url 'home' %}">{% trans "Home" %}</a></li>
+                            <li class="marginb"><a class="text-decoration-none" href="{% url 'about' %}">{% trans "About Us" %}</a></li>
+                            <li class="marginb"><a class="text-decoration-none" href="{% url 'contactus' %}">{% trans "Shop Locations" %}</a></li>
+                            <li class="marginb"><a class="text-decoration-none" href="{% url 'faq' %}">{% trans "FAQs" %}</a></li>
+                            <li class="marginb"><a class="text-decoration-none" href="{% url 'contactus' %}">{% trans "Contact "%}</a></li>
+                        </ul>
+                    </div>
+    
+                </div>
+    
+                <div class="row text-light mb-4">
+                    <div class="col-12 mb-3">
+                        <div class="w-100 my-3 border-top border-light border-opacity-25"></div>
+                    </div>
+                    <div class="col-auto me-auto">
+                        <ul class="list-inline text-left footer-icons">
+                            <li class="list-inline-item text-center">
+                                <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="bi bi-facebook" style="font-size: 1.5rem; color: #8B4513;"></i></a>
+                            </li>
+                            <li class="list-inline-item text-center">
+                                <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="bi bi-instagram" style="font-size: 1.5rem; color: #8B4513;"></i></a>
+                            </li>
+                            <li class="list-inline-item text-center">
+                                <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="bi bi-twitter" style="font-size: 1.5rem; color: #8B4513;"></i></a>
+                            </li>
+                            <li class="list-inline-item text-center">
+                                <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="bi bi-linkedin" style="font-size: 1.5rem; color: #8B4513;"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-auto">
+                        <div class="input-group mb-2">
+                            <input type="text" style="color: white;" class="form-control bg-dark border-light border-opacity-25" id="subscribeEmail" placeholder="Email address">
+                            <button style="--bs-btn-bg: #8B4513; --bs-btn-hover-border-color: #8B4513;" class="input-group-text btn text-light-opacity-25">{% trans "Subscribe" %}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="w-100 bg-black py-3">
+                <div class="container">
+                    <div class="row pt-2">
+                        <div class="col-12">
+                            <p class="m-0 text-center text-light">
+                                {% trans "Copyright © 2024" %} <i style="color: #8B4513;">{% trans "WOOD NUTS" %}</i> 
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Core theme JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    </body>
+</html>
