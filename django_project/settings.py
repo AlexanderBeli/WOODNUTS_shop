@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     "phonenumber_field",
     'storages',
     'imagekit',
+    'crispy_forms',
+    'crispy_bootstrap5',
     # Locals
     'accounts',
     'dj.choices',
@@ -212,3 +214,7 @@ CURRENCY_CHOICES = [
     # ('CNY', 'CNY ¥'),
     ('RUB', 'RUB ₽') 
     ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"

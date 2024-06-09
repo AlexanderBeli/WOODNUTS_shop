@@ -41,7 +41,7 @@
                             <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{% trans "Shop" %}</a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a class="dropdown-item" href="#">{% trans "All Products" %}</a>
+                                    <a class="dropdown-item" href="{% url 'all_products_for_clients' %}">{% trans "All Products" %}</a>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="{% url 'categorylist' %}">{% trans "Popular Items" %}</a></li>

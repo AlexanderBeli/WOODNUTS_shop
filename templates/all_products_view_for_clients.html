@@ -2,28 +2,27 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}{% trans "Popular Items" %}{% endblock title %}
+{% block title %}{% trans "All Products" %}{% endblock title %}
 
 {% block content %}
 <div class="container mt-3">
-        {% for cat in current_url %}
         {% if page_obj %}
-            <h1 class="h1 border-bottom pb-3 border-light border-opacity-25">{{ cat.cat_name }} <a href="{% url 'categorylist' %}" class="btn btn3">{% trans "Popular Items" %}</a></h1>
+            <h1 class="h1 border-bottom pb-3 border-light border-opacity-25">{% trans "All Products" %}</a></h1>
             
-            <div class="pagination">
+            <div class="pagination justify-content-center">
                 <span class="step-links">
                     {% if page_obj.has_previous %}
-                        <a class="link-offset-1" href="?page=1">&laquo; {% trans 'first' %}</a>
-                        <a class="link-offset-1" href="?page={{ page_obj.previous_page_number }}">{% trans 'previous' %}</a>
+                        <a class="btn btn3" href="?page=1">&laquo; {% trans 'first' %}</a>
+                        <a class="btn btn3" href="?page={{ page_obj.previous_page_number }}">{% trans 'previous' %}</a>
                     {% endif %}
             
                     <span class="current">
-                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                        {% trans 'Page' %} {{ page_obj.number }} {% trans 'of' %} {{ page_obj.paginator.num_pages }}
                     </span>
             
                     {% if page_obj.has_next %}
-                        <a class="link-offset-1" href="?page={{ page_obj.next_page_number }}">{% trans 'next' %}</a>
-                        <a class="link-offset-1" href="?page={{ page_obj.paginator.num_pages}}">{% trans 'last' %} &raquo;</a>
+                        <a class="btn btn3" href="?page={{ page_obj.next_page_number }}">{% trans 'next' %}</a>
+                        <a class="btn btn3" href="?page={{ page_obj.paginator.num_pages}}">{% trans 'last' %} &raquo;</a>
                     {% endif %}
                 </span>
             </div>
@@ -73,11 +72,13 @@
                     </div>
                 </div>
             </section>
-
-            {% for pagenum in page_obj.paginator.get_elided_page_range %}
-            <a class="link-offset-1" href="?page={{ pagenum }}">{{ pagenum }}</a>
-            {% endfor %}
+            <div class="pagination justify-content-center">
+                {% for pagenum in page_obj.paginator.get_elided_page_range %}
+                <a class="btn btn3 mx-1" href="?page={{ pagenum }}">{{ pagenum }}</a>
+                {% endfor %}
+            </div>
+        {% else %}
+        <p>{% blocktranslate %}The page is not created yet. {% endblocktranslate %}</p>
         {% endif %}                
-        {% endfor %}
 </div>
 {% endblock content %}

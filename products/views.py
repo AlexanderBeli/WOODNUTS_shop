@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.urls import resolve, reverse_lazy
 from django.utils import translation
@@ -151,10 +152,10 @@ def category_itemslist_for_clients(request, pk):
     item_lang_res = 'item_name_' + lang_code
     item_desc_lang_res = 'item_description_' + lang_code
     # category = Category.objects.values(cat_lang_res)
-    category = Category.objects.raw(f"""SELECT id, {cat_lang_res} AS cat_name, category_number 
+    category = Category.objects.raw(f"""SELECT id, {cat_lang_res} AS cat_name
                                         FROM products_category
                                         WHERE id={pk};""")
-    s = ''
+    # s = set()
     for i in category:
         a = Item.objects.raw(f"""SELECT id,
                                         {item_lang_res} AS item_name,
@@ -168,7 +169,60 @@ def category_itemslist_for_clients(request, pk):
                                         item_published_at 
                                 FROM products_item
                                 WHERE item_category_number_id={pk};""")
-        i.category_number = a
-    
-    return render(request, 'category_itemslist_forclients.html',{'current_url':category})
+        # i.category_number = a
+        # s.add(a)
+    paginator = Paginator(a, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'category_itemslist_forclients.html',{'current_url':category, 'page_obj': page_obj})
 
+
+def all_products_view_for_clients(request):
+    current_url = request.path_info
+    lang_code = translation.get_language_from_path(current_url)
+
+    if lang_code == 'zh-hans':
+        lang_code = 'zh_hans'
+    cat_lang_res = 'category_name_' + lang_code
+    item_lang_res = 'item_name_' + lang_code
+    item_desc_lang_res = 'item_description_' + lang_code
+
+    a = Item.objects.raw(f"""SELECT id,
+                                    {item_lang_res} AS item_name,
+                                    {item_desc_lang_res} AS item_desc,
+                                    item_picture,
+                                    item_extra_tag,
+                                    item_price,
+                                    item_price_extra_new,
+                                    item_price_currency,
+                                    item_published_at 
+                            FROM products_item;""")
+ 
+    paginator = Paginator(a, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'all_products_view_for_clients.html',{'page_obj': page_obj})
+
+
+def home_view_for_clients(request):
+    current_url = request.path_info
+    lang_code = translation.get_language_from_path(current_url)
+
+    if lang_code == 'zh-hans':
+        lang_code = 'zh_hans'
+    cat_lang_res = 'category_name_' + lang_code
+    item_lang_res = 'item_name_' + lang_code
+    item_desc_lang_res = 'item_description_' + lang_code
+
+    a = Item.objects.raw(f"""SELECT id,
+                                    {item_lang_res} AS item_name,
+                                    {item_desc_lang_res} AS item_desc,
+                                    item_picture,
+                                    item_extra_tag,
+                                    item_price,
+                                    item_price_extra_new,
+                                    item_price_currency,
+                                    item_published_at 
+                            FROM products_item
+                            WHERE item_extra_tag IN ('Fancy Product','Special Item','Bestseller','In Stock');""")[:8]
+    return render(request, 'home.html',{'page_obj': a})

@@ -2,8 +2,10 @@ from django.urls import path
 
 from products.views import (
     ItemDetailViewForClients,
+    all_products_view_for_clients,
     category_itemslist_for_clients,
     category_view_for_clients,
+    home_view_for_clients,
 )
 
 from .views import (
@@ -12,14 +14,14 @@ from .views import (
     ContactUsPageView,
     DeliveryPageView,
     FAQPageView,
-    HomePageView,
     PaymentsPageView,
     PolicyPageView,
 )
 
 urlpatterns = [
-    path('', HomePageView.as_view(), name='home'),
-    path('popularitems', category_view_for_clients, name='categorylist'),
+    path('', home_view_for_clients, name='home'),
+    path('popularitems/', category_view_for_clients, name='categorylist'),
+    path('allproducts/', all_products_view_for_clients, name='all_products_for_clients'),
     path('<int:pk>/', ItemDetailViewForClients.as_view(), name='item_detail_for_clients'),
     path('category/<int:pk>/', category_itemslist_for_clients, name='category_l'),
     path('contact/', ContactUsPageView.as_view(), name='contactus'),
