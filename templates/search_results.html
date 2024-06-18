@@ -2,13 +2,12 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}{% trans "Popular Items" %}{% endblock title %}
+{% block title %}{% trans "Search Results" %}{% endblock title %}
 
 {% block content %}
 <div class="container mt-3">
-        {% for cat in current_url %}
         {% if page_obj %}
-            <h1 class="h1 border-bottom pb-3 border-light border-opacity-25">{{ cat.cat_name }} <a href="{% url 'categorylist' %}" class="btn btn3">{% trans "Popular Items" %}</a></h1>
+            <h1 class="h1 border-bottom pb-3 border-light border-opacity-25">{% trans "Search Results" %}</a></h1>
             
             <div class="pagination justify-content-center">
                 <span class="step-links">
@@ -45,7 +44,7 @@
                                 <div class="card-body p-4">
                                     <div class="text-center">
                                         <!-- Product name-->
-                                        <h5 class="fw-bolder"><a href="{% url 'item_detail_for_clients' item.id %}" style="text-decoration: none; color: black;">{{ item.item_name }}</a></h5>
+                                        <h5 class="fw-bolder"><a href="{% url 'item_detail_for_clients' item.id %}" style="text-decoration: none; color: black;">{{ item.item_name_ru }}</a></h5>
                                         <!-- Product reviews-->
                                         <div class="d-flex justify-content-center small text-warning mb-2">
                                             <div class="bi-star-fill"></div>
@@ -73,13 +72,13 @@
                     </div>
                 </div>
             </section>
-
             <div class="pagination justify-content-center">
                 {% for pagenum in page_obj.paginator.get_elided_page_range %}
                 <a class="btn btn3 mx-1" href="?page={{ pagenum }}">{{ pagenum }}</a>
                 {% endfor %}
             </div>
+        {% else %}
+        <p>{% blocktranslate %}Are you searching any item? Please check what you typped into search bar. {% endblocktranslate %}</p>
         {% endif %}                
-        {% endfor %}
 </div>
 {% endblock content %}

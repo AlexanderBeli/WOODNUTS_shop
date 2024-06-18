@@ -125,9 +125,9 @@
                             </form>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-center">
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2 mb-2" style="border-color: #8B4513;" type="search" placeholder="{% trans 'Search' %}" aria-label="Search">
+                    <div class="d-flex justify-content-center" >
+                        <form class="d-flex" role="search" action="{% url 'search_results' %} " method='get'>
+                            <input class="form-control me-2 mb-2" style="border-color: #8B4513;" type="search" name='q' placeholder="{% trans 'Search' %}" aria-label="Search">
                             {% comment %} <button class="btn btn3 mb-2" type="submit">{% trans "Search" %}</button> {% endcomment %}
                         </form>
                     </div>

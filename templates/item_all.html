@@ -7,7 +7,34 @@
 {% block content %}
 <div class="container mt-3">    
     <h1 class="h1 border-bottom pb-3 border-light border-opacity-25">{% trans "Item List" %} <a href="{% url 'additem' %}" class="btn btn3">{% trans "Add Item" %}</a></h1>
-    {% for item in item_list %}
+    <div class="mb-2">
+        <p>{% blocktranslate %}You can search by any category or item now. {% endblocktranslate %}</p>
+    
+    <form class="input-group mb-3" method='GET'>
+        <input name='q' value='{{ request.GET.q }}' type="text" class="form-control mb-2" placeholder="{% trans 'Search by Category, by Name or by Description' %}" aria-label="{% trans 'Search by Category or by Name' %}" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary btn3 mb-2" type="submit" id="button-addon2">{% trans "Search" %}</button>
+    </form>
+    {% comment %} <p>{{ object_list }}</p> {% endcomment %}
+    </div>
+    {% if page_obj %}
+    <div class="pagination justify-content-center mb-3">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a class="btn btn3" href="?page=1">&laquo; {% trans 'first' %}</a>
+                <a class="btn btn3" href="?page={{ page_obj.previous_page_number }}">{% trans 'previous' %}</a>
+            {% endif %}
+    
+            <span class="current">
+                {% trans 'Page' %} {{ page_obj.number }} {% trans 'of' %} {{ page_obj.paginator.num_pages }}
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a class="btn btn3" href="?page={{ page_obj.next_page_number }}">{% trans 'next' %}</a>
+                <a class="btn btn3" href="?page={{ page_obj.paginator.num_pages}}">{% trans 'last' %} &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    {% for item in page_obj %}
     <div class='card' style="border-color: #8B4513;">
         <div class='card-header'>
             <span class='font-weight-bold'> ID: {{ item.item_id }}</span> &middot;
@@ -32,7 +59,11 @@
                   <td style="text-align: center;">{{ item.item_name_ru }}</td> 
                   <td style="text-align: center;">{{ item.item_name_en }}</td>
                   <td style="text-align: center;">{{ item.item_name_zh_hans }}</td>
+                  {% if item.cat_name %}
+                  <td style="text-align: center;">{{ item.cat_name }}</td>
+                  {% else %}
                   <td style="text-align: center;">{{ item.item_category_number }}</td>
+                  {% endif %}
                   <td style="text-align: center;"><img src="{{ item.item_picture.url }}" style="max-width: 50px;"></td>
                   <td style="text-align: center;">{{ item.item_description_ru }}</td>
                   <td style="text-align: center;">{{ item.item_description_en }}</td>
@@ -43,12 +74,20 @@
     
         </div>
         <div class='card-footer text-center' style="background: #FFE4B5;">
-            <a href="{% url 'item_detail' item.pk %}" class="btn btn3">{% trans 'More Information' %}</a>
-            <a href="{% url 'item_edit' item.pk %}" class="btn btn3">{% trans 'Edit' %}</a>
-            <a href="{% url 'item_delete' item.pk %}" class="btn btn3">{% trans 'Delete' %}</a>
+            <a href="{% url 'item_detail' item.id %}" class="btn btn3">{% trans 'More Information' %}</a>
+            <a href="{% url 'item_edit' item.id %}" class="btn btn3">{% trans 'Edit' %}</a>
+            <a href="{% url 'item_delete' item.id %}" class="btn btn3">{% trans 'Delete' %}</a>
         </div>
     </div>
     <br>    
     {% endfor %}
+    <div class="pagination justify-content-center">
+        {% for pagenum in page_obj.paginator.get_elided_page_range %}
+        <a class="btn btn3 mx-1" href="?page={{ pagenum }}">{{ pagenum }}</a>
+        {% endfor %}
+    </div>
+    {% else %}
+        <p>{% blocktranslate %}Are you searching any item? Please check what you typped into search bar. {% endblocktranslate %}</p>
+    {% endif %}
 </div>
 {% endblock content %}
