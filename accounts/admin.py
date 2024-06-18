@@ -17,6 +17,11 @@ class CustomUserAdmin(UserAdmin):
         "email",
         "is_superuser",
     ]
+    list_filter = ('is_active', 'is_admin', 'gender', "is_activated")
+    search_fields = ('username', 'email', 'first_name', 'last_name', "phone_number")
+    date_hierarchy = 'date_joined'
+    ordering = ['date_joined',"date_of_birth"]
+
     fieldsets = (
         (None, {"fields": ["username", "email", "password"]}),
         (

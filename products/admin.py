@@ -17,6 +17,10 @@ class ItemAdmin(admin.ModelAdmin):
     readonly_fields = ["preview"]
     
     list_display = ('item_name_en', 'item_name_ru', 'item_name_zh_hans', 'item_id','item_category_number','item_author_id')
+    list_filter = ('item_category_number','item_author_id','item_extra_tag','item_price')
+    search_fields = ('item_name_en', 'item_name_ru', 'item_name_zh_hans','item_description_en', 'item_description_ru', 'item_description_zh_hans','item_extra_tag','item_price')
+    date_hierarchy = 'item_published_at'
+    ordering = ['item_price', 'item_published_at','item_id']
     
     def preview(self, obj):
         return mark_safe(f'<img src="{obj.item_picture.url}" style="max-height: 200px;">')
