@@ -237,7 +237,7 @@ class CategoryUpdateView(LoginRequiredMixin, UpdateView):
         'category_name_zh_hans',
     )
     template_name = 'category_edit.html'
-    uccess_url = reverse_lazy('category_all')
+    # uccess_url = reverse_lazy('category_all')
     
 
 class ItemDeleteView(LoginRequiredMixin, DeleteView):
