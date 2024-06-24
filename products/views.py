@@ -53,86 +53,11 @@ def search_algorithm(query, lang_code):
     item_desc_lang_res = 'item_description_' + lang_code
     
     query2 = str(query)
-    # query1 = []
+    
     object_list = Item.objects.none()
-    query5 = ''
     query2_list = ''
     query3 = ''
-    
-    if query2.isdigit():
-        query2 = int(query2)
-        query = None
-        
-    elif bool(re.search(r'[0-9]', query2)):
-        
-        only_numbers_str = re.sub(r'[^0-9|\s]', '', query2) # нужно сохранить пробелы
-        only_numbers_str = only_numbers_str.strip()
-        query5 = only_numbers_str
-        
-        if query5.isdigit():
-            query5 = 'only_numbers_str'
-            x = query2
-            query2 = int(only_numbers_str)
-            query = re.sub(r'[0-9]', '', x)
-            # query5 = query2
-        else:
-            x = only_numbers_str.split()
-            # query5 = x
-            if len(x) > 1:
-                query3 = query2
-                query2_list = re.findall(r'\d+', query2)
-                # query5 = query2_list
-                query = re.sub(r'[0-9]', '', query3)
-                # query5 = query
-                if query.strip() == '':
-                    query = ''
-            else:
-                query3 = query2
-                query2 = re.sub(r'[^0-9]', '', query2)
-                query = re.sub(r'[0-9]', '', query3)
-                if query.strip() == '':
-                    query = ''
-
-    else:
-        query2 = ''
-
-    if query2_list and isinstance(query, str):
-        query_basic = f"""SELECT products_item.id,
-                                item_id,
-                                item_author_id_id,
-                                item_published_at,
-                                item_name_ru,
-                                item_name_en,
-                                item_name_zh_hans,
-                                item_category_number_id,
-                                item_picture,
-                                item_extra_tag,
-                                item_price,
-                                item_price_extra_new,
-                                item_price_currency,
-                                item_description_ru,
-                                item_description_en,
-                                item_description_zh_hans,
-                                {cat_lang_res} AS cat_name
-                        FROM products_item 
-                        JOIN products_category 
-                        ON products_item.item_category_number_id=products_category.id 
-                        WHERE products_category.{cat_lang_res} iLIKE '%%' || '{query}' || '%%'
-                        OR products_item.{item_lang_res} iLIKE '%%' || '{query}' || '%%'
-                        OR to_tsvector(coalesce(products_item.{item_lang_res}, '') || ' ' ||
-                            coalesce(products_item.{item_desc_lang_res},'')) @@ plainto_tsquery('{query}')
-                        OR  similarity(coalesce(products_item.{item_lang_res}, '') || ' ' ||
-                            coalesce(products_item.{item_desc_lang_res},''), '{query}') > 0.1 """
-        
-        for x in query2_list:
-            x = int(x)
-            query_basic += f""" OR item_id={x}
-                    OR item_price={x}
-                    OR item_price_extra_new={x}"""
-        object_list = Item.objects.raw(query_basic)
-
-    elif query2_list and query == '':
-        query_basic = f"""SELECT products_item.id,
+    query_basic = f"""SELECT products_item.id,
                                 item_id,
                                 item_author_id_id,
                                 item_published_at,
@@ -152,6 +77,60 @@ def search_algorithm(query, lang_code):
                         FROM products_item 
                         JOIN products_category 
                         ON products_item.item_category_number_id=products_category.id """
+    
+    if query2.isdigit():
+        query2 = int(query2)
+        query = None
+        
+    elif bool(re.search(r'[0-9]', query2)):
+        
+        only_numbers_str = re.sub(r'[^0-9|\s]', '', query2) # нужно сохранить пробелы
+        only_numbers_str = only_numbers_str.strip()
+        
+        if only_numbers_str.isdigit():
+            
+            x = query2
+            query2 = int(only_numbers_str)
+            query = re.sub(r'[0-9]', '', x)
+            
+        else:
+            x = only_numbers_str.split()
+           
+            if len(x) > 1:
+                query3 = query2
+                query2_list = re.findall(r'\d+', query2)
+                
+                query = re.sub(r'[0-9]', '', query3)
+                
+                if query.strip() == '':
+                    query = ''
+            else:
+                query3 = query2
+                query2 = re.sub(r'[^0-9]', '', query2)
+                query = re.sub(r'[0-9]', '', query3)
+                if query.strip() == '':
+                    query = ''
+
+    else:
+        query2 = ''
+
+    if query2_list and isinstance(query, str):
+        query_basic += f""" WHERE products_category.{cat_lang_res} iLIKE '%%' || '{query}' || '%%'
+                        OR products_item.{item_lang_res} iLIKE '%%' || '{query}' || '%%'
+                        OR to_tsvector(coalesce(products_item.{item_lang_res}, '') || ' ' ||
+                            coalesce(products_item.{item_desc_lang_res},'')) @@ plainto_tsquery('{query}')
+                        OR  similarity(coalesce(products_item.{item_lang_res}, '') || ' ' ||
+                            coalesce(products_item.{item_desc_lang_res},''), '{query}') > 0.1 """
+        
+        for x in query2_list:
+            x = int(x)
+            query_basic += f""" OR item_id={x}
+                    OR item_price={x}
+                    OR item_price_extra_new={x}"""
+        object_list = Item.objects.raw(query_basic)
+
+    elif query2_list and query == '':
+        
                         
         for x in query2_list:
             x = int(x)
@@ -161,85 +140,32 @@ def search_algorithm(query, lang_code):
         object_list = Item.objects.raw(query_basic)
         
     elif isinstance(query2, int) and isinstance(query, str):
-        object_list = Item.objects.raw(f"""SELECT products_item.id,
-                                                        item_id,
-                                                        item_author_id_id,
-                                                        item_published_at,
-                                                        item_name_ru,
-                                                        item_name_en,
-                                                        item_name_zh_hans,
-                                                        item_category_number_id,
-                                                        item_picture,
-                                                        item_extra_tag,
-                                                        item_price,
-                                                        item_price_extra_new,
-                                                        item_price_currency,
-                                                        item_description_ru,
-                                                        item_description_en,
-                                                        item_description_zh_hans,
-                                                        {cat_lang_res} AS cat_name
-                                                FROM products_item JOIN products_category 
-                                                ON products_item.item_category_number_id=products_category.id 
-                                                WHERE products_category.{cat_lang_res} iLIKE '%%' || '{query}' || '%%'
-                                                OR products_item.{item_lang_res} iLIKE '%%' || '{query}' || '%%'
-                                                OR to_tsvector(coalesce(products_item.{item_lang_res}, '') || ' ' ||
-                                                    coalesce(products_item.{item_desc_lang_res},'')) @@ plainto_tsquery('{query}')
-                                                OR  similarity(coalesce(products_item.{item_lang_res}, '') || ' ' ||
-                                                    coalesce(products_item.{item_desc_lang_res},''), '{query}') > 0.1
-                                                OR item_id={query2}
-                                                OR item_price={query2}
-                                                OR item_price_extra_new={query2};""")
+        query_basic += f""" WHERE products_category.{cat_lang_res} iLIKE '%%' || '{query}' || '%%'
+                            OR products_item.{item_lang_res} iLIKE '%%' || '{query}' || '%%'
+                            OR to_tsvector(coalesce(products_item.{item_lang_res}, '') || ' ' ||
+                                coalesce(products_item.{item_desc_lang_res},'')) @@ plainto_tsquery('{query}')
+                            OR  similarity(coalesce(products_item.{item_lang_res}, '') || ' ' ||
+                                coalesce(products_item.{item_desc_lang_res},''), '{query}') > 0.1
+                            OR item_id={query2}
+                            OR item_price={query2}
+                            OR item_price_extra_new={query2};"""
+        object_list = Item.objects.raw(query_basic)
+        
     elif isinstance(query2, int):
-        object_list = Item.objects.raw(f"""SELECT products_item.id,
-                                                        item_id,
-                                                        item_author_id_id,
-                                                        item_published_at,
-                                                        item_name_ru,
-                                                        item_name_en,
-                                                        item_name_zh_hans,
-                                                        item_category_number_id,
-                                                        item_picture,
-                                                        item_extra_tag,
-                                                        item_price,
-                                                        item_price_extra_new,
-                                                        item_price_currency,
-                                                        item_description_ru,
-                                                        item_description_en,
-                                                        item_description_zh_hans,
-                                                        {cat_lang_res} AS cat_name
-                                                FROM products_item JOIN products_category 
-                                                ON products_item.item_category_number_id=products_category.id 
-                                                WHERE item_id={query2}
-                                                OR item_price={query2}
-                                                OR item_price_extra_new={query2} 
-                                                ORDER BY item_published_at DESC;""")
+        query_basic += f""" WHERE item_id={query2}
+                            OR item_price={query2}
+                            OR item_price_extra_new={query2} 
+                            ORDER BY item_published_at DESC;"""
+        object_list = Item.objects.raw(query_basic)
     elif isinstance(query, str):    
-        object_list = Item.objects.raw(f"""SELECT products_item.id,
-                                                        item_id,
-                                                        item_author_id_id,
-                                                        item_published_at,
-                                                        item_name_ru,
-                                                        item_name_en,
-                                                        item_name_zh_hans,
-                                                        item_category_number_id,
-                                                        item_picture,
-                                                        item_extra_tag,
-                                                        item_price,
-                                                        item_price_extra_new,
-                                                        item_price_currency,
-                                                        item_description_ru,
-                                                        item_description_en,
-                                                        item_description_zh_hans,
-                                                        {cat_lang_res} AS cat_name
-                                                FROM products_item JOIN products_category 
-                                                ON products_item.item_category_number_id=products_category.id 
-                                                WHERE products_category.{cat_lang_res} iLIKE '%%' || '{query}' || '%%'
-                                                OR products_item.{item_lang_res} iLIKE '%%' || '{query}' || '%%'
-                                                OR to_tsvector(coalesce(products_item.{item_lang_res}, '') || ' ' ||
-                                                    coalesce(products_item.{item_desc_lang_res},'')) @@ plainto_tsquery('{query}')
-                                                OR  similarity(coalesce(products_item.{item_lang_res}, '') || ' ' ||
-                                                    coalesce(products_item.{item_desc_lang_res},''), '{query}') > 0.1
-                                                ORDER BY item_published_at DESC;""")
+        query_basic += f""" WHERE products_category.{cat_lang_res} iLIKE '%%' || '{query}' || '%%'
+                            OR products_item.{item_lang_res} iLIKE '%%' || '{query}' || '%%'
+                            OR to_tsvector(coalesce(products_item.{item_lang_res}, '') || ' ' ||
+                                coalesce(products_item.{item_desc_lang_res},'')) @@ plainto_tsquery('{query}')
+                            OR  similarity(coalesce(products_item.{item_lang_res}, '') || ' ' ||
+                                coalesce(products_item.{item_desc_lang_res},''), '{query}') > 0.1
+                            ORDER BY item_published_at DESC;"""
+        object_list = Item.objects.raw(query_basic)
     
     else:
         object_list = Item.objects.all()
