@@ -14,7 +14,7 @@
         <input name='q' value='{{ request.GET.q }}' type="text" class="form-control mb-2" placeholder="{% trans 'Search by Category, by Name or by Description' %}" aria-label="{% trans 'Search by Category or by Name' %}" aria-describedby="button-addon2">
         <button class="btn btn-outline-secondary btn3 mb-2" type="submit" id="button-addon2">{% trans "Search" %}</button>
     </form>
-    {% comment %} <p>{{ object_list }}</p> {% endcomment %}
+    <p>{{ object_list }}</p>
     </div>
     {% if page_obj %}
     <div class="pagination justify-content-center mb-3">

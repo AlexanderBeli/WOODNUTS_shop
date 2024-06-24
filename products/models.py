@@ -7,6 +7,8 @@ from django.utils.translation import gettext_lazy as _
 from imagekit.models import ProcessedImageField
 from PIL import Image
 
+# from raw_sugar import RawManager
+
 # Create your models here.
 # def get_currencies():
 #     return {i: i for i in settings.CURRENCIES}
@@ -73,6 +75,8 @@ class Item(models.Model):
     item_price_currency = models.CharField(max_length=3, choices=settings.CURRENCY_CHOICES, default='RUB', verbose_name=_('item price currency'))
     
     item_published_at = models.DateField(auto_now_add=True)
+    
+    # objects = RawManager()
     
     # slug = models.SlugField('Название в виде url', max_length=200)
     
