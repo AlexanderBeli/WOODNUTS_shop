@@ -49,9 +49,9 @@ class Item(models.Model):
     # Нужно будет реализовать невозможность поменять язык или невозможность добавить товар в корзину с другой валютой
     # По окончанию оформления товара вывести сообщение: Ваш заказ получен, в ближайшее время с вами свяжется
     # оператор для уточнения деталей заказа.
-    item_name_en = models.CharField(max_length=200, unique=True, blank=True, null=True, verbose_name=_('item name in English'))
-    item_name_ru = models.CharField(max_length=200, unique=True, blank=True, null=True, verbose_name=_('item name in Russian'))
-    item_name_zh_hans = models.CharField(max_length=200,unique=True, blank=True, null=True, verbose_name=_('item name in Chinese'))
+    item_name_en = models.CharField(max_length=200, unique=True, blank=True, null=True, verbose_name=_('item name in English'), db_index=True)
+    item_name_ru = models.CharField(max_length=200, unique=True, blank=True, null=True, verbose_name=_('item name in Russian'), db_index=True)
+    item_name_zh_hans = models.CharField(max_length=200,unique=True, blank=True, null=True, verbose_name=_('item name in Chinese'), db_index=True)
     
     item_category_number = models.ForeignKey(
         'Category',
@@ -64,14 +64,14 @@ class Item(models.Model):
                              format='WEBP',
                              options={'quality': 70}) # upload_to="item_pictures"
     
-    item_description_en = models.TextField(blank=True, verbose_name=_('item description in English'))
-    item_description_ru = models.TextField(blank=True, verbose_name=_('item description in Russian'))
-    item_description_zh_hans = models.TextField(blank=True, verbose_name=_('item description in Chinese'))
+    item_description_en = models.TextField(blank=True, verbose_name=_('item description in English'), db_index=True)
+    item_description_ru = models.TextField(blank=True, verbose_name=_('item description in Russian'), db_index=True)
+    item_description_zh_hans = models.TextField(blank=True, verbose_name=_('item description in Chinese'), db_index=True)
     
     item_extra_tag = models.CharField(choices=AdditionalInfo, default=AdditionalInfo.__empty__, verbose_name=_('item extra tag'))
     
-    item_price = models.DecimalField(max_digits=5, decimal_places=2, verbose_name=_('item price'))
-    item_price_extra_new = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True, verbose_name=_('extra new item price'))
+    item_price = models.DecimalField(max_digits=5, decimal_places=2, verbose_name=_('item price'), db_index=True)
+    item_price_extra_new = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True, verbose_name=_('extra new item price'), db_index=True)
     item_price_currency = models.CharField(max_length=3, choices=settings.CURRENCY_CHOICES, default='RUB', verbose_name=_('item price currency'))
     
     item_published_at = models.DateField(auto_now_add=True, db_index=True)
@@ -135,7 +135,7 @@ class Item(models.Model):
 
 
 class Category(models.Model):
-    category_number = models.IntegerField(auto_created=True, unique=True, verbose_name=_('category number'))
+    category_number = models.IntegerField(auto_created=True, unique=True, verbose_name=_('category number'), db_index=True)
     author_id = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         auto_created=True,
@@ -143,9 +143,9 @@ class Category(models.Model):
         verbose_name=_('author')
         )
 
-    category_name_ru = models.CharField(max_length=50, verbose_name=_('category name in Russian'))
-    category_name_en = models.CharField(max_length=50, verbose_name=_('category name in English'))
-    category_name_zh_hans = models.CharField(max_length=50, verbose_name=_('category name in Chinese'))
+    category_name_ru = models.CharField(max_length=50, verbose_name=_('category name in Russian'), db_index=True)
+    category_name_en = models.CharField(max_length=50, verbose_name=_('category name in English'), db_index=True)
+    category_name_zh_hans = models.CharField(max_length=50, verbose_name=_('category name in Chinese'), db_index=True)
 
     
     class Meta:
