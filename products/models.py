@@ -74,7 +74,7 @@ class Item(models.Model):
     item_price_extra_new = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True, verbose_name=_('extra new item price'))
     item_price_currency = models.CharField(max_length=3, choices=settings.CURRENCY_CHOICES, default='RUB', verbose_name=_('item price currency'))
     
-    item_published_at = models.DateField(auto_now_add=True)
+    item_published_at = models.DateField(auto_now_add=True, db_index=True)
     
     # objects = RawManager()
     

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-09 12:12+0000\n"
+"POT-Creation-Date: 2024-06-24 11:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -175,7 +175,7 @@ msgstr ""
 msgid "United Nations"
 msgstr ""
 
-#: dj/choices/__init__.py:695 django_project/settings.py:148
+#: dj/choices/__init__.py:695 django_project/settings.py:149
 msgid "English"
 msgstr "Английский"
 
@@ -187,7 +187,7 @@ msgstr ""
 msgid "American English"
 msgstr ""
 
-#: dj/choices/__init__.py:801 django_project/settings.py:149
+#: dj/choices/__init__.py:801 django_project/settings.py:150
 msgid "Russian"
 msgstr "Русский"
 
@@ -195,7 +195,7 @@ msgstr "Русский"
 msgid "Chinese"
 msgstr "Китайский"
 
-#: dj/choices/__init__.py:853 django_project/settings.py:150
+#: dj/choices/__init__.py:853 django_project/settings.py:151
 msgid "Simplified Chinese"
 msgstr "Китайский"
 
@@ -299,115 +299,115 @@ msgstr ""
 msgid "products"
 msgstr "Продукты"
 
-#: products/models.py:20 templates/home.html:47
+#: products/models.py:22
 msgid "Fancy Product"
 msgstr "Новинка"
 
-#: products/models.py:21 templates/home.html:61
+#: products/models.py:23
 msgid "Sale"
 msgstr "Распродажа"
 
-#: products/models.py:22 templates/home.html:68
+#: products/models.py:24
 msgid "Special Item"
 msgstr "Специальное предложение"
 
-#: products/models.py:23
+#: products/models.py:25
 msgid "Bestseller"
 msgstr "ХИТ ПРОДАЖ"
 
-#: products/models.py:24
+#: products/models.py:26
 msgid "Unknown"
 msgstr ""
 
-#: products/models.py:25
+#: products/models.py:27
 msgid "In Stock"
 msgstr ""
 
-#: products/models.py:26
+#: products/models.py:28
 msgid "Not In Stock"
 msgstr ""
 
-#: products/models.py:28
+#: products/models.py:30
 msgid "item number"
 msgstr "код товара"
 
-#: products/models.py:33 products/models.py:139
+#: products/models.py:35 products/models.py:143
 msgid "author"
 msgstr "автор"
 
-#: products/models.py:50
+#: products/models.py:52
 msgid "item name in English"
 msgstr "наименование товара на английском языке"
 
-#: products/models.py:51
+#: products/models.py:53
 msgid "item name in Russian"
 msgstr "наименование товара на русском языке"
 
-#: products/models.py:52
+#: products/models.py:54
 msgid "item name in Chinese"
 msgstr "наименование товара на китайском языке"
 
-#: products/models.py:57 products/models.py:148
+#: products/models.py:59 products/models.py:152
 msgid "category"
 msgstr "категория"
 
-#: products/models.py:61
+#: products/models.py:63
 msgid "picture"
 msgstr "картинка"
 
-#: products/models.py:65
+#: products/models.py:67
 msgid "item description in English"
 msgstr "описание товара на английском"
 
-#: products/models.py:66
+#: products/models.py:68
 msgid "item description in Russian"
 msgstr "описание товара на русском"
 
-#: products/models.py:67
+#: products/models.py:69
 msgid "item description in Chinese"
 msgstr "описание товара на китайском"
 
-#: products/models.py:69
+#: products/models.py:71
 msgid "item extra tag"
 msgstr "дополнительный заголовок"
 
-#: products/models.py:71
+#: products/models.py:73
 msgid "item price"
 msgstr "цена товара"
 
-#: products/models.py:72
+#: products/models.py:74
 msgid "extra new item price"
 msgstr "новая цена товара"
 
-#: products/models.py:73
+#: products/models.py:75
 msgid "item price currency"
 msgstr "валюта денежной единицы"
 
-#: products/models.py:83
+#: products/models.py:87
 msgid "item"
 msgstr "товар"
 
-#: products/models.py:84
+#: products/models.py:88
 msgid "items"
 msgstr "товары"
 
-#: products/models.py:134
+#: products/models.py:138
 msgid "category number"
 msgstr "номер категории"
 
-#: products/models.py:142
+#: products/models.py:146
 msgid "category name in Russian"
 msgstr "наименование категории на русском языке"
 
-#: products/models.py:143
+#: products/models.py:147
 msgid "category name in English"
 msgstr "наименование категории на английском языке"
 
-#: products/models.py:144
+#: products/models.py:148
 msgid "category name in Chinese"
 msgstr "наименование категории на китайском языке"
 
-#: products/models.py:149
+#: products/models.py:153
 msgid "categories"
 msgstr "категории"
 
@@ -496,7 +496,7 @@ msgstr "Войти"
 msgid "Sign Up"
 msgstr "Зарегистрироваться"
 
-#: templates/_base.html:131
+#: templates/_base.html:131 templates/item_all.html:15
 msgid "Search"
 msgstr "Найти"
 
@@ -564,46 +564,52 @@ msgstr "Подписаться"
 msgid "Copyright © 2024"
 msgstr "Все права защищены © 2024"
 
-#: templates/about.html:9 templates/all_products_view_for_clients.html:80
+#: templates/about.html:9 templates/all_products_view_for_clients.html:81
 #: templates/clients.html:9 templates/delivery.html:9 templates/faq.html:9
 #: templates/payments.html:9 templates/policy.html:9
 msgid "The page is not created yet. "
 msgstr "Страница находится в процессе разработки."
 
 #: templates/all_products_view_for_clients.html:15
-#: templates/category_itemslist_forclients.html:16
+#: templates/category_itemslist_forclients.html:16 templates/item_all.html:24
+#: templates/search_results.html:15
 msgid "first"
 msgstr "первая стр."
 
 #: templates/all_products_view_for_clients.html:16
-#: templates/category_itemslist_forclients.html:17
+#: templates/category_itemslist_forclients.html:17 templates/item_all.html:25
+#: templates/search_results.html:16
 msgid "previous"
 msgstr "предыдущая стр."
 
 #: templates/all_products_view_for_clients.html:20
+#: templates/category_itemslist_forclients.html:21 templates/item_all.html:29
+#: templates/search_results.html:20
 msgid "Page"
 msgstr "Страница"
 
 #: templates/all_products_view_for_clients.html:20
+#: templates/category_itemslist_forclients.html:21 templates/item_all.html:29
+#: templates/search_results.html:20
 msgid "of"
 msgstr "из"
 
 #: templates/all_products_view_for_clients.html:24
-#: templates/category_itemslist_forclients.html:25
+#: templates/category_itemslist_forclients.html:25 templates/item_all.html:33
+#: templates/search_results.html:24
 msgid "next"
 msgstr "следующая стр."
 
 #: templates/all_products_view_for_clients.html:25
-#: templates/category_itemslist_forclients.html:26
+#: templates/category_itemslist_forclients.html:26 templates/item_all.html:34
+#: templates/search_results.html:25
 msgid "last"
 msgstr "последняя стр."
 
 #: templates/all_products_view_for_clients.html:67
 #: templates/category_itemslist_forclients.html:68
-#: templates/categorylist.html:50 templates/home.html:84
-#: templates/home.html:106 templates/home.html:133 templates/home.html:155
-#: templates/home.html:204 templates/home.html:231
-#: templates/item_detail_client_page.html:31
+#: templates/categorylist.html:50 templates/home.html:73
+#: templates/item_detail_client_page.html:31 templates/search_results.html:67
 msgid "Add to cart"
 msgstr "В корзину"
 
@@ -633,7 +639,7 @@ msgid "Category Name in Chinese"
 msgstr "Наименование категории на китайском языке"
 
 #: templates/category_all.html:37 templates/category_edit.html:5
-#: templates/category_edit.html:9 templates/item_all.html:47
+#: templates/category_edit.html:9 templates/item_all.html:79
 #: templates/item_detail.html:76 templates/item_edit.html:5
 #: templates/item_edit.html:9
 msgid "Edit"
@@ -641,7 +647,7 @@ msgstr "Изменить"
 
 #: templates/category_all.html:38 templates/category_delete.html:5
 #: templates/category_delete.html:9 templates/category_delete.html:13
-#: templates/item_all.html:48 templates/item_delete.html:5
+#: templates/item_all.html:80 templates/item_delete.html:5
 #: templates/item_delete.html:9 templates/item_delete.html:13
 #: templates/item_detail.html:77
 msgid "Delete"
@@ -693,12 +699,12 @@ msgstr "Наименование товара на китайском языке
 msgid "Item number"
 msgstr "Код товара"
 
-#: templates/createitem.html:35 templates/item_all.html:24
+#: templates/createitem.html:35 templates/item_all.html:52
 #: templates/item_detail.html:32
 msgid "Category"
 msgstr "Категория"
 
-#: templates/createitem.html:47 templates/item_all.html:25
+#: templates/createitem.html:47 templates/item_all.html:53
 #: templates/item_detail.html:36
 msgid "Picture"
 msgstr "Картинка"
@@ -731,10 +737,6 @@ msgstr "Предыдущий"
 msgid "Next"
 msgstr "Следующий"
 
-#: templates/home.html:54
-msgid "View options"
-msgstr "Детали"
-
 #: templates/item_all.html:5 templates/item_all.html:9
 #: templates/manager.html:15
 msgid "Item List"
@@ -745,37 +747,54 @@ msgstr "Список товаров"
 msgid "Add Item"
 msgstr "Добавить товар"
 
-#: templates/item_all.html:21 templates/item_detail.html:20
+#: templates/item_all.html:11
+msgid "You can search by any category or item now. "
+msgstr ""
+
+#: templates/item_all.html:14
+msgid "Search by Category, by Name, by Price or by Description"
+msgstr ""
+
+#: templates/item_all.html:14
+msgid "Search by Category or by Name"
+msgstr ""
+
+#: templates/item_all.html:49 templates/item_detail.html:20
 msgid "Item Name in Russian"
 msgstr "Наименование товара на русском языке"
 
-#: templates/item_all.html:22 templates/item_detail.html:24
+#: templates/item_all.html:50 templates/item_detail.html:24
 msgid "Item Name in English"
 msgstr "Наименование товара на английском языке"
 
-#: templates/item_all.html:23 templates/item_detail.html:28
+#: templates/item_all.html:51 templates/item_detail.html:28
 msgid "Item Name in Chinese"
 msgstr "Наименование товара на китайском языке"
 
-#: templates/item_all.html:26 templates/item_detail.html:40
+#: templates/item_all.html:54 templates/item_detail.html:40
 msgid "Item Description in Russian"
 msgstr "Описание товара на русском"
 
-#: templates/item_all.html:27 templates/item_detail.html:44
+#: templates/item_all.html:55 templates/item_detail.html:44
 msgid "Item Description in English"
 msgstr "Описание товара на английском"
 
-#: templates/item_all.html:28 templates/item_detail.html:48
+#: templates/item_all.html:56 templates/item_detail.html:48
 msgid "Item Description in Chinese"
 msgstr "Описание товара на китайском"
 
-#: templates/item_all.html:29 templates/item_detail.html:68
+#: templates/item_all.html:57 templates/item_detail.html:68
 msgid "Price"
 msgstr "Цена"
 
-#: templates/item_all.html:46
+#: templates/item_all.html:78
 msgid "More Information"
 msgstr "Подробнее"
+
+#: templates/item_all.html:91 templates/search_results.html:81
+msgid ""
+"Are you searching any item? Please check what you typped into search bar. "
+msgstr ""
 
 #: templates/item_detail.html:5 templates/item_detail_client_page.html:5
 msgid "Item"
@@ -833,3 +852,12 @@ msgstr "номер телефона"
 #: templates/registration/signup.html:80
 msgid "Password confirmation"
 msgstr "Подтвердите пароль"
+
+#: templates/search_results.html:5 templates/search_results.html:10
+#, fuzzy
+#| msgid "Search"
+msgid "Search Results"
+msgstr "Найти"
+
+#~ msgid "View options"
+#~ msgstr "Детали"
