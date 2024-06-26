@@ -9,6 +9,8 @@ from django.utils import translation
 from django.views.generic import DetailView, ListView, TemplateView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
+from cart.forms import CartAddProductForm
+
 from .forms import CategoryForm, ItemForm
 from .models import Category, Item
 
@@ -368,6 +370,8 @@ def home_view_for_clients(request):
     item_lang_res = 'item_name_' + lang_code
     item_desc_lang_res = 'item_description_' + lang_code
 
+    cart_product_form = CartAddProductForm()
+    
     a = Item.objects.raw(f"""SELECT id,
                                     {item_lang_res} AS item_name,
                                     {item_desc_lang_res} AS item_desc,
@@ -379,4 +383,5 @@ def home_view_for_clients(request):
                                     item_published_at 
                             FROM products_item
                             WHERE item_extra_tag IN ('Fancy Product','Special Item','Bestseller','In Stock');""")[:8]
-    return render(request, 'home.html',{'page_obj': a})
+    return render(request, 'home.html',{'page_obj': a, 
+                                        'cart_product_form': cart_product_form})

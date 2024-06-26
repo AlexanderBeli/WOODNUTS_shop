@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     'dj.choices',
     'pages',
     'products',
+    'cart',
     # Other apps
     'django_cleanup.apps.CleanupConfig',
 ]
@@ -219,3 +220,5 @@ CURRENCY_CHOICES = [
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+CART_SESSION_ID = 'cart'

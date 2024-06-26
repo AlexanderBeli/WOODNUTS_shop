@@ -1,0 +1,53 @@
+{% extends "_base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Cart" %}{% endblock title %}
+
+{% block content %}
+<div class="container mt-3">    
+    <h1 class="h1 border-bottom pb-3 border-light border-opacity-25">{% trans "Your shopping cart" %} </h1>
+    <div class='card' style="border-color: #8B4513;">
+        <div class='card-header'>
+            <span class='font-weight-bold'> Your name / Guest </span> &middot;
+            <span class='text-muted'>
+                Date
+            </span>
+        </div>
+        <div class='card-body'>
+              <table style="width:100%;">
+                <tr>
+                  <th style="text-align: center; width: 20%;">{% trans "Image" %}</th> 
+                  <th style="text-align: center; width: 40%;">{% trans "Item" %}</th>
+                  <th style="text-align: center; width: 10%;">{% trans "Quantity" %}</th>
+                  <th style="text-align: center; width: 10%;">{% trans "Remove" %}</th>
+                  <th style="text-align: center; width: 10%;">{% trans "Unit price" %}</th>
+                  <th style="text-align: center; width: 10%;">{% trans "Price" %}</th>
+                </tr>
+                {% for item in cart %}
+                <tr>
+                  <td style="text-align: center;"><img src="{{ item.item.item_picture.url }}" style="max-width: 70px;"></td>
+                  <td style="text-align: center;">{{ item.item.item_name }}</td> 
+                  <td style="text-align: center;">{{ item.quantity }}</td>
+                  <td style="text-align: center;"><a href="#">{% trans "Remove" %}</a></td>
+                  {% comment %} <td style="text-align: center;"><a href="{% url 'cart_remove' item.id %}">{% trans "Remove" %}</a></td> {% endcomment %}
+                  <td style="text-align: center;">{{ item.item.item_price }} {{ item.item.item_price_currency }}</td>
+                  <td style="text-align: center;">{{ item.total_price }} {{ item.item.item_price_currency }}</td>
+                </tr>
+                {% endfor %}
+                <tr class='card-footer text-center' style="background: #FFE4B5;">
+                  <th>{% trans "Total" %}</th>
+                  <td colspan="4"></td>
+                  <th>{{ cart.get_total_price }} {{ item.item_price_currency }}</th>
+                </tr>
+              </table>
+    
+        </div>
+        <div class='card-footer text-center' style="background: #FFE4B5;">
+
+          <a href="{% url 'all_products_for_clients' %}" class="btn btn3">{% trans 'Continue Shopping' %}</a>
+          <a href="#" class="btn btn3">{% trans 'Checkout' %}</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
