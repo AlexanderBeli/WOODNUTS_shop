@@ -7,6 +7,8 @@ from products.views import (
     category_itemslist_for_clients,
     category_view_for_clients,
     home_view_for_clients,
+    item_detail_for_clients,
+    search_for_clients,
 )
 
 from .views import (
@@ -23,9 +25,9 @@ urlpatterns = [
     path('', home_view_for_clients, name='home'),
     path('popularitems/', category_view_for_clients, name='categorylist'),
     path('allproducts/', all_products_view_for_clients, name='all_products_for_clients'),
-    path('<int:pk>/', ItemDetailViewForClients.as_view(), name='item_detail_for_clients'),
+    path('<int:pk>/', item_detail_for_clients, name='item_detail_for_clients'),
     path('category/<int:pk>/', category_itemslist_for_clients, name='category_l'),
-    path('search/', SearchResultsLstViewForClients.as_view(), name='search_results'),
+    path('search/', search_for_clients, name='search_results'),
     path('contact/', ContactUsPageView.as_view(), name='contactus'),
     path('delivery/', DeliveryPageView.as_view(), name='delivery'),
     path('payments/', PaymentsPageView.as_view(), name='payments'),

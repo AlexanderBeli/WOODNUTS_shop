@@ -47,7 +47,14 @@
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">{% trans "Add to cart" %}</a></div>
+                                    <div class="text-center">
+                                      <form action="{% url 'cart_add' item.id %}" method="post">
+                                        {{ cart_product_form }}
+                                        {% csrf_token %}
+                                        <input type="submit" class="btn btn-outline-dark mt-auto" value="{% trans 'Add to cart' %}">
+                                      </form>  
+                                    </div>
+                                    {% comment %} <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">{% trans "Add to cart" %}</a></div> {% endcomment %}
                                 </div>
                             </div>
                         </div>

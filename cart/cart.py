@@ -22,10 +22,10 @@ class Cart(object):
         """
         Добавить продукт в корзину или обновить его количество.
         """
-        item_id = str(item.pk)
+        item_id = str(item.id)
         if item_id not in self.cart:
             self.cart[item_id] = {'quantity': 0,
-                                  'price': str(item.item_price)}
+                                'price': str(item.item_price)}
         if update_quantity:
             self.cart[item_id]['quantity'] = quantity
         else:
@@ -42,7 +42,7 @@ class Cart(object):
         """
         Удаление товара из корзины
         """
-        item_id = str(item.pk)
+        item_id = str(item.id)
         if item_id in self.cart:
             del self.cart[item_id]
             self.save()
@@ -55,7 +55,7 @@ class Cart(object):
         # получение объектов item и добавление их в корзину
         items = Item.objects.filter(id__in=item_ids)
         for item in items:
-            self.cart[str(item.pk)]['item'] = item
+            self.cart[str(item.id)]['item'] = item
             
         for item2 in self.cart.values():
             item2['price'] = Decimal(item2['price'])

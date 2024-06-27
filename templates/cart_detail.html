@@ -24,10 +24,13 @@
                   <th style="text-align: center; width: 10%;">{% trans "Unit price" %}</th>
                   <th style="text-align: center; width: 10%;">{% trans "Price" %}</th>
                 </tr>
+                {% comment %} {{ in_cart }} {% endcomment %}
+
                 {% for item in cart %}
+                
                 <tr>
                   <td style="text-align: center;"><img src="{{ item.item.item_picture.url }}" style="max-width: 70px;"></td>
-                  <td style="text-align: center;">{{ item.item.item_name }}</td> 
+                  <td style="text-align: center;">{{ item.name }}</td> 
                   <td style="text-align: center;">{{ item.quantity }}</td>
                   <td style="text-align: center;"><a href="#">{% trans "Remove" %}</a></td>
                   {% comment %} <td style="text-align: center;"><a href="{% url 'cart_remove' item.id %}">{% trans "Remove" %}</a></td> {% endcomment %}

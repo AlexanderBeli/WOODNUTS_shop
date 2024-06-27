@@ -66,6 +66,7 @@ def search_algorithm(query, lang_code):
                                 item_name_ru,
                                 item_name_en,
                                 item_name_zh_hans,
+                                {item_lang_res} AS item_name,
                                 item_category_number_id,
                                 item_picture,
                                 item_extra_tag,
@@ -174,6 +175,19 @@ def search_algorithm(query, lang_code):
 
     return object_list
 
+def search_for_clients(request):
+    query = request.GET.get('q')
+    current_url = request.path_info
+    lang_code = translation.get_language_from_path(current_url)
+    cart_product_form = CartAddProductForm()
+    result = search_algorithm(query, lang_code)
+    
+    paginator = Paginator(result, 8)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'search_results.html',{'page_obj':page_obj,
+                                                'cart_product_form': cart_product_form})
+    
 class SearchResultsLstViewForClients(ListView):
     model = Item
     template_name = 'search_results.html'
@@ -257,8 +271,7 @@ class CategoryDeleteView(LoginRequiredMixin, DeleteView):
 class ItemDetailView(LoginRequiredMixin, DeleteView):
     model = Item
     template_name = 'item_detail.html'
-    
-    
+     
 class ItemDetailViewForClients(DetailView):
     model = Item
     template_name = 'item_detail_client_page.html'
@@ -271,6 +284,7 @@ def category_view_for_clients(request):
     lang_code = translation.get_language_from_path(current_url)
     # cur_language = translation.LANGUAGE_SESSION_KEY
     # category = Category.objects.get()
+    cart_product_form = CartAddProductForm()
     if lang_code == 'zh-hans':
         lang_code = 'zh_hans'
     cat_lang_res = 'category_name_' + lang_code
@@ -294,14 +308,44 @@ def category_view_for_clients(request):
                                 WHERE item_category_number_id={i.id};""")[:4]
         i.category_number = a
     
-    return render(request, 'categorylist.html',{'current_url':category})
+    return render(request, 'categorylist.html',{'current_url':category,
+                                                'cart_product_form': cart_product_form})
 
-
+def item_detail_for_clients(request, pk):
+    current_url = request.path_info
+    lang_code = translation.get_language_from_path(current_url)
+    # cur_language = translation.LANGUAGE_SESSION_KEY
+    # category = Category.objects.get()
+    cart_product_form = CartAddProductForm()
+    if lang_code == 'zh-hans':
+        lang_code = 'zh_hans'
+    cat_lang_res = 'category_name_' + lang_code
+    item_lang_res = 'item_name_' + lang_code
+    item_desc_lang_res = 'item_description_' + lang_code
+    
+    item = Item.objects.raw(f"""SELECT id,
+                                        {item_lang_res} AS item_name,
+                                        {item_desc_lang_res} AS item_desc,
+                                        item_category_number_id,
+                                        item_picture,
+                                        item_extra_tag,
+                                        item_price,
+                                        item_price_extra_new,
+                                        item_price_currency,
+                                        item_published_at 
+                                FROM products_item
+                                WHERE id={pk};""")
+    
+    return render(request, 'item_detail_client_page.html',{'item_info':item,
+                                                'cart_product_form': cart_product_form})  
+    
+     
 def category_itemslist_for_clients(request, pk):
     current_url = request.path_info
     lang_code = translation.get_language_from_path(current_url)
     # cur_language = translation.LANGUAGE_SESSION_KEY
     # category = Category.objects.get()
+    cart_product_form = CartAddProductForm()
     if lang_code == 'zh-hans':
         lang_code = 'zh_hans'
     cat_lang_res = 'category_name_' + lang_code
@@ -327,10 +371,11 @@ def category_itemslist_for_clients(request, pk):
                                 WHERE item_category_number_id={pk};""")
         # i.category_number = a
         # s.add(a)
-    paginator = Paginator(a, 3)
+    paginator = Paginator(a, 8)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, 'category_itemslist_forclients.html',{'current_url':category, 'page_obj': page_obj})
+    return render(request, 'category_itemslist_forclients.html',{'current_url':category, 'page_obj': page_obj,
+                                                                 'cart_product_form': cart_product_form})
 
 
 def all_products_view_for_clients(request):
@@ -343,6 +388,8 @@ def all_products_view_for_clients(request):
     item_lang_res = 'item_name_' + lang_code
     item_desc_lang_res = 'item_description_' + lang_code
 
+    cart_product_form = CartAddProductForm()
+    
     a = Item.objects.raw(f"""SELECT id,
                                     {item_lang_res} AS item_name,
                                     {item_desc_lang_res} AS item_desc,
@@ -357,7 +404,8 @@ def all_products_view_for_clients(request):
     paginator = Paginator(a, 3)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, 'all_products_view_for_clients.html',{'page_obj': page_obj})
+    return render(request, 'all_products_view_for_clients.html',{'page_obj': page_obj,
+                                                                 'cart_product_form': cart_product_form})
 
 
 def home_view_for_clients(request):

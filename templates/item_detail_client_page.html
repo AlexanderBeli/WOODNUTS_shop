@@ -5,6 +5,7 @@
 {% block title %}{% trans "Item" %}{% endblock title %}
 
 {% block content %}
+{% for item in item_info %}
 <div class="container mt-3"> 
     <section class="py-5">
         <div class="container px-4 px-lg-5 my-5">
@@ -12,7 +13,7 @@
                 <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{ item.item_picture.url }}" alt="..." /></div>
                 <div class="col-md-6">
                     <div class="small mb-1">ID: {{ item.item_id }}</div>
-                    <h1 class="display-5 fw-bolder">{{ item.item_name_ru }}</h1>
+                    <h1 class="display-5 fw-bolder">{{ item.item_name }}</h1>
                     {% if item.item_price_extra_new %}
                     <div class="fs-5 mb-5">
                         <span class="text-decoration-line-through">{{ item.item_price }} {{ item.item_price_currency }}</span>
@@ -23,18 +24,29 @@
                         <span>{{ item.item_price }} {{ item.item_price_currency }}</span>
                     </div>
                     {% endif%}
-                    <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
+                    <p class="lead">{{ item.item_desc }}</p>
                     <div class="d-flex">
+
+                        <form action="{% url 'cart_add' item.id %}" method="post">
+                            
+                            {% comment %} <input type="submit" class="btn btn-outline-dark mt-auto" value="{% trans 'Add to cart' %}"> {% endcomment %}
+                         
+
                         <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                        <button class="btn btn-outline-dark flex-shrink-0 me-3" type="button">
+                            {{ cart_product_form }}
+                            {% csrf_token %}
+                        <button class="btn btn-outline-dark flex-shrink-0 me-3" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             {% trans "Add to cart" %}
                         </button>
+                        
                         <button onclick="document.location='{% url 'categorylist' %}'" class="btn btn-outline-dark flex-shrink-0" type="button">
                             {% trans "Popular Items" %}
                             {% comment %} <a href="{% url 'categorylist' %}" class="btn btn3">{% trans "to Popular Items" %}</a> {% endcomment %}
                         </button>
+                    </form> 
                     </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
