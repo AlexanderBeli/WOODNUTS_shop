@@ -65,11 +65,15 @@
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="text-center">
-                                      <form action="{% url 'cart_add' item.id %}" method="post">
+                                    <div class="container text-center">
+                                      <form class="row align-items-center" action="{% url 'cart_add' item.id %}" method="post">
+                                        <div class="col ms-3">
                                         {{ cart_product_form }}
                                         {% csrf_token %}
+                                        </div>
+                                        <div class="col me-3 ps-1">
                                         <input type="submit" class="btn btn-outline-dark mt-auto" value="{% trans 'Add to cart' %}">
+                                        </div>
                                       </form>  
                                     </div>
                                     {% comment %} <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">{% trans "Add to cart" %}</a></div> {% endcomment %}
