@@ -47,13 +47,13 @@
                                 </div>
                                 <!-- Product actions-->
                                 <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                    <div class="container text-center">
+                                    <div class="container text-center" style="width: 200px;">
                                       <form class="row align-items-center" action="{% url 'cart_add' item.id %}" method="post">
-                                        <div class="col ms-3">
+                                        <div class="col">
                                         {{ cart_product_form }}
                                         {% csrf_token %}
                                         </div>
-                                        <div class="col me-3 ps-1">
+                                        <div class="col">
                                         <input type="submit" class="btn btn-outline-dark mt-auto" value="{% trans 'Add to cart' %}">
                                         </div>
                                       </form>  

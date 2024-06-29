@@ -45,7 +45,7 @@
                     {% endif %}
                     <!-- Product image-->
                     <a href="{% url 'item_detail_for_clients' item.id %}" style="text-decoration: none; color: black;">
-                        <img class="card-img-top" src="{{ item.item_picture.url }}" alt="{{ item.item_name }}" /></a>
+                        <img class="card-img-top" src="{{ item.item_picture.url }}" alt="{{ item.item_name }}" "/></a>
                     <!-- Product details-->
                     <div class="card-body p-4">
                         <div class="text-center">
@@ -70,13 +70,13 @@
                     </div>
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                      <div class="container text-center">
+                      <div class="container text-center" style="width: 190px;">
                         <form class="row align-items-center" action="{% url 'cart_add' item.id %}" method="post">
-                          <div class="col ms-3">
+                          <div class="col">
                           {{ cart_product_form }}
                           {% csrf_token %}
                           </div>
-                          <div class="col me-3 ps-2">
+                          <div class="col">
                           <input type="submit" class="btn btn-outline-dark mt-auto" value="{% trans 'Add to cart' %}">
                           </div>
                         </form>  
