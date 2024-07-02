@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'pages',
     'products',
     'cart',
+    'orders',
     # Other apps
     'django_cleanup.apps.CleanupConfig',
 ]

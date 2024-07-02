@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-24 11:17+0000\n"
+"POT-Creation-Date: 2024-06-30 14:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,11 +37,11 @@ msgstr "male"
 msgid "unspecified"
 msgstr "unspecified"
 
-#: accounts/models.py:18
+#: accounts/models.py:18 orders/models.py:9
 msgid "first name"
 msgstr ""
 
-#: accounts/models.py:19
+#: accounts/models.py:19 orders/models.py:10
 msgid "last name"
 msgstr ""
 
@@ -173,7 +173,7 @@ msgstr ""
 msgid "United Nations"
 msgstr ""
 
-#: dj/choices/__init__.py:695 django_project/settings.py:149
+#: dj/choices/__init__.py:695 django_project/settings.py:152
 msgid "English"
 msgstr "English"
 
@@ -185,7 +185,7 @@ msgstr ""
 msgid "American English"
 msgstr ""
 
-#: dj/choices/__init__.py:801 django_project/settings.py:150
+#: dj/choices/__init__.py:801 django_project/settings.py:153
 msgid "Russian"
 msgstr "Russian"
 
@@ -193,7 +193,7 @@ msgstr "Russian"
 msgid "Chinese"
 msgstr "Chinese"
 
-#: dj/choices/__init__.py:853 django_project/settings.py:151
+#: dj/choices/__init__.py:853 django_project/settings.py:154
 msgid "Simplified Chinese"
 msgstr "Chinese"
 
@@ -293,6 +293,74 @@ msgstr ""
 msgid "Toxic waste green"
 msgstr ""
 
+#: orders/apps.py:8 orders/models.py:21
+#, fuzzy
+#| msgid "My Orders"
+msgid "orders"
+msgstr "My Orders"
+
+#: orders/models.py:11
+msgid "email"
+msgstr ""
+
+#: orders/models.py:12
+msgid "address"
+msgstr ""
+
+#: orders/models.py:13
+msgid "postal code"
+msgstr ""
+
+#: orders/models.py:14
+msgid "city"
+msgstr ""
+
+#: orders/models.py:15
+msgid "created"
+msgstr ""
+
+#: orders/models.py:16
+msgid "updated"
+msgstr ""
+
+#: orders/models.py:17
+msgid "paid"
+msgstr ""
+
+#: orders/models.py:20 orders/models.py:32
+#, fuzzy
+#| msgid "My Order"
+msgid "order"
+msgstr "My Order"
+
+#: orders/models.py:25
+#, fuzzy
+#| msgid "My Order"
+msgid "Order"
+msgstr "My Order"
+
+#: orders/models.py:33 products/models.py:87
+msgid "item"
+msgstr ""
+
+#: orders/models.py:34
+msgid "price"
+msgstr ""
+
+#: orders/models.py:35
+msgid "quantity"
+msgstr ""
+
+#: orders/models.py:38
+msgid "order item"
+msgstr ""
+
+#: orders/models.py:39
+#, fuzzy
+#| msgid "Popular Items"
+msgid "order items"
+msgstr "Popular Items"
+
 #: products/apps.py:8
 #, fuzzy
 #| msgid "Products"
@@ -387,10 +455,6 @@ msgstr ""
 msgid "item price currency"
 msgstr ""
 
-#: products/models.py:87
-msgid "item"
-msgstr ""
-
 #: products/models.py:88
 msgid "items"
 msgstr ""
@@ -437,16 +501,16 @@ msgstr "All Products"
 #: templates/_base.html:47 templates/category_itemslist_forclients.html:5
 #: templates/category_itemslist_forclients.html:11
 #: templates/categorylist.html:5 templates/categorylist.html:9
-#: templates/item_detail_client_page.html:34
+#: templates/item_detail_client_page.html:50
 msgid "Popular Items"
 msgstr "Popular Items"
 
-#: templates/_base.html:48 templates/_base.html:186 templates/delivery.html:4
+#: templates/_base.html:48 templates/_base.html:196 templates/delivery.html:4
 #: templates/delivery.html:8
 msgid "Delivery"
 msgstr "Delivery"
 
-#: templates/_base.html:49 templates/_base.html:187 templates/payments.html:4
+#: templates/_base.html:49 templates/_base.html:197 templates/payments.html:4
 #: templates/payments.html:8
 msgid "Payments"
 msgstr "Payments"
@@ -455,7 +519,7 @@ msgstr "Payments"
 msgid "Refunds &#38; Returns Policy"
 msgstr "Refunds &#38; Returns Policy"
 
-#: templates/_base.html:51 templates/_base.html:188 templates/clients.html:4
+#: templates/_base.html:51 templates/_base.html:198 templates/clients.html:4
 #: templates/clients.html:8
 msgid "Our Clients"
 msgstr "Our Clients"
@@ -502,75 +566,75 @@ msgstr "Sign In"
 msgid "Sign Up"
 msgstr "Sign Up"
 
-#: templates/_base.html:131 templates/item_all.html:15
+#: templates/_base.html:141 templates/item_all.html:15
 msgid "Search"
 msgstr "Search"
 
-#: templates/_base.html:152 templates/_base.html:239
+#: templates/_base.html:162 templates/_base.html:249
 msgid "WOOD NUTS"
 msgstr "WOOD NUTS"
 
-#: templates/_base.html:156
+#: templates/_base.html:166
 msgid "123 Consectetur at ligula 10660"
 msgstr "123 Consectetur at ligula 10660"
 
-#: templates/_base.html:160
+#: templates/_base.html:170
 msgid "010-020-0340"
 msgstr "010-020-0340"
 
-#: templates/_base.html:170
+#: templates/_base.html:180
 msgid "Products"
 msgstr "Products"
 
-#: templates/_base.html:182
+#: templates/_base.html:192
 msgid "Nuts"
 msgstr "Nuts"
 
-#: templates/_base.html:183
+#: templates/_base.html:193
 msgid "Dried Fruits"
 msgstr "Dried Fruits"
 
-#: templates/_base.html:184
+#: templates/_base.html:194
 msgid "East Delight"
 msgstr "East Delight"
 
-#: templates/_base.html:185
+#: templates/_base.html:195
 msgid "Spices"
 msgstr "Spices"
 
-#: templates/_base.html:193
+#: templates/_base.html:203
 msgid "Further Info"
 msgstr "Further Info"
 
-#: templates/_base.html:195
+#: templates/_base.html:205
 msgid "Home"
 msgstr "Home"
 
-#: templates/_base.html:196 templates/about.html:4 templates/about.html:8
+#: templates/_base.html:206 templates/about.html:4 templates/about.html:8
 msgid "About Us"
 msgstr "About Us"
 
-#: templates/_base.html:197
+#: templates/_base.html:207
 msgid "Shop Locations"
 msgstr "Shop Locations"
 
-#: templates/_base.html:198 templates/faq.html:4 templates/faq.html:8
+#: templates/_base.html:208 templates/faq.html:4 templates/faq.html:8
 msgid "FAQs"
 msgstr "FAQs"
 
-#: templates/_base.html:199
+#: templates/_base.html:209
 msgid "Contact "
 msgstr "Contact "
 
-#: templates/_base.html:228
+#: templates/_base.html:238
 msgid "Subscribe"
 msgstr "Subscribe"
 
-#: templates/_base.html:239
+#: templates/_base.html:249
 msgid "Copyright © 2024"
 msgstr "Copyright © 2024"
 
-#: templates/about.html:9 templates/all_products_view_for_clients.html:81
+#: templates/about.html:9 templates/all_products_view_for_clients.html:93
 #: templates/clients.html:9 templates/delivery.html:9 templates/faq.html:9
 #: templates/payments.html:9 templates/policy.html:9
 msgid "The page is not created yet. "
@@ -614,12 +678,59 @@ msgstr ""
 msgid "last"
 msgstr ""
 
-#: templates/all_products_view_for_clients.html:67
-#: templates/category_itemslist_forclients.html:68
-#: templates/categorylist.html:50 templates/home.html:73
-#: templates/item_detail_client_page.html:31 templates/search_results.html:67
+#: templates/all_products_view_for_clients.html:74
+#: templates/category_itemslist_forclients.html:75
+#: templates/categorylist.html:57 templates/home.html:80
+#: templates/item_detail_client_page.html:44 templates/search_results.html:74
 msgid "Add to cart"
 msgstr "Add to cart"
+
+#: templates/cart_detail.html:5 templates/order_created.html:5
+msgid "Cart"
+msgstr ""
+
+#: templates/cart_detail.html:9
+msgid "Your shopping cart"
+msgstr ""
+
+#: templates/cart_detail.html:20
+msgid "Image"
+msgstr ""
+
+#: templates/cart_detail.html:21 templates/item_detail.html:5
+#: templates/item_detail_client_page.html:5
+msgid "Item"
+msgstr ""
+
+#: templates/cart_detail.html:22
+msgid "Quantity"
+msgstr ""
+
+#: templates/cart_detail.html:23 templates/cart_detail.html:36
+msgid "Remove"
+msgstr ""
+
+#: templates/cart_detail.html:24
+msgid "Unit price"
+msgstr ""
+
+#: templates/cart_detail.html:25 templates/item_all.html:57
+#: templates/item_detail.html:68
+msgid "Price"
+msgstr ""
+
+#: templates/cart_detail.html:44
+msgid "Total"
+msgstr ""
+
+#: templates/cart_detail.html:53
+msgid "Continue Shopping"
+msgstr ""
+
+#: templates/cart_detail.html:54 templates/order_create.html:5
+#: templates/order_create.html:9
+msgid "Checkout"
+msgstr ""
 
 #: templates/category_all.html:5 templates/category_all.html:9
 #: templates/manager.html:11
@@ -799,23 +910,15 @@ msgstr ""
 msgid "Item Description in Chinese"
 msgstr ""
 
-#: templates/item_all.html:57 templates/item_detail.html:68
-msgid "Price"
-msgstr ""
-
 #: templates/item_all.html:78
 #, fuzzy
 #| msgid "My Personal Information"
 msgid "More Information"
 msgstr "My Personal Information"
 
-#: templates/item_all.html:91 templates/search_results.html:81
+#: templates/item_all.html:91 templates/search_results.html:93
 msgid ""
 "Are you searching any item? Please check what you typped into search bar. "
-msgstr ""
-
-#: templates/item_detail.html:5 templates/item_detail_client_page.html:5
-msgid "Item"
 msgstr ""
 
 #: templates/item_detail.html:53

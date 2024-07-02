@@ -1,0 +1,60 @@
+{% extends "_base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Checkout" %}{% endblock title %}
+
+{% block content %}
+<div class="container mt-3">    
+    <h1 class="h1 border-bottom pb-3 border-light border-opacity-25">{% trans "Checkout" %} </h1>
+    <div class="order-info">
+        
+        <div class=''>
+            <table style="width:100%;">
+                <tr>
+                    <td style="width:50%;">
+                        <h3>{% trans "Add your information" %}</h3>
+                    </td>
+                    <td style="width:50%;">
+                        <h3>{% trans "Your order" %}</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:50%;">
+                        <form action="." method="post" class="order-form">
+                            {{ form|crispy }}
+                            <p><input class="btn btn3" type="submit" value="Place order"></p>
+                            {% csrf_token %}
+                        </form>
+                    </td>
+                    <td style="width:50%; vertical-align:top; padding-left: 18px;">
+                        <table class='card' style="border-color: #8B4513;">
+                            <tr class='card-header' style="background: #FFE4B5;">
+                                <th style="text-align: center;">{% trans "Item" %}</th>
+                                <th style="text-align: center;">{% trans "Quantity" %}</th>
+                                <th style="text-align: center;">{% trans "Price" %}</th>
+                            </tr>
+                            {% for item in cart %}
+                            <tr class='card-body'>
+                                <td style="padding-left: 5px;">{{ item.name }}</td>
+                                <td style="text-align: center;">{{ item.quantity }}</td>
+                                <td style="width:25%; text-align: end; padding-right: 5px;">{{ item.total_price }} RUB</td>
+                            </tr>
+                            {% endfor %}
+                            <tr class='card-footer' style="background: #FFE4B5;">
+                                <th style="text-align: center;">{% trans "Total" %}:</th>
+                                <th style="text-align: center;"></th>
+                                <th style="width:25%; text-align: end; padding-right: 5px;">{{ cart.get_total_price }} RUB</th>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        
+    </div>
+    
+</div>
+{% endblock content %}
