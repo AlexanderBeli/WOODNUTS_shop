@@ -14,7 +14,8 @@ RUN apt-get update \
     gcc \
     gettext \
     make \
-    wget
+    wget \
+    rabbitmq-server
 
 # Install dependencies
 COPY ./requirements.txt .

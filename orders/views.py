@@ -6,6 +6,7 @@ from cart.cart import Cart
 
 from .forms import OrderCreateForm
 from .models import OrderItem
+from .tasks import order_created
 
 
 # Create your views here.
@@ -22,6 +23,9 @@ def order_create(request):
                                          quantity=item['quantity'])
             # очистка корзины
             cart.clear()
+            # запуск асинхронной задачи
+            order_created.delay(order.id)
+            
             return render(request, 'order_created.html', {'order': order})
     else:
         form = OrderCreateForm
