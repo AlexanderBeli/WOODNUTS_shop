@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'imagekit',
     'crispy_forms',
     'crispy_bootstrap5',
+    'django_celery_results',
     # Locals
     'accounts',
     'dj.choices',
@@ -228,3 +229,9 @@ CART_SESSION_ID = 'cart'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
+CELERY_BACKEND = "rpc://"
+CELERY_TASK_TRACK_STARTED = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
+CELERY_RESULT_BACKEND = "django-db"
+CELERY_CACHE_BACKEND = "django-cache"
+CELERY_RESULT_EXTENDED = True

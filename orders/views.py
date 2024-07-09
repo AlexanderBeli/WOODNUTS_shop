@@ -1,3 +1,4 @@
+from django.db import transaction
 from django.forms.models import model_to_dict
 from django.shortcuts import render
 from django.utils import translation
@@ -24,6 +25,9 @@ def order_create(request):
             # очистка корзины
             cart.clear()
             # запуск асинхронной задачи
+            # transaction.on_commit(lambda: order_created.delay(order.id))
+            # order_created.delay_on_commit(order.id)
+            # transaction.on_commit(order.pk)
             order_created.delay(order.id)
             
             return render(request, 'order_created.html', {'order': order})
