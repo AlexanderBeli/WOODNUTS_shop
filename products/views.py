@@ -401,7 +401,7 @@ def all_products_view_for_clients(request):
                                     item_published_at 
                             FROM products_item;""")
  
-    paginator = Paginator(a, 3)
+    paginator = Paginator(a, 8)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'all_products_view_for_clients.html',{'page_obj': page_obj,

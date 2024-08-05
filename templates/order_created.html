@@ -1,6 +1,7 @@
 {% extends "_base.html" %}
 {% load static %}
 {% load i18n %}
+{% block script %} <script src="https://js.stripe.com/v3/"></script> {% endblock script%} 
 
 {% block title %}{% trans "Thank You!" %}{% endblock title %}
 
@@ -8,5 +9,12 @@
 <div class="container mt-3">    
     <h1 class="h1 border-bottom pb-3 border-light border-opacity-25">{% trans "Thank You!" %} </h1>
     <p>{% blocktranslate %}Your order has been successfully completed. Your order number is{% endblocktranslate %} <strong>{{ order.id }}</strong></p>
+    <section>
+        <p class="price">{{ order.get_total_cost }}</p>
+        <form action="{% url 'create-checkout-session' order.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">{% trans "Pay!" %}</button>
+        </form>
+    </section>
 </div>
 {% endblock content %}

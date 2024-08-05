@@ -1,0 +1,11 @@
+{% extends "_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Checkout canceled"%}{% endblock title %}
+
+{% block content %}
+<div class="container mt-3"> 
+    <h1 h1 class="h1 border-bottom pb-3 border-light border-opacity-25">{% trans "Checkout canceled"%}</h1>
+    <p>{% blocktranslate %}Forgot to add something to your cart? Shop around then come back to pay! {% endblocktranslate %}</p>
+</div>
+{% endblock content %}

@@ -21,10 +21,10 @@ from django.urls import include, path
 
 urlpatterns = i18n_patterns(
     path("admin/", admin.site.urls),
-    path('administrating/', include('products.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/', include('accounts.urls')),
-    path('cart/', include('cart.urls')),
-    path('order/', include('orders.urls')),
-    path('', include('pages.urls')),
+    path("administrating/", include("products.urls")),
+    path("accounts/", include("django.contrib.auth.urls")),
+    path("accounts/", include("accounts.urls")),
+    path("cart/", include("cart.urls")),
+    path("order/", include("orders.urls")),
+    path("", include("pages.urls")),
 )

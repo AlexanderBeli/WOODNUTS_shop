@@ -20,8 +20,6 @@ env = Env()
 env.read_env()
 
 
-
-
 # This is defined here as a do-nothing function because we can't import
 # django.utils.translation -- that module depends on the settings.
 def gettext_noop(s):
@@ -39,10 +37,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env.str("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG', default=False)
+DEBUG = env.bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = [".fly.dev", "localhost", "127.0.0.1"]
-CSRF_TRUSTED_ORIGINS = ['https://*.fly.dev']
+CSRF_TRUSTED_ORIGINS = ["https://*.fly.dev"]
 
 # Application definition
 
@@ -54,26 +52,27 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
-    'django.contrib.postgres',
+    "django.contrib.postgres",
     # Other apps
     "phonenumber_field",
-    'storages',
-    'imagekit',
-    'crispy_forms',
-    'crispy_bootstrap5',
-    'django_celery_results',
+    "storages",
+    "imagekit",
+    "crispy_forms",
+    "crispy_bootstrap5",
+    "django_celery_results",
     # Locals
-    'accounts',
-    'dj.choices',
-    'pages',
-    'products',
-    'cart',
-    'orders',
+    "accounts",
+    "dj.choices",
+    "pages",
+    "products",
+    "cart",
+    "orders",
+    "clientpayments",
     # Other apps
-    'django_cleanup.apps.CleanupConfig',
+    "django_cleanup.apps.CleanupConfig",
 ]
 
-AUTH_USER_MODEL = 'accounts.CustomUser'
+AUTH_USER_MODEL = "accounts.CustomUser"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -92,7 +91,7 @@ ROOT_URLCONF = "django_project.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / 'templates'],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -114,12 +113,11 @@ WSGI_APPLICATION = "django_project.wsgi.application"
 
 DATABASES = {
     "default": dj_database_url.config(
-        default='postgres://postgres@db/postgres',
+        default="postgres://postgres@db/postgres",
         conn_max_age=600,
-        ssl_require=env.bool('SSL_REQUIERED', default=True)
+        ssl_require=env.bool("SSL_REQUIERED", default=True),
     )
 }
-
 
 
 # Password validation
@@ -159,7 +157,7 @@ LANGUAGES = [
 # to load the internationalization machinery.
 USE_I18N = True
 LOCALE_PATHS = [
-    BASE_DIR / 'locale/',
+    BASE_DIR / "locale/",
 ]
 
 # Settings for language cookie
@@ -181,9 +179,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-#STATIC_URL = "static/"
+# STATIC_URL = "static/"
 
-STATICFILES_DIRS = [BASE_DIR / 'static']
+STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
@@ -197,36 +195,36 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AWS_ACCESS_KEY_ID = env.str("AWS_ACCESS_KEY_ID_DATA")
 AWS_SECRET_ACCESS_KEY = env.str("AWS_SECRET_ACCESS_KEY_DATA")
-AWS_STORAGE_BUCKET_NAME = 'woodnuts-static'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_STORAGE_BUCKET_NAME = "woodnuts-static"
+AWS_S3_CUSTOM_DOMAIN = "%s.s3.amazonaws.com" % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
+    "CacheControl": "max-age=86400",
 }
-AWS_LOCATION = 'static'
+AWS_LOCATION = "static"
 
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-DEFAULT_FILE_STORAGE = 'django_project.storage_backends.MediaStorage'
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+DEFAULT_FILE_STORAGE = "django_project.storage_backends.MediaStorage"
 
 
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"
 
-CURRENCIES = ('USD', 'EUR', 'RUB', 'CNY')
+CURRENCIES = ("USD", "EUR", "RUB", "CNY")
 CURRENCY_CHOICES = [
-    # ('USD', 'USD $'), 
-    # ('EUR', 'EUR €'), 
+    # ('USD', 'USD $'),
+    # ('EUR', 'EUR €'),
     # ('CNY', 'CNY ¥'),
-    ('RUB', 'RUB ₽') 
-    ]
+    ("RUB", "RUB ₽")
+]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-CART_SESSION_ID = 'cart'
+CART_SESSION_ID = "cart"
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 CELERY_BACKEND = "rpc://"
@@ -235,3 +233,9 @@ CELERY_TASK_TIME_LIMIT = 30 * 60
 CELERY_RESULT_BACKEND = "django-db"
 CELERY_CACHE_BACKEND = "django-cache"
 CELERY_RESULT_EXTENDED = True
+
+STRIPE_SECRET_KEY = env.str("STRIPE_SK")
+STRIPE_PUBLISHABLE_KEY = env.str("STRIPE_PK")
+
+PAYMENT_SUCCESS_URL = "paymentsuccess.html"
+PAYMENT_CANCEL_URL = "paymentcancel.html"
