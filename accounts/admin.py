@@ -17,12 +17,12 @@ class CustomUserAdmin(UserAdmin):
         "email",
         "is_superuser",
     ]
-    list_filter = ('is_active', 'is_admin', 'gender', "is_activated")
-    search_fields = ('username', 'email', 'first_name', 'last_name', "phone_number")
-    date_hierarchy = 'date_joined'
-    ordering = ['date_joined',"date_of_birth"]
+    list_filter = ("is_active", "is_admin", "gender", "is_activated")
+    search_fields = ("username", "email", "first_name", "last_name", "phone_number")
+    date_hierarchy = "date_joined"
+    ordering = ["date_joined", "date_of_birth"]
 
-    fieldsets = (
+    fieldsets = [
         (None, {"fields": ["username", "email", "password"]}),
         (
             "Personal info",
@@ -36,8 +36,8 @@ class CustomUserAdmin(UserAdmin):
                 ]
             },
         ),
-    )
-    add_fieldsets = (
+    ]
+    add_fieldsets = [
         (None, {"fields": ["username", "email", "password"]}),
         (
             "Personal info",
@@ -51,7 +51,7 @@ class CustomUserAdmin(UserAdmin):
                 ]
             },
         ),
-    )
+    ]
 
 
 admin.site.register(CustomUser, CustomUserAdmin)
