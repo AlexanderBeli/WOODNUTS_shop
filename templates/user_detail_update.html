@@ -1,0 +1,21 @@
+{% extends "_base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Edit" %}{% endblock title %}
+
+{% block content %}
+<div class="container mt-3">    
+    <h1 class="h1 border-bottom pb-3 border-light border-opacity-25">{% trans "Edit" %}</h1>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <center>
+            <button class="btn btn3" type="submit">{% trans "Update" %}</button>
+            <a href="{% url 'userinfo' user.pk %}" class="btn btn3">{% trans 'Back' %}</a>
+        </center>
+    </form>
+</div>
+
+{% endblock content%}

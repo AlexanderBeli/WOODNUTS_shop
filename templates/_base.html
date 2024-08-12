@@ -86,7 +86,7 @@
                                     <ul>
                                         <li><a style="cursor:pointer; text-decoration:none; color:#8B4513;" href="#">{% trans "My Order" %}</a></li>
                                         <li><a style="cursor:pointer; text-decoration:none; color:#8B4513;" href="#">{% trans "My Orders" %}</a></li>
-                                        <li><a style="cursor:pointer; text-decoration:none; color:#8B4513;" href="#">{% trans "My Personal Information" %}</a></li>
+                                        <li><a style="cursor:pointer; text-decoration:none; color:#8B4513;" href="{% url 'userinfo' user.pk %}">{% trans "My Personal Information" %}</a></li>
                                         {% if request.user|has_group:"Moderators_Starters" %}
                                         <li><a style="cursor:pointer; text-decoration:none; color:#8B4513;" href="{% url 'administrating' %}">{% trans "Site Management" %}</a></li>
                                         {% elif request.user|has_group:"Moderators_Full" %}

@@ -1,0 +1,57 @@
+{% extends "_base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "My Personal Information" %}{% endblock title %}
+
+{% block content %}
+<div class="container mt-3">    
+    <h1 class="h1 border-bottom pb-3 border-light border-opacity-25">{% trans "My Personal Information" %}</h1>
+    <div class="row">
+        <div class="col">
+            <p>
+                <label class="form-label" for="id_first_name">{% trans "First name"%}:</label>
+                <span type="text" class="form-control" name="first_name" maxlength="100" required="" id="id_first_name">{{ user.first_name }}</span>
+            </p>
+        </div>
+        <div class="col">  
+            <p>
+                <label class="form-label" for="id_last_name">{% trans 'Last name'%}:</label>
+                <span type="text" class="form-control" name="last_name" maxlength="100" required="" id="id_last_name">{{ user.last_name }}</span>
+            </p>
+        </div>
+        <div class="col">
+            <p>
+                <label class="form-label" for="id_date_of_birth">{% trans "Date of birth" %}:</label>
+                <span type="date" value="" class="form-control vDateField" name="date_of_birth" id="id_date_of_birth">{{ user.date_of_birth }}</span>
+            </p>
+        </div>  
+    </div>
+    <div class="row">
+        <div class="col">
+            <p>
+                <label class="form-label" for="id_username">{% trans "Username:" %}</label>
+                <span type="text" class="form-control" name="username" maxlength="100" autofocus="" required="" id="id_username">{{ user.username }}</span>            
+            </p> 
+        </div>
+        <div class="col">
+            <p>
+                <label class="form-label" for="id_email">{% trans 'Email address'%}:</label>
+                <span type="email" class="form-control" name="email" maxlength="255" required="" id="id_email">{{ user.email }}</span>
+            </p>
+        </div> 
+        <div class="col">
+            <p>
+                <label class="form-label" for="id_phone_number">{% trans 'Phone number'%}:</label>
+                <span type="tel" class="form-control" name="phone_number" maxlength="128" required="" id="id_phone_number">{{ user.phone_number }}</span>
+            </p>
+        </div> 
+           
+    </div> 
+    <center>
+        <a class="btn btn3" href="./edit/">{% trans "Change" %}</a>
+        <a class="btn btn3" href="#">{% trans "Change Password" %}</a>
+        <a class="btn btn3" href="{% url 'home' %}">{% trans "Home" %}</a>
+    </center>
+</div>  
+{% endblock content %}
