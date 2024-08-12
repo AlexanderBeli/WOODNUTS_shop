@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load auth_extras %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -86,7 +87,11 @@
                                         <li><a href="#">{% trans "My Order" %}</a></li>
                                         <li><a href="#">{% trans "My Orders" %}</a></li>
                                         <li><a href="#">{% trans "My Personal Information" %}</a></li>
+                                        {% if request.user|has_group:"Moderators_Starters" %}
                                         <li><a href="{% url 'administrating' %}">{% trans "Site Management" %}</a></li>
+                                        {% elif request.user|has_group:"Moderators_Full" %}
+                                        <li><a href="{% url 'administrating' %}">{% trans "Site Management" %}</a></li>
+                                        {% endif %}
                                     </ul>
                                     <center>
                                         <form action="{% url 'logout' %}" method="post">
