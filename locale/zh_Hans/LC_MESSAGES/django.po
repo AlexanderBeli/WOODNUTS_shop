@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-30 14:18+0000\n"
+"POT-Creation-Date: 2024-08-12 15:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: accounts/admin.py:29 accounts/admin.py:53
+msgid "Personal info"
+msgstr "个人信息"
+
+#: accounts/admin.py:41
+msgid "Permissions"
+msgstr ""
 
 #: accounts/apps.py:8
 msgid "accounts"
@@ -58,11 +66,11 @@ msgstr "性别"
 
 #: accounts/models.py:24
 msgid "passed activation?"
-msgstr ""
+msgstr "已通过激活? "
 
 #: accounts/models.py:25
 msgid "send significations about new comments"
-msgstr ""
+msgstr "发送有关新评论的信息"
 
 #: accounts/models.py:26
 msgid "phone number"
@@ -172,7 +180,7 @@ msgstr ""
 msgid "United Nations"
 msgstr ""
 
-#: dj/choices/__init__.py:695 django_project/settings.py:152
+#: dj/choices/__init__.py:695 django_project/settings.py:151
 msgid "English"
 msgstr "英语"
 
@@ -184,7 +192,7 @@ msgstr ""
 msgid "American English"
 msgstr ""
 
-#: dj/choices/__init__.py:801 django_project/settings.py:153
+#: dj/choices/__init__.py:801 django_project/settings.py:152
 msgid "Russian"
 msgstr "俄语"
 
@@ -192,7 +200,7 @@ msgstr "俄语"
 msgid "Chinese"
 msgstr "中文"
 
-#: dj/choices/__init__.py:853 django_project/settings.py:154
+#: dj/choices/__init__.py:853 django_project/settings.py:153
 msgid "Simplified Chinese"
 msgstr "中文"
 
@@ -293,8 +301,6 @@ msgid "Toxic waste green"
 msgstr ""
 
 #: orders/apps.py:8 orders/models.py:21
-#, fuzzy
-#| msgid "My Orders"
 msgid "orders"
 msgstr "订货历史"
 
@@ -319,24 +325,18 @@ msgid "created"
 msgstr ""
 
 #: orders/models.py:16
-#, fuzzy
-#| msgid "Update"
 msgid "updated"
 msgstr "更新"
 
 #: orders/models.py:17
 msgid "paid"
-msgstr ""
+msgstr "已付的"
 
 #: orders/models.py:20 orders/models.py:32
-#, fuzzy
-#| msgid "My Order"
 msgid "order"
 msgstr "订货"
 
-#: orders/models.py:25
-#, fuzzy
-#| msgid "My Order"
+#: orders/models.py:25 orders/tasks.py:14
 msgid "Order"
 msgstr "订货"
 
@@ -345,24 +345,32 @@ msgid "item"
 msgstr "商品"
 
 #: orders/models.py:34
-#, fuzzy
-#| msgid "Price"
 msgid "price"
 msgstr "价格"
 
 #: orders/models.py:35
 msgid "quantity"
-msgstr ""
+msgstr "数量"
 
 #: orders/models.py:38
 msgid "order item"
-msgstr ""
+msgstr "订购商品"
 
 #: orders/models.py:39
-#, fuzzy
-#| msgid "More Items"
 msgid "order items"
-msgstr "更多商品"
+msgstr "订购商品"
+
+#: orders/tasks.py:15
+msgid "Dear "
+msgstr "尊重的 "
+
+#: orders/tasks.py:15
+msgid "You have successfully placed an order."
+msgstr "您已成功下订单。"
+
+#: orders/tasks.py:15
+msgid "Your order id is "
+msgstr "您的订单编号是 "
 
 #: products/apps.py:8
 msgid "products"
@@ -386,15 +394,15 @@ msgstr "畅销品"
 
 #: products/models.py:26
 msgid "Unknown"
-msgstr ""
+msgstr "未知"
 
 #: products/models.py:27
 msgid "In Stock"
-msgstr ""
+msgstr "有"
 
 #: products/models.py:28
 msgid "Not In Stock"
-msgstr ""
+msgstr "没有"
 
 #: products/models.py:30
 msgid "item number"
@@ -476,156 +484,158 @@ msgstr "汉语品类名称"
 msgid "categories"
 msgstr "品类"
 
-#: templates/_base.html:10 templates/home.html:5
+#: templates/_base.html:11 templates/home.html:5
 msgid "WOODNUTS"
 msgstr "森林坚果"
 
-#: templates/_base.html:38
+#: templates/_base.html:39
 msgid "About"
 msgstr "关于我们"
 
-#: templates/_base.html:41
+#: templates/_base.html:42
 msgid "Shop"
 msgstr "网店"
 
-#: templates/_base.html:44 templates/all_products_view_for_clients.html:5
+#: templates/_base.html:45 templates/all_products_view_for_clients.html:5
 #: templates/all_products_view_for_clients.html:10
+#: templates/cart_detail.html:59
 msgid "All Products"
 msgstr "商品"
 
-#: templates/_base.html:47 templates/category_itemslist_forclients.html:5
+#: templates/_base.html:48 templates/category_itemslist_forclients.html:5
 #: templates/category_itemslist_forclients.html:11
 #: templates/categorylist.html:5 templates/categorylist.html:9
 #: templates/item_detail_client_page.html:50
 msgid "Popular Items"
 msgstr "品类"
 
-#: templates/_base.html:48 templates/_base.html:196 templates/delivery.html:4
+#: templates/_base.html:49 templates/_base.html:201 templates/delivery.html:4
 #: templates/delivery.html:8
 msgid "Delivery"
 msgstr "送货"
 
-#: templates/_base.html:49 templates/_base.html:197 templates/payments.html:4
+#: templates/_base.html:50 templates/_base.html:202 templates/payments.html:4
 #: templates/payments.html:8
 msgid "Payments"
 msgstr "款式"
 
-#: templates/_base.html:50 templates/policy.html:4 templates/policy.html:8
+#: templates/_base.html:51 templates/policy.html:4 templates/policy.html:8
 msgid "Refunds &#38; Returns Policy"
 msgstr "退款政策"
 
-#: templates/_base.html:51 templates/_base.html:198 templates/clients.html:4
+#: templates/_base.html:52 templates/_base.html:203 templates/clients.html:4
 #: templates/clients.html:8
 msgid "Our Clients"
 msgstr "我们客户"
 
-#: templates/_base.html:55 templates/contactuspage.html:4
+#: templates/_base.html:56 templates/contactuspage.html:4
 msgid "Contact Us"
 msgstr "联系我们"
 
-#: templates/_base.html:87
+#: templates/_base.html:88
 msgid "My Order"
 msgstr "订货"
 
-#: templates/_base.html:88
+#: templates/_base.html:89
 msgid "My Orders"
 msgstr "订货历史"
 
-#: templates/_base.html:89
+#: templates/_base.html:90
 msgid "My Personal Information"
 msgstr "个人信息"
 
-#: templates/_base.html:90 templates/manager.html:4 templates/manager.html:8
+#: templates/_base.html:92 templates/_base.html:94 templates/manager.html:4
+#: templates/manager.html:8
 msgid "Site Management"
 msgstr "网站管理"
 
-#: templates/_base.html:95
+#: templates/_base.html:100
 msgid "Log Out"
 msgstr "退出"
 
-#: templates/_base.html:103 templates/registration/login.html:11
+#: templates/_base.html:108 templates/registration/login.html:11
 #: templates/registration/signup.html:53
 msgid "Username:"
 msgstr "用户"
 
-#: templates/_base.html:107
+#: templates/_base.html:112
 msgid "Password:"
 msgstr "密码"
 
-#: templates/_base.html:111
+#: templates/_base.html:116
 msgid "Sign In"
 msgstr "登录"
 
-#: templates/_base.html:112 templates/registration/signup.html:4
+#: templates/_base.html:117 templates/registration/signup.html:4
 #: templates/registration/signup.html:17 templates/registration/signup.html:85
 msgid "Sign Up"
 msgstr "注册"
 
-#: templates/_base.html:141 templates/item_all.html:15
+#: templates/_base.html:146 templates/item_all.html:15
 msgid "Search"
 msgstr "🔍"
 
-#: templates/_base.html:162 templates/_base.html:249
+#: templates/_base.html:167 templates/_base.html:254
 msgid "WOOD NUTS"
 msgstr "森林 坚果"
 
-#: templates/_base.html:166
+#: templates/_base.html:171
 msgid "123 Consectetur at ligula 10660"
 msgstr "中国，北京， 123路，23"
 
-#: templates/_base.html:170
+#: templates/_base.html:175
 msgid "010-020-0340"
 msgstr "+86 183 7777 6666"
 
-#: templates/_base.html:180
+#: templates/_base.html:185
 msgid "Products"
 msgstr "商品"
 
-#: templates/_base.html:192
+#: templates/_base.html:197
 msgid "Nuts"
 msgstr "坚果"
 
-#: templates/_base.html:193
+#: templates/_base.html:198
 msgid "Dried Fruits"
 msgstr "干果"
 
-#: templates/_base.html:194
+#: templates/_base.html:199
 msgid "East Delight"
 msgstr "东方特色"
 
-#: templates/_base.html:195
+#: templates/_base.html:200
 msgid "Spices"
 msgstr "调料"
 
-#: templates/_base.html:203
+#: templates/_base.html:208
 msgid "Further Info"
 msgstr "更多信息"
 
-#: templates/_base.html:205
+#: templates/_base.html:210
 msgid "Home"
 msgstr "主页"
 
-#: templates/_base.html:206 templates/about.html:4 templates/about.html:8
+#: templates/_base.html:211 templates/about.html:4 templates/about.html:8
 msgid "About Us"
 msgstr "关于我们"
 
-#: templates/_base.html:207
+#: templates/_base.html:212
 msgid "Shop Locations"
 msgstr "商店地址"
 
-#: templates/_base.html:208 templates/faq.html:4 templates/faq.html:8
+#: templates/_base.html:213 templates/faq.html:4 templates/faq.html:8
 msgid "FAQs"
 msgstr "问答"
 
-#: templates/_base.html:209
+#: templates/_base.html:214
 msgid "Contact "
 msgstr "联系我们"
 
-#: templates/_base.html:238
+#: templates/_base.html:243
 msgid "Subscribe"
 msgstr "订阅"
 
-#: templates/_base.html:249
+#: templates/_base.html:254
 msgid "Copyright © 2024"
 msgstr ""
 
@@ -678,61 +688,63 @@ msgstr "最后"
 msgid "Add to cart"
 msgstr "我想要"
 
-#: templates/cart_detail.html:5 templates/order_created.html:5
+#: templates/cart_detail.html:5
 msgid "Cart"
-msgstr ""
+msgstr "购物篮"
 
 #: templates/cart_detail.html:9
 msgid "Your shopping cart"
-msgstr ""
+msgstr "你的购物篮"
 
-#: templates/cart_detail.html:20
+#: templates/cart_detail.html:21
 msgid "Image"
-msgstr ""
+msgstr "图片"
 
-#: templates/cart_detail.html:21 templates/item_detail.html:5
-#: templates/item_detail_client_page.html:5
+#: templates/cart_detail.html:22 templates/item_detail.html:5
+#: templates/item_detail_client_page.html:5 templates/order_create.html:34
 msgid "Item"
 msgstr "商品"
 
-#: templates/cart_detail.html:22
+#: templates/cart_detail.html:23 templates/order_create.html:35
 msgid "Quantity"
-msgstr ""
+msgstr "数量"
 
-#: templates/cart_detail.html:23 templates/cart_detail.html:36
+#: templates/cart_detail.html:24 templates/cart_detail.html:37
 msgid "Remove"
-msgstr ""
+msgstr "删除"
 
-#: templates/cart_detail.html:24
-#, fuzzy
-#| msgid "item price"
+#: templates/cart_detail.html:25
 msgid "Unit price"
 msgstr "价格"
 
-#: templates/cart_detail.html:25 templates/item_all.html:57
-#: templates/item_detail.html:68
+#: templates/cart_detail.html:26 templates/item_all.html:57
+#: templates/item_detail.html:68 templates/order_create.html:36
 msgid "Price"
 msgstr "价格"
 
-#: templates/cart_detail.html:44
+#: templates/cart_detail.html:45 templates/order_create.html:46
 msgid "Total"
-msgstr ""
+msgstr "全部"
 
-#: templates/cart_detail.html:53
+#: templates/cart_detail.html:54
 msgid "Continue Shopping"
-msgstr ""
+msgstr "继续购物"
 
-#: templates/cart_detail.html:54 templates/order_create.html:5
-#: templates/order_create.html:9
+#: templates/cart_detail.html:55 templates/order_create.html:6
+#: templates/order_create.html:10
 msgid "Checkout"
-msgstr ""
+msgstr "下订单"
+
+#: templates/cart_detail.html:59
+msgid "You haven't ordered anything yet. Your cart is empty. Please add items."
+msgstr "您还未订购任何商品。您的购物车是空的。请添加商品。"
 
 #: templates/category_all.html:5 templates/category_all.html:9
-#: templates/manager.html:11
+#: templates/manager.html:12
 msgid "Category List"
 msgstr "品类列表"
 
-#: templates/category_all.html:9 templates/manager.html:12
+#: templates/category_all.html:9 templates/manager.html:15
 msgid "Add Category"
 msgstr "加品类"
 
@@ -852,26 +864,26 @@ msgid "Next"
 msgstr "下一个"
 
 #: templates/item_all.html:5 templates/item_all.html:9
-#: templates/manager.html:15
+#: templates/manager.html:20
 msgid "Item List"
 msgstr "商品列表"
 
 #: templates/item_all.html:9 templates/item_detail.html:9
-#: templates/manager.html:16
+#: templates/manager.html:23
 msgid "Add Item"
 msgstr "加商品"
 
 #: templates/item_all.html:11
 msgid "You can search by any category or item now. "
-msgstr ""
+msgstr "您现在可以按任何类别或项目进行搜索。"
 
 #: templates/item_all.html:14
 msgid "Search by Category, by Name, by Price or by Description"
-msgstr ""
+msgstr "按类别、名称、价格或说明搜索"
 
 #: templates/item_all.html:14
 msgid "Search by Category or by Name"
-msgstr ""
+msgstr "按类别或名称搜索"
 
 #: templates/item_all.html:49 templates/item_detail.html:20
 msgid "Item Name in Russian"
@@ -904,7 +916,7 @@ msgstr "更多信息"
 #: templates/item_all.html:91 templates/search_results.html:93
 msgid ""
 "Are you searching any item? Please check what you typped into search bar. "
-msgstr ""
+msgstr "您正在搜索任何商品吗？请检查您在搜索栏中输入的内容。"
 
 #: templates/item_detail.html:53
 msgid "Item Extra Tag"
@@ -921,6 +933,43 @@ msgstr "新价格"
 #: templates/manager.html:9
 msgid "Hello"
 msgstr "你好，"
+
+#: templates/order_create.html:17
+msgid "Add your information"
+msgstr "添加你的信息"
+
+#: templates/order_create.html:20
+msgid "Your order"
+msgstr "订货"
+
+#: templates/order_created.html:6 templates/order_created.html:10
+msgid "Thank You!"
+msgstr "非常感谢！"
+
+#: templates/order_created.html:11
+msgid "Your order has been successfully completed. Your order number is"
+msgstr "您的订单已成功完成。您的订单号是 "
+
+#: templates/order_created.html:16
+msgid "Pay!"
+msgstr "付款"
+
+#: templates/paymentcancel.html:4 templates/paymentcancel.html:8
+msgid "Checkout canceled"
+msgstr "结帐已取消"
+
+#: templates/paymentcancel.html:9
+msgid ""
+"Forgot to add something to your cart? Shop around then come back to pay! "
+msgstr "忘记添加一些东西到您的购物车？添加产品，然后下订单！"
+
+#: templates/paymentsuccess.html:4 templates/paymentsuccess.html:8
+msgid "Payment Successful"
+msgstr "付款成功"
+
+#: templates/paymentsuccess.html:9
+msgid "We appreciate your business! Thanks for your order! "
+msgstr "感谢您的惠顾！感谢您的订购！"
 
 #: templates/registration/login.html:4 templates/registration/login.html:7
 #: templates/registration/login.html:18
@@ -960,10 +1009,8 @@ msgid "Password confirmation"
 msgstr "重复密码"
 
 #: templates/search_results.html:5 templates/search_results.html:10
-#, fuzzy
-#| msgid "Search"
 msgid "Search Results"
-msgstr "🔍"
+msgstr "搜索结果"
 
 #~ msgid "View options"
 #~ msgstr "查看选项"

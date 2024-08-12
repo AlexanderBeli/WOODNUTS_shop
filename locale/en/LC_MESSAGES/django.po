@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-30 14:18+0000\n"
+"POT-Creation-Date: 2024-08-12 15:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: accounts/admin.py:29 accounts/admin.py:53
+#, fuzzy
+#| msgid "My Personal Information"
+msgid "Personal info"
+msgstr "My Personal Information"
+
+#: accounts/admin.py:41
+msgid "Permissions"
+msgstr ""
 
 #: accounts/apps.py:8
 msgid "accounts"
@@ -173,7 +183,7 @@ msgstr ""
 msgid "United Nations"
 msgstr ""
 
-#: dj/choices/__init__.py:695 django_project/settings.py:152
+#: dj/choices/__init__.py:695 django_project/settings.py:151
 msgid "English"
 msgstr "English"
 
@@ -185,7 +195,7 @@ msgstr ""
 msgid "American English"
 msgstr ""
 
-#: dj/choices/__init__.py:801 django_project/settings.py:153
+#: dj/choices/__init__.py:801 django_project/settings.py:152
 msgid "Russian"
 msgstr "Russian"
 
@@ -193,7 +203,7 @@ msgstr "Russian"
 msgid "Chinese"
 msgstr "Chinese"
 
-#: dj/choices/__init__.py:853 django_project/settings.py:154
+#: dj/choices/__init__.py:853 django_project/settings.py:153
 msgid "Simplified Chinese"
 msgstr "Chinese"
 
@@ -333,7 +343,7 @@ msgstr ""
 msgid "order"
 msgstr "My Order"
 
-#: orders/models.py:25
+#: orders/models.py:25 orders/tasks.py:14
 #, fuzzy
 #| msgid "My Order"
 msgid "Order"
@@ -360,6 +370,18 @@ msgstr ""
 #| msgid "Popular Items"
 msgid "order items"
 msgstr "Popular Items"
+
+#: orders/tasks.py:15
+msgid "Dear "
+msgstr ""
+
+#: orders/tasks.py:15
+msgid "You have successfully placed an order."
+msgstr ""
+
+#: orders/tasks.py:15
+msgid "Your order id is "
+msgstr ""
 
 #: products/apps.py:8
 #, fuzzy
@@ -481,156 +503,158 @@ msgstr ""
 msgid "categories"
 msgstr "Add to cart"
 
-#: templates/_base.html:10 templates/home.html:5
+#: templates/_base.html:11 templates/home.html:5
 msgid "WOODNUTS"
 msgstr "WOODNUTS"
 
-#: templates/_base.html:38
+#: templates/_base.html:39
 msgid "About"
 msgstr "About"
 
-#: templates/_base.html:41
+#: templates/_base.html:42
 msgid "Shop"
 msgstr "Shop"
 
-#: templates/_base.html:44 templates/all_products_view_for_clients.html:5
+#: templates/_base.html:45 templates/all_products_view_for_clients.html:5
 #: templates/all_products_view_for_clients.html:10
+#: templates/cart_detail.html:59
 msgid "All Products"
 msgstr "All Products"
 
-#: templates/_base.html:47 templates/category_itemslist_forclients.html:5
+#: templates/_base.html:48 templates/category_itemslist_forclients.html:5
 #: templates/category_itemslist_forclients.html:11
 #: templates/categorylist.html:5 templates/categorylist.html:9
 #: templates/item_detail_client_page.html:50
 msgid "Popular Items"
 msgstr "Popular Items"
 
-#: templates/_base.html:48 templates/_base.html:196 templates/delivery.html:4
+#: templates/_base.html:49 templates/_base.html:201 templates/delivery.html:4
 #: templates/delivery.html:8
 msgid "Delivery"
 msgstr "Delivery"
 
-#: templates/_base.html:49 templates/_base.html:197 templates/payments.html:4
+#: templates/_base.html:50 templates/_base.html:202 templates/payments.html:4
 #: templates/payments.html:8
 msgid "Payments"
 msgstr "Payments"
 
-#: templates/_base.html:50 templates/policy.html:4 templates/policy.html:8
+#: templates/_base.html:51 templates/policy.html:4 templates/policy.html:8
 msgid "Refunds &#38; Returns Policy"
 msgstr "Refunds &#38; Returns Policy"
 
-#: templates/_base.html:51 templates/_base.html:198 templates/clients.html:4
+#: templates/_base.html:52 templates/_base.html:203 templates/clients.html:4
 #: templates/clients.html:8
 msgid "Our Clients"
 msgstr "Our Clients"
 
-#: templates/_base.html:55 templates/contactuspage.html:4
+#: templates/_base.html:56 templates/contactuspage.html:4
 msgid "Contact Us"
 msgstr "Contact Us"
 
-#: templates/_base.html:87
+#: templates/_base.html:88
 msgid "My Order"
 msgstr "My Order"
 
-#: templates/_base.html:88
+#: templates/_base.html:89
 msgid "My Orders"
 msgstr "My Orders"
 
-#: templates/_base.html:89
+#: templates/_base.html:90
 msgid "My Personal Information"
 msgstr "My Personal Information"
 
-#: templates/_base.html:90 templates/manager.html:4 templates/manager.html:8
+#: templates/_base.html:92 templates/_base.html:94 templates/manager.html:4
+#: templates/manager.html:8
 msgid "Site Management"
 msgstr ""
 
-#: templates/_base.html:95
+#: templates/_base.html:100
 msgid "Log Out"
 msgstr "Log Out"
 
-#: templates/_base.html:103 templates/registration/login.html:11
+#: templates/_base.html:108 templates/registration/login.html:11
 #: templates/registration/signup.html:53
 msgid "Username:"
 msgstr "Username:"
 
-#: templates/_base.html:107
+#: templates/_base.html:112
 msgid "Password:"
 msgstr "Password:"
 
-#: templates/_base.html:111
+#: templates/_base.html:116
 msgid "Sign In"
 msgstr "Sign In"
 
-#: templates/_base.html:112 templates/registration/signup.html:4
+#: templates/_base.html:117 templates/registration/signup.html:4
 #: templates/registration/signup.html:17 templates/registration/signup.html:85
 msgid "Sign Up"
 msgstr "Sign Up"
 
-#: templates/_base.html:141 templates/item_all.html:15
+#: templates/_base.html:146 templates/item_all.html:15
 msgid "Search"
 msgstr "Search"
 
-#: templates/_base.html:162 templates/_base.html:249
+#: templates/_base.html:167 templates/_base.html:254
 msgid "WOOD NUTS"
 msgstr "WOOD NUTS"
 
-#: templates/_base.html:166
+#: templates/_base.html:171
 msgid "123 Consectetur at ligula 10660"
 msgstr "123 Consectetur at ligula 10660"
 
-#: templates/_base.html:170
+#: templates/_base.html:175
 msgid "010-020-0340"
 msgstr "010-020-0340"
 
-#: templates/_base.html:180
+#: templates/_base.html:185
 msgid "Products"
 msgstr "Products"
 
-#: templates/_base.html:192
+#: templates/_base.html:197
 msgid "Nuts"
 msgstr "Nuts"
 
-#: templates/_base.html:193
+#: templates/_base.html:198
 msgid "Dried Fruits"
 msgstr "Dried Fruits"
 
-#: templates/_base.html:194
+#: templates/_base.html:199
 msgid "East Delight"
 msgstr "East Delight"
 
-#: templates/_base.html:195
+#: templates/_base.html:200
 msgid "Spices"
 msgstr "Spices"
 
-#: templates/_base.html:203
+#: templates/_base.html:208
 msgid "Further Info"
 msgstr "Further Info"
 
-#: templates/_base.html:205
+#: templates/_base.html:210
 msgid "Home"
 msgstr "Home"
 
-#: templates/_base.html:206 templates/about.html:4 templates/about.html:8
+#: templates/_base.html:211 templates/about.html:4 templates/about.html:8
 msgid "About Us"
 msgstr "About Us"
 
-#: templates/_base.html:207
+#: templates/_base.html:212
 msgid "Shop Locations"
 msgstr "Shop Locations"
 
-#: templates/_base.html:208 templates/faq.html:4 templates/faq.html:8
+#: templates/_base.html:213 templates/faq.html:4 templates/faq.html:8
 msgid "FAQs"
 msgstr "FAQs"
 
-#: templates/_base.html:209
+#: templates/_base.html:214
 msgid "Contact "
 msgstr "Contact "
 
-#: templates/_base.html:238
+#: templates/_base.html:243
 msgid "Subscribe"
 msgstr "Subscribe"
 
-#: templates/_base.html:249
+#: templates/_base.html:254
 msgid "Copyright © 2024"
 msgstr "Copyright © 2024"
 
@@ -685,7 +709,7 @@ msgstr ""
 msgid "Add to cart"
 msgstr "Add to cart"
 
-#: templates/cart_detail.html:5 templates/order_created.html:5
+#: templates/cart_detail.html:5
 msgid "Cart"
 msgstr ""
 
@@ -693,51 +717,55 @@ msgstr ""
 msgid "Your shopping cart"
 msgstr ""
 
-#: templates/cart_detail.html:20
+#: templates/cart_detail.html:21
 msgid "Image"
 msgstr ""
 
-#: templates/cart_detail.html:21 templates/item_detail.html:5
-#: templates/item_detail_client_page.html:5
+#: templates/cart_detail.html:22 templates/item_detail.html:5
+#: templates/item_detail_client_page.html:5 templates/order_create.html:34
 msgid "Item"
 msgstr ""
 
-#: templates/cart_detail.html:22
+#: templates/cart_detail.html:23 templates/order_create.html:35
 msgid "Quantity"
 msgstr ""
 
-#: templates/cart_detail.html:23 templates/cart_detail.html:36
+#: templates/cart_detail.html:24 templates/cart_detail.html:37
 msgid "Remove"
 msgstr ""
 
-#: templates/cart_detail.html:24
+#: templates/cart_detail.html:25
 msgid "Unit price"
 msgstr ""
 
-#: templates/cart_detail.html:25 templates/item_all.html:57
-#: templates/item_detail.html:68
+#: templates/cart_detail.html:26 templates/item_all.html:57
+#: templates/item_detail.html:68 templates/order_create.html:36
 msgid "Price"
 msgstr ""
 
-#: templates/cart_detail.html:44
+#: templates/cart_detail.html:45 templates/order_create.html:46
 msgid "Total"
 msgstr ""
 
-#: templates/cart_detail.html:53
+#: templates/cart_detail.html:54
 msgid "Continue Shopping"
 msgstr ""
 
-#: templates/cart_detail.html:54 templates/order_create.html:5
-#: templates/order_create.html:9
+#: templates/cart_detail.html:55 templates/order_create.html:6
+#: templates/order_create.html:10
 msgid "Checkout"
 msgstr ""
 
+#: templates/cart_detail.html:59
+msgid "You haven't ordered anything yet. Your cart is empty. Please add items."
+msgstr ""
+
 #: templates/category_all.html:5 templates/category_all.html:9
-#: templates/manager.html:11
+#: templates/manager.html:12
 msgid "Category List"
 msgstr ""
 
-#: templates/category_all.html:9 templates/manager.html:12
+#: templates/category_all.html:9 templates/manager.html:15
 msgid "Add Category"
 msgstr ""
 
@@ -865,12 +893,12 @@ msgid "Next"
 msgstr "Next"
 
 #: templates/item_all.html:5 templates/item_all.html:9
-#: templates/manager.html:15
+#: templates/manager.html:20
 msgid "Item List"
 msgstr ""
 
 #: templates/item_all.html:9 templates/item_detail.html:9
-#: templates/manager.html:16
+#: templates/manager.html:23
 msgid "Add Item"
 msgstr ""
 
@@ -935,6 +963,49 @@ msgstr ""
 
 #: templates/manager.html:9
 msgid "Hello"
+msgstr ""
+
+#: templates/order_create.html:17
+#, fuzzy
+#| msgid "My Personal Information"
+msgid "Add your information"
+msgstr "My Personal Information"
+
+#: templates/order_create.html:20
+#, fuzzy
+#| msgid "My Order"
+msgid "Your order"
+msgstr "My Order"
+
+#: templates/order_created.html:6 templates/order_created.html:10
+msgid "Thank You!"
+msgstr ""
+
+#: templates/order_created.html:11
+msgid "Your order has been successfully completed. Your order number is"
+msgstr ""
+
+#: templates/order_created.html:16
+msgid "Pay!"
+msgstr ""
+
+#: templates/paymentcancel.html:4 templates/paymentcancel.html:8
+msgid "Checkout canceled"
+msgstr ""
+
+#: templates/paymentcancel.html:9
+msgid ""
+"Forgot to add something to your cart? Shop around then come back to pay! "
+msgstr ""
+
+#: templates/paymentsuccess.html:4 templates/paymentsuccess.html:8
+#, fuzzy
+#| msgid "Payments"
+msgid "Payment Successful"
+msgstr "Payments"
+
+#: templates/paymentsuccess.html:9
+msgid "We appreciate your business! Thanks for your order! "
 msgstr ""
 
 #: templates/registration/login.html:4 templates/registration/login.html:7

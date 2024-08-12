@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-30 14:18+0000\n"
+"POT-Creation-Date: 2024-08-12 15:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,16 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: accounts/admin.py:29 accounts/admin.py:53
+#, fuzzy
+#| msgid "My Personal Information"
+msgid "Personal info"
+msgstr "Личные данные"
+
+#: accounts/admin.py:41
+msgid "Permissions"
+msgstr ""
 
 #: accounts/apps.py:8
 msgid "accounts"
@@ -61,11 +71,11 @@ msgstr "пол"
 
 #: accounts/models.py:24
 msgid "passed activation?"
-msgstr ""
+msgstr "прошел активацию?"
 
 #: accounts/models.py:25
 msgid "send significations about new comments"
-msgstr ""
+msgstr "отправлять сообщения о новых комментариях"
 
 #: accounts/models.py:26
 msgid "phone number"
@@ -175,7 +185,7 @@ msgstr ""
 msgid "United Nations"
 msgstr ""
 
-#: dj/choices/__init__.py:695 django_project/settings.py:152
+#: dj/choices/__init__.py:695 django_project/settings.py:151
 msgid "English"
 msgstr "Английский"
 
@@ -187,7 +197,7 @@ msgstr ""
 msgid "American English"
 msgstr ""
 
-#: dj/choices/__init__.py:801 django_project/settings.py:153
+#: dj/choices/__init__.py:801 django_project/settings.py:152
 msgid "Russian"
 msgstr "Русский"
 
@@ -195,7 +205,7 @@ msgstr "Русский"
 msgid "Chinese"
 msgstr "Китайский"
 
-#: dj/choices/__init__.py:853 django_project/settings.py:154
+#: dj/choices/__init__.py:853 django_project/settings.py:153
 msgid "Simplified Chinese"
 msgstr "Китайский"
 
@@ -296,10 +306,8 @@ msgid "Toxic waste green"
 msgstr ""
 
 #: orders/apps.py:8 orders/models.py:21
-#, fuzzy
-#| msgid "My Orders"
 msgid "orders"
-msgstr "Мои заказы"
+msgstr "заказы"
 
 #: orders/models.py:11
 msgid "email"
@@ -329,47 +337,51 @@ msgstr "Обновить"
 
 #: orders/models.py:17
 msgid "paid"
-msgstr ""
+msgstr "оплачено"
 
 #: orders/models.py:20 orders/models.py:32
-#, fuzzy
-#| msgid "My Order"
 msgid "order"
-msgstr "Мой заказ"
+msgstr "заказ"
 
-#: orders/models.py:25
-#, fuzzy
-#| msgid "My Order"
+#: orders/models.py:25 orders/tasks.py:14
 msgid "Order"
-msgstr "Мой заказ"
+msgstr "Заказ"
 
 #: orders/models.py:33 products/models.py:87
 msgid "item"
 msgstr "товар"
 
 #: orders/models.py:34
-#, fuzzy
-#| msgid "Price"
 msgid "price"
-msgstr "Цена"
+msgstr "цена"
 
 #: orders/models.py:35
 msgid "quantity"
-msgstr ""
+msgstr "количество"
 
 #: orders/models.py:38
 msgid "order item"
-msgstr ""
+msgstr "заказать товар"
 
 #: orders/models.py:39
-#, fuzzy
-#| msgid "More Items"
 msgid "order items"
-msgstr "Больше товаров"
+msgstr "заказать товары"
+
+#: orders/tasks.py:15
+msgid "Dear "
+msgstr "Дорогой "
+
+#: orders/tasks.py:15
+msgid "You have successfully placed an order."
+msgstr "Вы успешно разместили заказ."
+
+#: orders/tasks.py:15
+msgid "Your order id is "
+msgstr "Ваш номер заказа "
 
 #: products/apps.py:8
 msgid "products"
-msgstr "Продукты"
+msgstr "продукты"
 
 #: products/models.py:22
 msgid "Fancy Product"
@@ -389,15 +401,15 @@ msgstr "ХИТ ПРОДАЖ"
 
 #: products/models.py:26
 msgid "Unknown"
-msgstr ""
+msgstr "Неизвестно"
 
 #: products/models.py:27
 msgid "In Stock"
-msgstr ""
+msgstr "В наличии"
 
 #: products/models.py:28
 msgid "Not In Stock"
-msgstr ""
+msgstr "Не в наличии"
 
 #: products/models.py:30
 msgid "item number"
@@ -479,156 +491,158 @@ msgstr "наименование категории на китайском яз
 msgid "categories"
 msgstr "категории"
 
-#: templates/_base.html:10 templates/home.html:5
+#: templates/_base.html:11 templates/home.html:5
 msgid "WOODNUTS"
 msgstr "ЛЕСНОЙ ОРЕХ"
 
-#: templates/_base.html:38
+#: templates/_base.html:39
 msgid "About"
 msgstr "О нас"
 
-#: templates/_base.html:41
+#: templates/_base.html:42
 msgid "Shop"
 msgstr "Магазин"
 
-#: templates/_base.html:44 templates/all_products_view_for_clients.html:5
+#: templates/_base.html:45 templates/all_products_view_for_clients.html:5
 #: templates/all_products_view_for_clients.html:10
+#: templates/cart_detail.html:59
 msgid "All Products"
 msgstr "Все продукты"
 
-#: templates/_base.html:47 templates/category_itemslist_forclients.html:5
+#: templates/_base.html:48 templates/category_itemslist_forclients.html:5
 #: templates/category_itemslist_forclients.html:11
 #: templates/categorylist.html:5 templates/categorylist.html:9
 #: templates/item_detail_client_page.html:50
 msgid "Popular Items"
 msgstr "Категории товаров"
 
-#: templates/_base.html:48 templates/_base.html:196 templates/delivery.html:4
+#: templates/_base.html:49 templates/_base.html:201 templates/delivery.html:4
 #: templates/delivery.html:8
 msgid "Delivery"
 msgstr "Доставка"
 
-#: templates/_base.html:49 templates/_base.html:197 templates/payments.html:4
+#: templates/_base.html:50 templates/_base.html:202 templates/payments.html:4
 #: templates/payments.html:8
 msgid "Payments"
 msgstr "Оплата"
 
-#: templates/_base.html:50 templates/policy.html:4 templates/policy.html:8
+#: templates/_base.html:51 templates/policy.html:4 templates/policy.html:8
 msgid "Refunds &#38; Returns Policy"
 msgstr "Возврат товара"
 
-#: templates/_base.html:51 templates/_base.html:198 templates/clients.html:4
+#: templates/_base.html:52 templates/_base.html:203 templates/clients.html:4
 #: templates/clients.html:8
 msgid "Our Clients"
 msgstr "Наши клиенты"
 
-#: templates/_base.html:55 templates/contactuspage.html:4
+#: templates/_base.html:56 templates/contactuspage.html:4
 msgid "Contact Us"
 msgstr "Контакты"
 
-#: templates/_base.html:87
+#: templates/_base.html:88
 msgid "My Order"
 msgstr "Мой заказ"
 
-#: templates/_base.html:88
+#: templates/_base.html:89
 msgid "My Orders"
 msgstr "Мои заказы"
 
-#: templates/_base.html:89
+#: templates/_base.html:90
 msgid "My Personal Information"
 msgstr "Мои данные"
 
-#: templates/_base.html:90 templates/manager.html:4 templates/manager.html:8
+#: templates/_base.html:92 templates/_base.html:94 templates/manager.html:4
+#: templates/manager.html:8
 msgid "Site Management"
 msgstr "Управление сайтом"
 
-#: templates/_base.html:95
+#: templates/_base.html:100
 msgid "Log Out"
 msgstr "Выйти"
 
-#: templates/_base.html:103 templates/registration/login.html:11
+#: templates/_base.html:108 templates/registration/login.html:11
 #: templates/registration/signup.html:53
 msgid "Username:"
 msgstr "Имя пользователя:"
 
-#: templates/_base.html:107
+#: templates/_base.html:112
 msgid "Password:"
 msgstr "Пароль:"
 
-#: templates/_base.html:111
+#: templates/_base.html:116
 msgid "Sign In"
 msgstr "Войти"
 
-#: templates/_base.html:112 templates/registration/signup.html:4
+#: templates/_base.html:117 templates/registration/signup.html:4
 #: templates/registration/signup.html:17 templates/registration/signup.html:85
 msgid "Sign Up"
 msgstr "Зарегистрироваться"
 
-#: templates/_base.html:141 templates/item_all.html:15
+#: templates/_base.html:146 templates/item_all.html:15
 msgid "Search"
 msgstr "Найти"
 
-#: templates/_base.html:162 templates/_base.html:249
+#: templates/_base.html:167 templates/_base.html:254
 msgid "WOOD NUTS"
 msgstr "ЛЕСНОЙ ОРЕХ"
 
-#: templates/_base.html:166
+#: templates/_base.html:171
 msgid "123 Consectetur at ligula 10660"
 msgstr "Москва, Октябрьский пр-т, д. 1"
 
-#: templates/_base.html:170
+#: templates/_base.html:175
 msgid "010-020-0340"
 msgstr "+7 495 500 55 55"
 
-#: templates/_base.html:180
+#: templates/_base.html:185
 msgid "Products"
 msgstr "Продукты"
 
-#: templates/_base.html:192
+#: templates/_base.html:197
 msgid "Nuts"
 msgstr "Орехи"
 
-#: templates/_base.html:193
+#: templates/_base.html:198
 msgid "Dried Fruits"
 msgstr "Сухофрукты"
 
-#: templates/_base.html:194
+#: templates/_base.html:199
 msgid "East Delight"
 msgstr "Восточные сладости"
 
-#: templates/_base.html:195
+#: templates/_base.html:200
 msgid "Spices"
 msgstr "Специи"
 
-#: templates/_base.html:203
+#: templates/_base.html:208
 msgid "Further Info"
 msgstr "Дополнительная информация"
 
-#: templates/_base.html:205
+#: templates/_base.html:210
 msgid "Home"
 msgstr "На главную"
 
-#: templates/_base.html:206 templates/about.html:4 templates/about.html:8
+#: templates/_base.html:211 templates/about.html:4 templates/about.html:8
 msgid "About Us"
 msgstr "О нас"
 
-#: templates/_base.html:207
+#: templates/_base.html:212
 msgid "Shop Locations"
 msgstr "Локация магазина"
 
-#: templates/_base.html:208 templates/faq.html:4 templates/faq.html:8
+#: templates/_base.html:213 templates/faq.html:4 templates/faq.html:8
 msgid "FAQs"
 msgstr "Вопросы и ответы"
 
-#: templates/_base.html:209
+#: templates/_base.html:214
 msgid "Contact "
 msgstr "Контактная информация"
 
-#: templates/_base.html:238
+#: templates/_base.html:243
 msgid "Subscribe"
 msgstr "Подписаться"
 
-#: templates/_base.html:249
+#: templates/_base.html:254
 msgid "Copyright © 2024"
 msgstr "Все права защищены © 2024"
 
@@ -681,61 +695,63 @@ msgstr "последняя стр."
 msgid "Add to cart"
 msgstr "В корзину"
 
-#: templates/cart_detail.html:5 templates/order_created.html:5
+#: templates/cart_detail.html:5
 msgid "Cart"
-msgstr ""
+msgstr "Корзина"
 
 #: templates/cart_detail.html:9
 msgid "Your shopping cart"
-msgstr ""
+msgstr "Ваша корзина"
 
-#: templates/cart_detail.html:20
+#: templates/cart_detail.html:21
 msgid "Image"
-msgstr ""
+msgstr "Картинка"
 
-#: templates/cart_detail.html:21 templates/item_detail.html:5
-#: templates/item_detail_client_page.html:5
+#: templates/cart_detail.html:22 templates/item_detail.html:5
+#: templates/item_detail_client_page.html:5 templates/order_create.html:34
 msgid "Item"
 msgstr "Товар"
 
-#: templates/cart_detail.html:22
+#: templates/cart_detail.html:23 templates/order_create.html:35
 msgid "Quantity"
-msgstr ""
+msgstr "Количество"
 
-#: templates/cart_detail.html:23 templates/cart_detail.html:36
+#: templates/cart_detail.html:24 templates/cart_detail.html:37
 msgid "Remove"
-msgstr ""
+msgstr "Удалить"
 
-#: templates/cart_detail.html:24
-#, fuzzy
-#| msgid "item price"
+#: templates/cart_detail.html:25
 msgid "Unit price"
 msgstr "цена товара"
 
-#: templates/cart_detail.html:25 templates/item_all.html:57
-#: templates/item_detail.html:68
+#: templates/cart_detail.html:26 templates/item_all.html:57
+#: templates/item_detail.html:68 templates/order_create.html:36
 msgid "Price"
 msgstr "Цена"
 
-#: templates/cart_detail.html:44
+#: templates/cart_detail.html:45 templates/order_create.html:46
 msgid "Total"
-msgstr ""
+msgstr "Итого"
 
-#: templates/cart_detail.html:53
+#: templates/cart_detail.html:54
 msgid "Continue Shopping"
-msgstr ""
+msgstr "Продолжить покупки"
 
-#: templates/cart_detail.html:54 templates/order_create.html:5
-#: templates/order_create.html:9
+#: templates/cart_detail.html:55 templates/order_create.html:6
+#: templates/order_create.html:10
 msgid "Checkout"
-msgstr ""
+msgstr "Оформить заказ"
+
+#: templates/cart_detail.html:59
+msgid "You haven't ordered anything yet. Your cart is empty. Please add items."
+msgstr "Вы еще ничего не заказали. Ваша корзина пуста. Пожалуйста, добавьте товары."
 
 #: templates/category_all.html:5 templates/category_all.html:9
-#: templates/manager.html:11
+#: templates/manager.html:12
 msgid "Category List"
 msgstr "Список категорий"
 
-#: templates/category_all.html:9 templates/manager.html:12
+#: templates/category_all.html:9 templates/manager.html:15
 msgid "Add Category"
 msgstr "Добавить категорию"
 
@@ -855,26 +871,26 @@ msgid "Next"
 msgstr "Следующий"
 
 #: templates/item_all.html:5 templates/item_all.html:9
-#: templates/manager.html:15
+#: templates/manager.html:20
 msgid "Item List"
 msgstr "Список товаров"
 
 #: templates/item_all.html:9 templates/item_detail.html:9
-#: templates/manager.html:16
+#: templates/manager.html:23
 msgid "Add Item"
 msgstr "Добавить товар"
 
 #: templates/item_all.html:11
 msgid "You can search by any category or item now. "
-msgstr ""
+msgstr "Теперь вы можете искать по любой категории или элементу. "
 
 #: templates/item_all.html:14
 msgid "Search by Category, by Name, by Price or by Description"
-msgstr ""
+msgstr "Поиск по категории, по названию, по цене или по описанию"
 
 #: templates/item_all.html:14
 msgid "Search by Category or by Name"
-msgstr ""
+msgstr "Поиск по категории или по имени"
 
 #: templates/item_all.html:49 templates/item_detail.html:20
 msgid "Item Name in Russian"
@@ -907,7 +923,7 @@ msgstr "Подробнее"
 #: templates/item_all.html:91 templates/search_results.html:93
 msgid ""
 "Are you searching any item? Please check what you typped into search bar. "
-msgstr ""
+msgstr "Вы ищете какой-либо предмет? Пожалуйста, проверьте, что вы ввели в строку поиска."
 
 #: templates/item_detail.html:53
 msgid "Item Extra Tag"
@@ -924,6 +940,45 @@ msgstr "Новая цена"
 #: templates/manager.html:9
 msgid "Hello"
 msgstr "Здравствуй, "
+
+#: templates/order_create.html:17
+msgid "Add your information"
+msgstr "Добавьте информацию"
+
+#: templates/order_create.html:20
+msgid "Your order"
+msgstr "Ваш заказ"
+
+#: templates/order_created.html:6 templates/order_created.html:10
+msgid "Thank You!"
+msgstr "Большое спасибо!"
+
+#: templates/order_created.html:11
+msgid "Your order has been successfully completed. Your order number is"
+msgstr "Ваш заказ успешно выполнен. Номер вашего заказа "
+
+#: templates/order_created.html:16
+msgid "Pay!"
+msgstr "Оплатить"
+
+#: templates/paymentcancel.html:4 templates/paymentcancel.html:8
+msgid "Checkout canceled"
+msgstr "Оформление заказа отменено"
+
+#: templates/paymentcancel.html:9
+msgid ""
+"Forgot to add something to your cart? Shop around then come back to pay! "
+msgstr "Забыли что-то добавить в корзину? Добавьте товары, а затем оформите заказ!"
+
+#: templates/paymentsuccess.html:4 templates/paymentsuccess.html:8
+#, fuzzy
+#| msgid "Payments"
+msgid "Payment Successful"
+msgstr "Оплата прошла успешно"
+
+#: templates/paymentsuccess.html:9
+msgid "We appreciate your business! Thanks for your order! "
+msgstr "Мы ценим ваш бизнес! Спасибо за ваш заказ!"
 
 #: templates/registration/login.html:4 templates/registration/login.html:7
 #: templates/registration/login.html:18
@@ -963,10 +1018,8 @@ msgid "Password confirmation"
 msgstr "Подтвердите пароль"
 
 #: templates/search_results.html:5 templates/search_results.html:10
-#, fuzzy
-#| msgid "Search"
 msgid "Search Results"
-msgstr "Найти"
+msgstr "Результаты поиска"
 
 #~ msgid "View options"
 #~ msgstr "Детали"
