@@ -9,18 +9,18 @@
     <p>{% trans 'Hello' %} {{user.first_name}} {{user.last_name}} !</p>
     <ul>
         {% if perms.products.view_category %}
-        <li><a href="{% url 'category_all' %}">{% trans "Category List" %}</a></li>
+        <li><a style="cursor:pointer; text-decoration:none; color:#8B4513;" href="{% url 'category_all' %}">{% trans "Category List" %}</a></li>
         {% endif %}
         {% if perms.products.add_category %}
-        <li><a href="{% url 'addcategory' %}">{% trans "Add Category" %}</a></li>
+        <li><a style="cursor:pointer; text-decoration:none; color:#8B4513;" href="{% url 'addcategory' %}">{% trans "Add Category" %}</a></li>
         {% endif %}
     </ul>
     <ul>
         {% if perms.products.view_item %}
-        <li><a href="{% url 'item_all' %}">{% trans "Item List" %}</a></li>
+        <li><a style="cursor:pointer; text-decoration:none; color:#8B4513;" href="{% url 'item_all' %}">{% trans "Item List" %}</a></li>
         {% endif %}
         {% if perms.products.add_item %}
-        <li><a href="{% url 'additem' %}">{% trans "Add Item" %}</a></li>
+        <li><a style="cursor:pointer; text-decoration:none; color:#8B4513;" href="{% url 'additem' %}">{% trans "Add Item" %}</a></li>
         {% endif %}
     </ul>
 </div>
