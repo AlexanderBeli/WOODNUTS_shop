@@ -115,6 +115,9 @@
                                             <button type="submit" class="btn btn3">{% trans "Sign In" %}</button>
                                             <a href="{% url 'signup' %}" class="btn btn3" role="button">{% trans "Sign Up" %}</a>
                                         </center>
+                                        <p style="margin: 15px;" class="d-grid justify-content-end">
+                                            <a href="{% url 'password_reset' %}" class="btn btn3" role="button">{% trans "Forgot your password?" %}</a>
+                                        </p>
                                     </form>
                                     
                                     {% endif %}

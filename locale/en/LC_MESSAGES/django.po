@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-12 15:59+0000\n"
+"POT-Creation-Date: 2024-08-13 11:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,59 +32,63 @@ msgstr ""
 msgid "accounts"
 msgstr "accounts"
 
-#: accounts/models.py:13 dj/choices/__init__.py:880
+#: accounts/models.py:14 dj/choices/__init__.py:880
 #: templates/registration/signup.html:37
 msgid "female"
 msgstr "female"
 
-#: accounts/models.py:14 dj/choices/__init__.py:881
+#: accounts/models.py:15 dj/choices/__init__.py:881
 #: templates/registration/signup.html:38
 msgid "male"
 msgstr "male"
 
-#: accounts/models.py:15 dj/choices/__init__.py:882
+#: accounts/models.py:16 dj/choices/__init__.py:882
 #: templates/registration/signup.html:39
 msgid "unspecified"
 msgstr "unspecified"
 
-#: accounts/models.py:18 orders/models.py:9
+#: accounts/models.py:20 orders/models.py:9
 msgid "first name"
 msgstr ""
 
-#: accounts/models.py:19 orders/models.py:10
+#: accounts/models.py:21 orders/models.py:10
 msgid "last name"
 msgstr ""
 
-#: accounts/models.py:20
+#: accounts/models.py:22
 msgid "username"
 msgstr "Username:"
 
-#: accounts/models.py:22
+#: accounts/models.py:25
 msgid "date of birth"
 msgstr "date of birth"
 
-#: accounts/models.py:23
+#: accounts/models.py:28
 msgid "gender"
 msgstr "gender"
 
-#: accounts/models.py:24
+#: accounts/models.py:31
 msgid "passed activation?"
 msgstr ""
 
-#: accounts/models.py:25
+#: accounts/models.py:34
 msgid "send significations about new comments"
 msgstr ""
 
-#: accounts/models.py:26
+#: accounts/models.py:36
 msgid "phone number"
 msgstr "phone number"
 
-#: accounts/models.py:28
+#: accounts/models.py:38
 msgid "email address"
 msgstr ""
 
-#: accounts/models.py:37 accounts/models.py:38
+#: accounts/models.py:47 accounts/models.py:48
 msgid "users"
+msgstr ""
+
+#: accounts/views.py:48
+msgid "Successfully Changed Your Password"
 msgstr ""
 
 #: dj/choices/__init__.py:415
@@ -528,12 +532,12 @@ msgstr "All Products"
 msgid "Popular Items"
 msgstr "Popular Items"
 
-#: templates/_base.html:49 templates/_base.html:201 templates/delivery.html:4
+#: templates/_base.html:49 templates/_base.html:202 templates/delivery.html:4
 #: templates/delivery.html:8
 msgid "Delivery"
 msgstr "Delivery"
 
-#: templates/_base.html:50 templates/_base.html:202 templates/payments.html:4
+#: templates/_base.html:50 templates/_base.html:203 templates/payments.html:4
 #: templates/payments.html:8
 msgid "Payments"
 msgstr "Payments"
@@ -542,7 +546,7 @@ msgstr "Payments"
 msgid "Refunds &#38; Returns Policy"
 msgstr "Refunds &#38; Returns Policy"
 
-#: templates/_base.html:52 templates/_base.html:203 templates/clients.html:4
+#: templates/_base.html:52 templates/_base.html:204 templates/clients.html:4
 #: templates/clients.html:8
 msgid "Our Clients"
 msgstr "Our Clients"
@@ -559,7 +563,8 @@ msgstr "My Order"
 msgid "My Orders"
 msgstr "My Orders"
 
-#: templates/_base.html:90
+#: templates/_base.html:90 templates/user_detail.html:5
+#: templates/user_detail.html:9
 msgid "My Personal Information"
 msgstr "My Personal Information"
 
@@ -573,7 +578,7 @@ msgid "Log Out"
 msgstr "Log Out"
 
 #: templates/_base.html:108 templates/registration/login.html:11
-#: templates/registration/signup.html:53
+#: templates/registration/signup.html:53 templates/user_detail.html:33
 msgid "Username:"
 msgstr "Username:"
 
@@ -590,71 +595,78 @@ msgstr "Sign In"
 msgid "Sign Up"
 msgstr "Sign Up"
 
-#: templates/_base.html:146 templates/item_all.html:15
+#: templates/_base.html:118
+msgid "Forgot your password?"
+msgstr ""
+
+#: templates/_base.html:147 templates/item_all.html:15
 msgid "Search"
 msgstr "Search"
 
-#: templates/_base.html:167 templates/_base.html:254
+#: templates/_base.html:168 templates/_base.html:255
 msgid "WOOD NUTS"
 msgstr "WOOD NUTS"
 
-#: templates/_base.html:171
+#: templates/_base.html:172
 msgid "123 Consectetur at ligula 10660"
 msgstr "123 Consectetur at ligula 10660"
 
-#: templates/_base.html:175
+#: templates/_base.html:176
 msgid "010-020-0340"
 msgstr "010-020-0340"
 
-#: templates/_base.html:185
+#: templates/_base.html:186
 msgid "Products"
 msgstr "Products"
 
-#: templates/_base.html:197
+#: templates/_base.html:198
 msgid "Nuts"
 msgstr "Nuts"
 
-#: templates/_base.html:198
+#: templates/_base.html:199
 msgid "Dried Fruits"
 msgstr "Dried Fruits"
 
-#: templates/_base.html:199
+#: templates/_base.html:200
 msgid "East Delight"
 msgstr "East Delight"
 
-#: templates/_base.html:200
+#: templates/_base.html:201
 msgid "Spices"
 msgstr "Spices"
 
-#: templates/_base.html:208
+#: templates/_base.html:209
 msgid "Further Info"
 msgstr "Further Info"
 
-#: templates/_base.html:210
+#: templates/_base.html:211
+#: templates/registration/password_reset_confirm.html:17
+#: templates/registration/password_reset_form.html:17
+#: templates/user_detail.html:54
 msgid "Home"
 msgstr "Home"
 
-#: templates/_base.html:211 templates/about.html:4 templates/about.html:8
+#: templates/_base.html:212 templates/about.html:4 templates/about.html:8
 msgid "About Us"
 msgstr "About Us"
 
-#: templates/_base.html:212
+#: templates/_base.html:213
 msgid "Shop Locations"
 msgstr "Shop Locations"
 
-#: templates/_base.html:213 templates/faq.html:4 templates/faq.html:8
+#: templates/_base.html:214 templates/faq.html:4 templates/faq.html:8
 msgid "FAQs"
 msgstr "FAQs"
 
-#: templates/_base.html:214
+#: templates/_base.html:215
 msgid "Contact "
 msgstr "Contact "
 
-#: templates/_base.html:243
+#: templates/_base.html:244
 msgid "Subscribe"
 msgstr "Subscribe"
 
-#: templates/_base.html:254
+#: templates/_base.html:255
 msgid "Copyright © 2024"
 msgstr "Copyright © 2024"
 
@@ -788,7 +800,8 @@ msgstr ""
 #: templates/category_all.html:37 templates/category_edit.html:5
 #: templates/category_edit.html:9 templates/item_all.html:79
 #: templates/item_detail.html:76 templates/item_edit.html:5
-#: templates/item_edit.html:9
+#: templates/item_edit.html:9 templates/user_detail_update.html:6
+#: templates/user_detail_update.html:10
 msgid "Edit"
 msgstr ""
 
@@ -806,11 +819,13 @@ msgstr ""
 
 #: templates/category_delete.html:14 templates/category_edit.html:14
 #: templates/item_delete.html:14 templates/item_detail.html:78
-#: templates/item_edit.html:14
+#: templates/item_edit.html:14 templates/user_detail_pw_update.html:16
+#: templates/user_detail_update.html:16
 msgid "Back"
 msgstr ""
 
 #: templates/category_edit.html:13 templates/item_edit.html:13
+#: templates/user_detail_pw_update.html:15 templates/user_detail_update.html:15
 msgid "Update"
 msgstr ""
 
@@ -1010,6 +1025,7 @@ msgstr ""
 
 #: templates/registration/login.html:4 templates/registration/login.html:7
 #: templates/registration/login.html:18
+#: templates/registration/password_reset_complete.html:11
 msgid "Log In"
 msgstr "Log In"
 
@@ -1017,11 +1033,59 @@ msgstr "Log In"
 msgid "Password"
 msgstr "Password:"
 
-#: templates/registration/signup.html:23
+#: templates/registration/password_reset_complete.html:5
+#: templates/registration/password_reset_complete.html:9
+msgid "Password reset complete"
+msgstr ""
+
+#: templates/registration/password_reset_complete.html:10
+msgid "Your new password has been set."
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:6
+#: templates/registration/password_reset_confirm.html:10
+msgid "Enter new password"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:11
+#: templates/registration/password_reset_form.html:11
+msgid ""
+"Enter your email address below, and we'll email instructions for setting a "
+"new one."
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:16
+msgid "Change my password"
+msgstr ""
+
+#: templates/registration/password_reset_done.html:5
+msgid "Email Sent"
+msgstr ""
+
+#: templates/registration/password_reset_done.html:9
+msgid "Check your inbox"
+msgstr ""
+
+#: templates/registration/password_reset_done.html:10
+msgid ""
+"We've emailed your instructions for setting your passwors.\n"
+"        You should recieve the email shortly!"
+msgstr ""
+
+#: templates/registration/password_reset_form.html:6
+#: templates/registration/password_reset_form.html:10
+msgid "Forgot Your Password?"
+msgstr ""
+
+#: templates/registration/password_reset_form.html:16
+msgid "Send me instructions!"
+msgstr ""
+
+#: templates/registration/signup.html:23 templates/user_detail.html:13
 msgid "First name"
 msgstr ""
 
-#: templates/registration/signup.html:29
+#: templates/registration/signup.html:29 templates/user_detail.html:19
 msgid "Last name"
 msgstr ""
 
@@ -1029,15 +1093,15 @@ msgstr ""
 msgid "Gender"
 msgstr ""
 
-#: templates/registration/signup.html:45
+#: templates/registration/signup.html:45 templates/user_detail.html:25
 msgid "Date of birth"
 msgstr ""
 
-#: templates/registration/signup.html:59
+#: templates/registration/signup.html:59 templates/user_detail.html:39
 msgid "Email address"
 msgstr ""
 
-#: templates/registration/signup.html:65
+#: templates/registration/signup.html:65 templates/user_detail.html:45
 msgid "Phone number"
 msgstr ""
 
@@ -1050,6 +1114,23 @@ msgstr ""
 #| msgid "Search"
 msgid "Search Results"
 msgstr "Search"
+
+#: templates/user_detail.html:52
+msgid "Change"
+msgstr ""
+
+#: templates/user_detail.html:53
+#, fuzzy
+#| msgid "Password"
+msgid "Change Password"
+msgstr "Password:"
+
+#: templates/user_detail_pw_update.html:6
+#: templates/user_detail_pw_update.html:10
+#, fuzzy
+#| msgid "Password"
+msgid "Edit Password"
+msgstr "Password:"
 
 #~ msgid "View options"
 #~ msgstr "View options"
