@@ -1,6 +1,9 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
 from django.views import generic
 
 from .forms import CustomUserCreationForm
@@ -30,3 +33,17 @@ class UserUpdateView(generic.UpdateView):
     ]
     template_name = "user_detail_update.html"
     # success_url = "user_detail.html"
+
+
+class UserPWUpdateView(generic.UpdateView):
+    model = get_user_model()
+    fields = [
+        "password",
+    ]
+    template_name = "user_detail_pw_update.html"
+
+
+class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
+    template_name = "user_detail_pw_update.html"
+    success_message = _("Successfully Changed Your Password")
+    success_url = reverse_lazy("home")

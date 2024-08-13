@@ -5,6 +5,7 @@ from .views import (
     CreateStripeCheckoutSessionView,
     SuccessView,
     order_create,
+    order_list,
 )
 
 urlpatterns = [
@@ -16,4 +17,5 @@ urlpatterns = [
     ),
     path("create/<int:pk>/success/", SuccessView.as_view(), name="success"),
     path("create/<int:pk>/cancel/", CancelView.as_view(), name="cancel"),
+    path("list/", order_list, name="orderlists"),
 ]

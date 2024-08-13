@@ -1,5 +1,4 @@
 import stripe
-from cart.cart import Cart
 from django.conf import settings
 from django.db import transaction
 from django.forms.models import model_to_dict
@@ -7,6 +6,8 @@ from django.shortcuts import redirect, render
 from django.utils import translation
 from django.views import View
 from django.views.generic import TemplateView
+
+from cart.cart import Cart
 
 from .forms import OrderCreateForm
 from .models import Order, OrderItem
@@ -121,3 +122,7 @@ def order_create(request):
             it["name"] = xx[item_lang_res]
 
         return render(request, "order_create.html", {"cart": cart, "form": form})
+
+
+def order_list(request):
+    pass
