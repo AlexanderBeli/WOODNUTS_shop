@@ -1,0 +1,42 @@
+{% extends "_base.html" %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}{% trans "Order" %} {{order_id}}{% endblock title %}
+
+
+{% block content %}
+<div class="container mt-3"> 
+    <h1 h1 class="h1 border-bottom pb-3 border-light border-opacity-25">{% trans "Order" %} {{order_id}}</h1>
+
+    <div class="order-info" style="margin: 5px;">
+        <center>        
+            <table class='card' style="width:70%; border-color: #8B4513;" >
+                <tr class='card-header' style="background: #FFE4B5;">
+                    <th style="text-align: center;">{% trans "Item" %}</th>
+                    <th style="text-align: center;">{% trans "Quantity" %}</th>
+                    <th style="text-align: center;">{% trans "Price" %}</th>
+                </tr>
+                {% for item in order_info_part2 %}
+                <tr class='card-body'>
+                    <td style="padding-left: 5px;"><a style="cursor:pointer; text-decoration:none; color:black;" href="{% url 'item_detail_for_clients' item.product_id %}">{{ item.item_name }}</a></td>
+                    <td style="text-align: center;">{{ item.quantity }}</td>
+                    <td style="width:25%; text-align: end; padding-right: 5px;">{{ item.get_cost }} RUB</td>
+                </tr>
+                {% endfor %}
+                <tr class='card-footer' style="background: #FFE4B5;">
+                    <th style="width:65%;text-align: center;">{% trans "Total" %}:</th>
+                    <th style="width:10%;text-align: center;"></th>
+                    <th style="width:25%; text-align: end; padding-right: 5px;"> {{ order_sum.get_total_cost }} RUB</th>
+                </tr>
+            </table>
+        </center>
+    </div>
+    <div class="info" style="margin: 5px; text-align: center;">
+        <a href="{% url 'orderlists' %}" class="btn btn3">{% trans 'Back' %}</a>
+        <a href="{% url 'home' %}" class="btn btn3">{% trans 'Home' %}</a>        
+    </div>
+
+</div>
+{% endblock content %}

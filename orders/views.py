@@ -1,13 +1,17 @@
 import stripe
 from django.conf import settings
+from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db import transaction
 from django.forms.models import model_to_dict
 from django.shortcuts import redirect, render
 from django.utils import translation
 from django.views import View
-from django.views.generic import TemplateView
+from django.views.generic import DetailView, TemplateView
 
 from cart.cart import Cart
+from products.models import Item
 
 from .forms import OrderCreateForm
 from .models import Order, OrderItem
@@ -125,4 +129,41 @@ def order_create(request):
 
 
 def order_list(request):
-    pass
+    user = request.user
+    list = Order.objects.filter(email=user.email)
+    # test = OrderItem.objects.filter(order=list)
+    return render(request, "order_list.html", {"list": list})
+
+
+@login_required
+def order_detail_view(request, pk):
+    current_url = request.path_info
+    lang_code = translation.get_language_from_path(current_url)
+    if lang_code == "zh-hans":
+        lang_code = "zh_hans"
+    item_lang_res = "item_name_" + lang_code
+
+    order_id = pk
+
+    right_order2 = OrderItem.objects.raw(
+        f"""SELECT orders_orderitem.id,
+                                product_id,
+                                products_item.{item_lang_res} AS item_name,
+                                price,
+                                quantity
+                        FROM orders_orderitem
+                        JOIN products_item
+                        ON orders_orderitem.product_id=products_item.id
+                        WHERE order_id={pk};"""
+    )
+    order_sum = Order.objects.get(id=pk)
+
+    return render(
+        request,
+        "order_detail.html",
+        {
+            "order_id": order_id,
+            "order_sum": order_sum,
+            "order_info_part2": right_order2,
+        },
+    )

@@ -84,8 +84,7 @@
                                     {% if user.is_authenticated %}
                                     <p>{{user.first_name}} {{user.last_name}}</p>
                                     <ul>
-                                        <li><a style="cursor:pointer; text-decoration:none; color:#8B4513;" href="#">{% trans "My Order" %}</a></li>
-                                        <li><a style="cursor:pointer; text-decoration:none; color:#8B4513;" href="#">{% trans "My Orders" %}</a></li>
+                                        <li><a style="cursor:pointer; text-decoration:none; color:#8B4513;" href="{% url 'orderlists' %}">{% trans "My Orders" %}</a></li>
                                         <li><a style="cursor:pointer; text-decoration:none; color:#8B4513;" href="{% url 'userinfo' user.pk %}">{% trans "My Personal Information" %}</a></li>
                                         {% if request.user|has_group:"Moderators_Starters" %}
                                         <li><a style="cursor:pointer; text-decoration:none; color:#8B4513;" href="{% url 'administrating' %}">{% trans "Site Management" %}</a></li>

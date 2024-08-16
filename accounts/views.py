@@ -35,14 +35,6 @@ class UserUpdateView(generic.UpdateView):
     # success_url = "user_detail.html"
 
 
-class UserPWUpdateView(generic.UpdateView):
-    model = get_user_model()
-    fields = [
-        "password",
-    ]
-    template_name = "user_detail_pw_update.html"
-
-
 class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
     template_name = "user_detail_pw_update.html"
     success_message = _("Successfully Changed Your Password")

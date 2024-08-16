@@ -4,7 +4,6 @@ from .views import (
     ChangePasswordView,
     SignupPageView,
     UserPageDetailView,
-    UserPWUpdateView,
     UserUpdateView,
 )
 

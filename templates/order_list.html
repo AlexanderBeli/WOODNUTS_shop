@@ -1,0 +1,14 @@
+{% extends "_base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "My Orders" %}{% endblock title %}
+
+{% block content %}
+<div class="container mt-3"> 
+    <h1 h1 class="h1 border-bottom pb-3 border-light border-opacity-25">{% trans "My Orders" %}</h1>
+    {% for lists in list %}
+    <p><a style="cursor:pointer; text-decoration:none; color:#8B4513;" href="{% url 'orderdetail' lists.id %}">{% trans "Order number" %} {{ lists.id }}, {% trans "Total cost" %} {{ lists.get_total_cost }} RUB</a></p>
+    {% endfor %}
+</div>
+{% endblock content %}
