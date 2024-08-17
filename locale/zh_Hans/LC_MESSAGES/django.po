@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-13 11:04+0000\n"
+"POT-Creation-Date: 2024-08-17 13:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,7 +84,7 @@ msgstr ""
 msgid "users"
 msgstr ""
 
-#: accounts/views.py:48
+#: accounts/views.py:40
 msgid "Successfully Changed Your Password"
 msgstr ""
 
@@ -340,7 +340,8 @@ msgstr "已付的"
 msgid "order"
 msgstr "订货"
 
-#: orders/models.py:25 orders/tasks.py:14
+#: orders/models.py:25 orders/tasks.py:14 templates/order_detail.html:6
+#: templates/order_detail.html:11
 msgid "Order"
 msgstr "订货"
 
@@ -513,12 +514,12 @@ msgstr "商品"
 msgid "Popular Items"
 msgstr "品类"
 
-#: templates/_base.html:49 templates/_base.html:202 templates/delivery.html:4
+#: templates/_base.html:49 templates/_base.html:203 templates/delivery.html:4
 #: templates/delivery.html:8
 msgid "Delivery"
 msgstr "送货"
 
-#: templates/_base.html:50 templates/_base.html:203 templates/payments.html:4
+#: templates/_base.html:50 templates/_base.html:204 templates/payments.html:4
 #: templates/payments.html:8
 msgid "Payments"
 msgstr "款式"
@@ -527,7 +528,7 @@ msgstr "款式"
 msgid "Refunds &#38; Returns Policy"
 msgstr "退款政策"
 
-#: templates/_base.html:52 templates/_base.html:204 templates/clients.html:4
+#: templates/_base.html:52 templates/_base.html:205 templates/clients.html:4
 #: templates/clients.html:8
 msgid "Our Clients"
 msgstr "我们客户"
@@ -536,118 +537,115 @@ msgstr "我们客户"
 msgid "Contact Us"
 msgstr "联系我们"
 
-#: templates/_base.html:88
-msgid "My Order"
-msgstr "订货"
-
-#: templates/_base.html:89
+#: templates/_base.html:88 templates/order_list.html:5
+#: templates/order_list.html:9
 msgid "My Orders"
 msgstr "订货历史"
 
-#: templates/_base.html:90 templates/user_detail.html:5
+#: templates/_base.html:89 templates/user_detail.html:5
 #: templates/user_detail.html:9
 msgid "My Personal Information"
 msgstr "个人信息"
 
-#: templates/_base.html:92 templates/_base.html:94 templates/manager.html:4
+#: templates/_base.html:91 templates/_base.html:93 templates/manager.html:4
 #: templates/manager.html:8
 msgid "Site Management"
 msgstr "网站管理"
 
-#: templates/_base.html:100
+#: templates/_base.html:99
 msgid "Log Out"
 msgstr "退出"
 
-#: templates/_base.html:108 templates/registration/login.html:11
+#: templates/_base.html:107 templates/registration/login.html:11
 #: templates/registration/signup.html:53 templates/user_detail.html:33
 msgid "Username:"
 msgstr "用户"
 
-#: templates/_base.html:112
+#: templates/_base.html:111
 msgid "Password:"
 msgstr "密码"
 
-#: templates/_base.html:116
+#: templates/_base.html:115
 msgid "Sign In"
 msgstr "登录"
 
-#: templates/_base.html:117 templates/registration/signup.html:4
+#: templates/_base.html:116 templates/registration/signup.html:4
 #: templates/registration/signup.html:17 templates/registration/signup.html:85
 msgid "Sign Up"
 msgstr "注册"
 
-#: templates/_base.html:118
+#: templates/_base.html:119
 msgid "Forgot your password?"
-msgstr ""
+msgstr "忘记密码了吗？"
 
-#: templates/_base.html:147 templates/item_all.html:15
+#: templates/_base.html:148 templates/item_all.html:15
 msgid "Search"
 msgstr "🔍"
 
-#: templates/_base.html:168 templates/_base.html:255
+#: templates/_base.html:169 templates/_base.html:256
 msgid "WOOD NUTS"
 msgstr "森林 坚果"
 
-#: templates/_base.html:172
+#: templates/_base.html:173
 msgid "123 Consectetur at ligula 10660"
 msgstr "中国，北京， 123路，23"
 
-#: templates/_base.html:176
+#: templates/_base.html:177
 msgid "010-020-0340"
 msgstr "+86 183 7777 6666"
 
-#: templates/_base.html:186
+#: templates/_base.html:187
 msgid "Products"
 msgstr "商品"
 
-#: templates/_base.html:198
+#: templates/_base.html:199
 msgid "Nuts"
 msgstr "坚果"
 
-#: templates/_base.html:199
+#: templates/_base.html:200
 msgid "Dried Fruits"
 msgstr "干果"
 
-#: templates/_base.html:200
+#: templates/_base.html:201
 msgid "East Delight"
 msgstr "东方特色"
 
-#: templates/_base.html:201
+#: templates/_base.html:202
 msgid "Spices"
 msgstr "调料"
 
-#: templates/_base.html:209
+#: templates/_base.html:210
 msgid "Further Info"
 msgstr "更多信息"
 
-#: templates/_base.html:211
+#: templates/_base.html:212 templates/order_detail.html:38
 #: templates/registration/password_reset_confirm.html:17
 #: templates/registration/password_reset_form.html:17
-#: templates/user_detail.html:54
+#: templates/user_detail.html:54 templates/user_detail_pw_update.html:18
 msgid "Home"
 msgstr "主页"
 
-#: templates/_base.html:212 templates/about.html:4 templates/about.html:8
+#: templates/_base.html:213 templates/about.html:4 templates/about.html:8
 msgid "About Us"
 msgstr "关于我们"
 
-#: templates/_base.html:213
+#: templates/_base.html:214
 msgid "Shop Locations"
 msgstr "商店地址"
 
-#: templates/_base.html:214 templates/faq.html:4 templates/faq.html:8
+#: templates/_base.html:215 templates/faq.html:4 templates/faq.html:8
 msgid "FAQs"
 msgstr "问答"
 
-#: templates/_base.html:215
+#: templates/_base.html:216
 msgid "Contact "
 msgstr "联系我们"
 
-#: templates/_base.html:244
+#: templates/_base.html:245
 msgid "Subscribe"
 msgstr "订阅"
 
-#: templates/_base.html:255
+#: templates/_base.html:256
 msgid "Copyright © 2024"
 msgstr ""
 
@@ -714,10 +712,12 @@ msgstr "图片"
 
 #: templates/cart_detail.html:22 templates/item_detail.html:5
 #: templates/item_detail_client_page.html:5 templates/order_create.html:34
+#: templates/order_detail.html:17
 msgid "Item"
 msgstr "商品"
 
 #: templates/cart_detail.html:23 templates/order_create.html:35
+#: templates/order_detail.html:18
 msgid "Quantity"
 msgstr "数量"
 
@@ -731,10 +731,12 @@ msgstr "价格"
 
 #: templates/cart_detail.html:26 templates/item_all.html:57
 #: templates/item_detail.html:68 templates/order_create.html:36
+#: templates/order_detail.html:19
 msgid "Price"
 msgstr "价格"
 
 #: templates/cart_detail.html:45 templates/order_create.html:46
+#: templates/order_detail.html:29
 msgid "Total"
 msgstr "全部"
 
@@ -798,13 +800,13 @@ msgstr "你确定你要删除 "
 
 #: templates/category_delete.html:14 templates/category_edit.html:14
 #: templates/item_delete.html:14 templates/item_detail.html:78
-#: templates/item_edit.html:14 templates/user_detail_pw_update.html:16
+#: templates/item_edit.html:14 templates/order_detail.html:37
 #: templates/user_detail_update.html:16
 msgid "Back"
 msgstr "后退"
 
 #: templates/category_edit.html:13 templates/item_edit.html:13
-#: templates/user_detail_pw_update.html:15 templates/user_detail_update.html:15
+#: templates/user_detail_update.html:15
 msgid "Update"
 msgstr "更新"
 
@@ -969,6 +971,18 @@ msgstr "您的订单已成功完成。您的订单号是 "
 msgid "Pay!"
 msgstr "付款"
 
+#: templates/order_list.html:11
+#, fuzzy
+#| msgid "item number"
+msgid "Order number"
+msgstr "订单号"
+
+#: templates/order_list.html:11
+#, fuzzy
+#| msgid "Total"
+msgid "Total cost"
+msgstr "全部"
+
 #: templates/paymentcancel.html:4 templates/paymentcancel.html:8
 msgid "Checkout canceled"
 msgstr "结帐已取消"
@@ -999,16 +1013,16 @@ msgstr "密码"
 #: templates/registration/password_reset_complete.html:5
 #: templates/registration/password_reset_complete.html:9
 msgid "Password reset complete"
-msgstr ""
+msgstr "密码重置完成"
 
 #: templates/registration/password_reset_complete.html:10
 msgid "Your new password has been set."
-msgstr ""
+msgstr "您的新密码已设置。"
 
 #: templates/registration/password_reset_confirm.html:6
 #: templates/registration/password_reset_confirm.html:10
 msgid "Enter new password"
-msgstr ""
+msgstr "输入新密码"
 
 #: templates/registration/password_reset_confirm.html:11
 #: templates/registration/password_reset_form.html:11
@@ -1016,33 +1030,34 @@ msgid ""
 "Enter your email address below, and we'll email instructions for setting a "
 "new one."
 msgstr ""
+"在下面输入您的电子邮件地址，我们将通过电子邮件发送有关设置新密码的说明。"
 
 #: templates/registration/password_reset_confirm.html:16
 msgid "Change my password"
-msgstr ""
+msgstr "更改我的密码"
 
 #: templates/registration/password_reset_done.html:5
 msgid "Email Sent"
-msgstr ""
+msgstr "电子邮件已发送"
 
 #: templates/registration/password_reset_done.html:9
 msgid "Check your inbox"
-msgstr ""
+msgstr "检查您的收件箱"
 
 #: templates/registration/password_reset_done.html:10
 msgid ""
 "We've emailed your instructions for setting your passwors.\n"
 "        You should recieve the email shortly!"
-msgstr ""
+msgstr "我们已通过电子邮件发送了密码设置说明。您很快就会收到该电子邮件！"
 
 #: templates/registration/password_reset_form.html:6
 #: templates/registration/password_reset_form.html:10
 msgid "Forgot Your Password?"
-msgstr ""
+msgstr "忘记密码了吗？"
 
 #: templates/registration/password_reset_form.html:16
 msgid "Send me instructions!"
-msgstr ""
+msgstr "发给我说明！"
 
 #: templates/registration/signup.html:23 templates/user_detail.html:13
 msgid "First name"
@@ -1062,7 +1077,7 @@ msgstr "出生日期"
 
 #: templates/registration/signup.html:59 templates/user_detail.html:39
 msgid "Email address"
-msgstr ""
+msgstr "电子邮件"
 
 #: templates/registration/signup.html:65 templates/user_detail.html:45
 msgid "Phone number"
@@ -1078,20 +1093,37 @@ msgstr "搜索结果"
 
 #: templates/user_detail.html:52
 msgid "Change"
-msgstr ""
+msgstr "改变"
 
 #: templates/user_detail.html:53
-#, fuzzy
-#| msgid "Password"
 msgid "Change Password"
-msgstr "密码"
+msgstr "改变密码"
 
 #: templates/user_detail_pw_update.html:6
+#, fuzzy
+#| msgid "Password"
+msgid "Password Change"
+msgstr "密码"
+
 #: templates/user_detail_pw_update.html:10
 #, fuzzy
 #| msgid "Password"
-msgid "Edit Password"
+msgid "Password change"
 msgstr "密码"
+
+#: templates/user_detail_pw_update.html:11
+msgid ""
+"Please enter your old password, for security's sake, and then enter your new "
+"password twice so we can verify you tiped it correctly"
+msgstr "为了安全起见，请输入您的旧密码，然后输入两次新密码，以便我们验证您输入的密码是否正确"
+
+#~ msgid "My Order"
+#~ msgstr "订货"
+
+#, fuzzy
+#~| msgid "Password"
+#~ msgid "Edit Password"
+#~ msgstr "密码"
 
 #~ msgid "View options"
 #~ msgstr "查看选项"

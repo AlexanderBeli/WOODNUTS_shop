@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-13 11:04+0000\n"
+"POT-Creation-Date: 2024-08-17 13:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,7 +89,7 @@ msgstr ""
 msgid "users"
 msgstr ""
 
-#: accounts/views.py:48
+#: accounts/views.py:40
 msgid "Successfully Changed Your Password"
 msgstr ""
 
@@ -347,7 +347,8 @@ msgstr "оплачено"
 msgid "order"
 msgstr "заказ"
 
-#: orders/models.py:25 orders/tasks.py:14
+#: orders/models.py:25 orders/tasks.py:14 templates/order_detail.html:6
+#: templates/order_detail.html:11
 msgid "Order"
 msgstr "Заказ"
 
@@ -520,12 +521,12 @@ msgstr "Все продукты"
 msgid "Popular Items"
 msgstr "Категории товаров"
 
-#: templates/_base.html:49 templates/_base.html:202 templates/delivery.html:4
+#: templates/_base.html:49 templates/_base.html:203 templates/delivery.html:4
 #: templates/delivery.html:8
 msgid "Delivery"
 msgstr "Доставка"
 
-#: templates/_base.html:50 templates/_base.html:203 templates/payments.html:4
+#: templates/_base.html:50 templates/_base.html:204 templates/payments.html:4
 #: templates/payments.html:8
 msgid "Payments"
 msgstr "Оплата"
@@ -534,7 +535,7 @@ msgstr "Оплата"
 msgid "Refunds &#38; Returns Policy"
 msgstr "Возврат товара"
 
-#: templates/_base.html:52 templates/_base.html:204 templates/clients.html:4
+#: templates/_base.html:52 templates/_base.html:205 templates/clients.html:4
 #: templates/clients.html:8
 msgid "Our Clients"
 msgstr "Наши клиенты"
@@ -543,118 +544,115 @@ msgstr "Наши клиенты"
 msgid "Contact Us"
 msgstr "Контакты"
 
-#: templates/_base.html:88
-msgid "My Order"
-msgstr "Мой заказ"
-
-#: templates/_base.html:89
+#: templates/_base.html:88 templates/order_list.html:5
+#: templates/order_list.html:9
 msgid "My Orders"
 msgstr "Мои заказы"
 
-#: templates/_base.html:90 templates/user_detail.html:5
+#: templates/_base.html:89 templates/user_detail.html:5
 #: templates/user_detail.html:9
 msgid "My Personal Information"
 msgstr "Мои данные"
 
-#: templates/_base.html:92 templates/_base.html:94 templates/manager.html:4
+#: templates/_base.html:91 templates/_base.html:93 templates/manager.html:4
 #: templates/manager.html:8
 msgid "Site Management"
 msgstr "Управление сайтом"
 
-#: templates/_base.html:100
+#: templates/_base.html:99
 msgid "Log Out"
 msgstr "Выйти"
 
-#: templates/_base.html:108 templates/registration/login.html:11
+#: templates/_base.html:107 templates/registration/login.html:11
 #: templates/registration/signup.html:53 templates/user_detail.html:33
 msgid "Username:"
 msgstr "Имя пользователя:"
 
-#: templates/_base.html:112
+#: templates/_base.html:111
 msgid "Password:"
 msgstr "Пароль:"
 
-#: templates/_base.html:116
+#: templates/_base.html:115
 msgid "Sign In"
 msgstr "Войти"
 
-#: templates/_base.html:117 templates/registration/signup.html:4
+#: templates/_base.html:116 templates/registration/signup.html:4
 #: templates/registration/signup.html:17 templates/registration/signup.html:85
 msgid "Sign Up"
 msgstr "Зарегистрироваться"
 
-#: templates/_base.html:118
+#: templates/_base.html:119
 msgid "Forgot your password?"
-msgstr ""
+msgstr "Забыли пароль?"
 
-#: templates/_base.html:147 templates/item_all.html:15
+#: templates/_base.html:148 templates/item_all.html:15
 msgid "Search"
 msgstr "Найти"
 
-#: templates/_base.html:168 templates/_base.html:255
+#: templates/_base.html:169 templates/_base.html:256
 msgid "WOOD NUTS"
 msgstr "ЛЕСНОЙ ОРЕХ"
 
-#: templates/_base.html:172
+#: templates/_base.html:173
 msgid "123 Consectetur at ligula 10660"
 msgstr "Москва, Октябрьский пр-т, д. 1"
 
-#: templates/_base.html:176
+#: templates/_base.html:177
 msgid "010-020-0340"
 msgstr "+7 495 500 55 55"
 
-#: templates/_base.html:186
+#: templates/_base.html:187
 msgid "Products"
 msgstr "Продукты"
 
-#: templates/_base.html:198
+#: templates/_base.html:199
 msgid "Nuts"
 msgstr "Орехи"
 
-#: templates/_base.html:199
+#: templates/_base.html:200
 msgid "Dried Fruits"
 msgstr "Сухофрукты"
 
-#: templates/_base.html:200
+#: templates/_base.html:201
 msgid "East Delight"
 msgstr "Восточные сладости"
 
-#: templates/_base.html:201
+#: templates/_base.html:202
 msgid "Spices"
 msgstr "Специи"
 
-#: templates/_base.html:209
+#: templates/_base.html:210
 msgid "Further Info"
 msgstr "Дополнительная информация"
 
-#: templates/_base.html:211
+#: templates/_base.html:212 templates/order_detail.html:38
 #: templates/registration/password_reset_confirm.html:17
 #: templates/registration/password_reset_form.html:17
-#: templates/user_detail.html:54
+#: templates/user_detail.html:54 templates/user_detail_pw_update.html:18
 msgid "Home"
 msgstr "На главную"
 
-#: templates/_base.html:212 templates/about.html:4 templates/about.html:8
+#: templates/_base.html:213 templates/about.html:4 templates/about.html:8
 msgid "About Us"
 msgstr "О нас"
 
-#: templates/_base.html:213
+#: templates/_base.html:214
 msgid "Shop Locations"
 msgstr "Локация магазина"
 
-#: templates/_base.html:214 templates/faq.html:4 templates/faq.html:8
+#: templates/_base.html:215 templates/faq.html:4 templates/faq.html:8
 msgid "FAQs"
 msgstr "Вопросы и ответы"
 
-#: templates/_base.html:215
+#: templates/_base.html:216
 msgid "Contact "
 msgstr "Контактная информация"
 
-#: templates/_base.html:244
+#: templates/_base.html:245
 msgid "Subscribe"
 msgstr "Подписаться"
 
-#: templates/_base.html:255
+#: templates/_base.html:256
 msgid "Copyright © 2024"
 msgstr "Все права защищены © 2024"
 
@@ -721,10 +719,12 @@ msgstr "Картинка"
 
 #: templates/cart_detail.html:22 templates/item_detail.html:5
 #: templates/item_detail_client_page.html:5 templates/order_create.html:34
+#: templates/order_detail.html:17
 msgid "Item"
 msgstr "Товар"
 
 #: templates/cart_detail.html:23 templates/order_create.html:35
+#: templates/order_detail.html:18
 msgid "Quantity"
 msgstr "Количество"
 
@@ -738,10 +738,12 @@ msgstr "цена товара"
 
 #: templates/cart_detail.html:26 templates/item_all.html:57
 #: templates/item_detail.html:68 templates/order_create.html:36
+#: templates/order_detail.html:19
 msgid "Price"
 msgstr "Цена"
 
 #: templates/cart_detail.html:45 templates/order_create.html:46
+#: templates/order_detail.html:29
 msgid "Total"
 msgstr "Итого"
 
@@ -806,13 +808,13 @@ msgstr "Вы уверены, что хотите удалить "
 
 #: templates/category_delete.html:14 templates/category_edit.html:14
 #: templates/item_delete.html:14 templates/item_detail.html:78
-#: templates/item_edit.html:14 templates/user_detail_pw_update.html:16
+#: templates/item_edit.html:14 templates/order_detail.html:37
 #: templates/user_detail_update.html:16
 msgid "Back"
 msgstr "Назад"
 
 #: templates/category_edit.html:13 templates/item_edit.html:13
-#: templates/user_detail_pw_update.html:15 templates/user_detail_update.html:15
+#: templates/user_detail_update.html:15
 msgid "Update"
 msgstr "Обновить"
 
@@ -979,6 +981,18 @@ msgstr "Ваш заказ успешно выполнен. Номер вашег
 msgid "Pay!"
 msgstr "Оплатить"
 
+#: templates/order_list.html:11
+#, fuzzy
+#| msgid "item number"
+msgid "Order number"
+msgstr "Код товара"
+
+#: templates/order_list.html:11
+#, fuzzy
+#| msgid "Total"
+msgid "Total cost"
+msgstr "Итого"
+
 #: templates/paymentcancel.html:4 templates/paymentcancel.html:8
 msgid "Checkout canceled"
 msgstr "Оформление заказа отменено"
@@ -1012,16 +1026,16 @@ msgstr "Пароль"
 #: templates/registration/password_reset_complete.html:5
 #: templates/registration/password_reset_complete.html:9
 msgid "Password reset complete"
-msgstr ""
+msgstr "Сброс пароля завершен"
 
 #: templates/registration/password_reset_complete.html:10
 msgid "Your new password has been set."
-msgstr ""
+msgstr "Ваш новый пароль установлен."
 
 #: templates/registration/password_reset_confirm.html:6
 #: templates/registration/password_reset_confirm.html:10
 msgid "Enter new password"
-msgstr ""
+msgstr "Введите новый пароль"
 
 #: templates/registration/password_reset_confirm.html:11
 #: templates/registration/password_reset_form.html:11
@@ -1029,33 +1043,37 @@ msgid ""
 "Enter your email address below, and we'll email instructions for setting a "
 "new one."
 msgstr ""
+"Введите свой адрес электронной почты ниже, и мы вышлем инструкции по "
+"настройке нового пароля."
 
 #: templates/registration/password_reset_confirm.html:16
 msgid "Change my password"
-msgstr ""
+msgstr "Изменить мой пароль"
 
 #: templates/registration/password_reset_done.html:5
 msgid "Email Sent"
-msgstr ""
+msgstr "Письмо отправлено"
 
 #: templates/registration/password_reset_done.html:9
 msgid "Check your inbox"
-msgstr ""
+msgstr "Проверьте свой почтовый ящик"
 
 #: templates/registration/password_reset_done.html:10
 msgid ""
 "We've emailed your instructions for setting your passwors.\n"
 "        You should recieve the email shortly!"
 msgstr ""
+"Мы отправили вам инструкции по установке пароля по электронной почте. Вы "
+"должны получить письмо в ближайшее время!"
 
 #: templates/registration/password_reset_form.html:6
 #: templates/registration/password_reset_form.html:10
 msgid "Forgot Your Password?"
-msgstr ""
+msgstr "Забыли пароль?"
 
 #: templates/registration/password_reset_form.html:16
 msgid "Send me instructions!"
-msgstr ""
+msgstr "Пришлите мне инструкции!"
 
 #: templates/registration/signup.html:23 templates/user_detail.html:13
 msgid "First name"
@@ -1075,7 +1093,7 @@ msgstr "дата рождения"
 
 #: templates/registration/signup.html:59 templates/user_detail.html:39
 msgid "Email address"
-msgstr ""
+msgstr "Адрес электронной почты"
 
 #: templates/registration/signup.html:65 templates/user_detail.html:45
 msgid "Phone number"
@@ -1091,20 +1109,26 @@ msgstr "Результаты поиска"
 
 #: templates/user_detail.html:52
 msgid "Change"
-msgstr ""
+msgstr "Изменить"
 
 #: templates/user_detail.html:53
-#, fuzzy
-#| msgid "Password"
 msgid "Change Password"
-msgstr "Пароль"
+msgstr "Изменить пароль"
 
 #: templates/user_detail_pw_update.html:6
+#, fuzzy
+#| msgid "Password"
+msgid "Password Change"
+msgstr "Пароль"
+
 #: templates/user_detail_pw_update.html:10
 #, fuzzy
 #| msgid "Password"
-msgid "Edit Password"
+msgid "Password change"
 msgstr "Пароль"
 
-#~ msgid "View options"
-#~ msgstr "Детали"
+#: templates/user_detail_pw_update.html:11
+msgid ""
+"Please enter your old password, for security's sake, and then enter your new "
+"password twice so we can verify you tiped it correctly"
+msgstr "В целях безопасности введите свой старый пароль, а затем дважды введите новый пароль, чтобы мы могли убедиться, что вы его ввели правильно."

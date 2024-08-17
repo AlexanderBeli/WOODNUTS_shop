@@ -1,0 +1,22 @@
+{% extends "_base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Password Change" %}{% endblock title %}
+
+{% block content %}
+<div class="container mt-3">    
+    <h1 class="h1 border-bottom pb-3 border-light border-opacity-25">{% trans "Password change" %}</h1>
+    <p>{% blocktranslate %}Please enter your old password, for security's sake, and then enter your new password twice so we can verify you tiped it correctly{% endblocktranslate %}</p>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <center>
+            <input type="submit" class="btn btn3" value='{% trans "Change my password" %}'>
+            <a href="{% url 'home' %}" class="btn btn3">{% trans 'Home' %}</a>
+        </center>
+    </form>
+</div>
+{% endblock content %}
