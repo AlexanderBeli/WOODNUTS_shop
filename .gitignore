@@ -2,5 +2,6 @@
 __pychache__/
 db.sqlite3
 .DS_Store
-docker-compose-prod.yml
+docker-compose.prod.yml
 docker-compose.yml
+*.sql

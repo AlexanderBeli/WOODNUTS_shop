@@ -40,7 +40,7 @@ SECRET_KEY = env.str("SECRET_KEY")
 DEBUG = env.bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = [".fly.dev", "localhost", "127.0.0.1"]
-CSRF_TRUSTED_ORIGINS = ["https://*.fly.dev"]
+CSRF_TRUSTED_ORIGINS = ["https://*.fly.dev", "http://localhost:1337"]
 
 # Application definition
 
