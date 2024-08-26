@@ -37,10 +37,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env.str("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool("DEBUG", default=False)
+DEBUG = env.bool("DEBUG", default=True)
 
 ALLOWED_HOSTS = [".fly.dev", "localhost", "127.0.0.1"]
-CSRF_TRUSTED_ORIGINS = ["https://*.fly.dev", "http://localhost:1337"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.fly.dev",
+    "http://localhost:1337",
+    "https://woodnuts-shop-main.fly.dev/",
+]
 
 # Application definition
 
@@ -114,8 +118,8 @@ WSGI_APPLICATION = "django_project.wsgi.application"
 DATABASES = {
     "default": dj_database_url.config(
         default="postgres://postgres@db/postgres",
-        conn_max_age=600,
-        ssl_require=env.bool("SSL_REQUIERED", default=True),
+        # conn_max_age=600,
+        ssl_require=env.bool("SSL_REQUIERED", default=False),
     )
 }
 

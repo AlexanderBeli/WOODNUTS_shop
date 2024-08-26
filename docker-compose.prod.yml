@@ -1,0 +1,88 @@
+name: onlineshop
+
+services:
+  # WEB
+  web:
+    build: .
+    command: gunicorn django_project.wsgi:application --bind 0.0.0.0:8000
+    ports:
+      - '8000:8000'
+    depends_on:
+      - db
+      - broker
+    env_file:
+      - ./.env.dev
+  # broker container uses the default rabbitmq image
+  # exposes the ports
+  # uses the specified volume
+  broker:
+
+    # we use management image to get the
+    # plugin for web dashboard
+    container_name: broker
+    image: rabbitmq:3.13-management-alpine
+    ports:
+        # AMQP protocol port
+        - '5672:5672'
+        # HTTP management UI
+        - '15672:15672'
+    expose:
+      - '5672'
+    env_file:
+      - ./.env.dev
+    environment:
+      CELERY_BROKER_URL: "amqp://guest:guest@localhost:5672//"
+    volumes:
+      - .:/data
+
+  worker:
+   build: .
+   command: celery -A django_project worker -l info
+   container_name: celery_worker
+   ports: []
+   volumes:
+    - postgres_data:/var/lib/postgresql/data/
+   image: web-image
+   depends_on:
+    - db
+    - broker
+    - web
+   env_file:
+    - ./.env.dev
+   environment:
+    - POSTGRES_HOST_AUTH_METHOD=trust
+    - CELERY_BROKER_URL=amqp://guest:guest@broker:5672//
+    - APP_SETTINGS=project.config.DevelopmentConfig
+   links:
+    - db
+
+  flower:
+    image: mher/flower
+    container_name: flower
+    command: celery flower --persisten=True
+    environment:
+      - CELERY_BROKER_URL=amqp://guest:guest@broker:5672//
+      - FLOWER_PORT=8888
+    ports:
+      - 8888:8888 # docker will expose this ports for flower
+    volumes:
+      - flower_data:/data
+
+  db:
+    image: postgres:16
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 1337:80
+    depends_on:
+      - web
+
+
+volumes:
+  postgres_data:
+  flower_data:
