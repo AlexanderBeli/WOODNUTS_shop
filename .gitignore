@@ -7,3 +7,4 @@ docker-compose.yml
 *.sql
 .env.dev
 Dockerfile
+db.zip
