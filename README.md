@@ -4,6 +4,10 @@
     <p>Интернет магазин "Лесной орех", специализирующийся на продаже орехов, сухофруктов, восточных сладостях и специй.</p>
 </div>
 
+## Стек технологий:
+
+Python, Django, Bootstrap v5.2, Docker, PostgtreSQL, Celery, RabbitMQ, Flower, SendGrid, Stripe, Nginx, Gunicorn, Amazon S3 storage, ImageOptim, WebP, Photoshop, GIMP
+
 ## Задачи:
 - разработка архитектуры, поддержка, развитие и оптимизация продуктов
 - мультиязычность
